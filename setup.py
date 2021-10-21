@@ -18,7 +18,7 @@ setup(
 	author_email="gaelicgrime@justpagans.org",
 	license="BSD",
 	name="CF",
-	url="https://github.com/ComfortableSoftware-DEV/CF_commonFunctions_py",
+	url="https://github.com/ComfortableSoftware/commonFunctions_py",
 	version="0.8.0",
 	package_dir={"CF": "CF"},
 	package_data={
