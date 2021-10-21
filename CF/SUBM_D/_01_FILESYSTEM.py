@@ -11,6 +11,7 @@
 
 from CF.CONST_D import _01_FILESYSTEM_CONST as CF_FSC  # was CFFS_V
 from CF.KEYS_D import _01_FILESYSTEM_KEYS as CF_FSK  # was CFFS_K
+from CF.SUBM_D import _00_OS_P as CF_OSP
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -245,9 +246,16 @@ def returnJustPathPieces(pathToSplit_):
 # #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 # scanADir
 # #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
-def scanADir(rootPath_, recurse_):
+def scanADir(
+		filenameRegex_=None,
+		recurse_=None,
+		rootPath_=None,
+):
 	# fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-	# you are responsibile for making sure this recurse_ variable is set correctly, it doesn't check with the CF.py.OPTIONS* stuff
+	if (
+			(filenameRegex_ is None)
+	):
+		filenameRegex_ = ".*"
 	print(f"""{CF.NEWLINE}getting directory list starting at {rootPath_} recursively {recurse_}{CF.NEWLINE}""")
 	listToRtn_ = []
 	with os.scandir(rootPath_) as dirEntries_:

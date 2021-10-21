@@ -28,7 +28,7 @@ IS_MOUNT = OS_PATH.ismount
 NORM_PATH = OS_PATH.normpath
 
 
-ABS_DOT = lambda ABS_PATH(".")
+ABS_DOT = ABS_PATH(".")
 
 
 #

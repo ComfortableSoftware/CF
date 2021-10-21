@@ -18,7 +18,6 @@ def getRootDir():
 	_previousFrame_ = INS.currentframe().f_back
 	_stackFrameResults_ = INS.getouterframes(_previousFrame_)
 	_strToRtn_ = ""
-	# 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
 	_rootResult_ = _stackFrameResults_[-1]
 	_firstFilename_ = _rootResult_[1]
 	return _firstFilename_
