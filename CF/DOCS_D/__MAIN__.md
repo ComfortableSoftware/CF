@@ -1,1 +1,0 @@
-# __CF COMMON FUNCTIONS__
