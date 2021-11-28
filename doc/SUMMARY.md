@@ -5,11 +5,11 @@
 
 # CLASSES
 - [_01_APPDS_C App Data Storage: Pickles and unpickles dictionaries for persistent data storage within apps.](./_01_APPDS_C.md)
-- [_01_DIALOG_C Dialog generation for errors and info display, input, file and calendar selection, etc.](./_01_DIALOG_C.md)
 - [_01_INDEXES](./_01_INDEXES_C.md)
 - [_01_OPTIONS Manages command line options and parameters parsing](./_01_OPTIONS_C.MD)
 - [_01_PKL_C Pickles and unpickles any object](./_01_PKL_C.md)
 - [_01_SRI_C](./_01_SRI_C.md)
+- [_01_ZENITY_C Dialog generation for errors and info display, input, file and calendar selection, etc.](./_01_ZENITY_C.md)
 
 # CONSTANTS
 - [_00_DAYS](./_00_DAYS.md)
