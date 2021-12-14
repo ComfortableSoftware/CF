@@ -10,11 +10,11 @@
 
 
 __all__ = [
-		"CLASSES_D",
-		"CONST_D",
-		"DEFS_D",
-		"KEYS_D",
-		"SUBM_D",
+    "CLASSES_D",
+    "CONST_D",
+    "DEFS_D",
+    "KEYS_D",
+    "SUBM_D",
 ]
 
 

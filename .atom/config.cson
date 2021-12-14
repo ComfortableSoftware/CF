@@ -116,8 +116,8 @@
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
-    softTabs: false
-    tabType: "hard"
+    softTabs: true
+    tabType: "soft"
   "exception-reporting":
     userId: "b54d002a-ce1e-4540-8755-e5d954f2ce78"
   "file-watcher":
@@ -330,9 +330,9 @@
     showInvisibles: true
     softWrap: false
     tabLength: 2
-    tabType: "hard"
+    tabType: "soft"
   "tabs-to-spaces":
-    onSave: "tabify"
+    onSave: "untabify"
 ".md.text":
   editor:
     autoIndentOnPaste: false
@@ -357,7 +357,7 @@
     showInvisibles: true
     softWrap: false
     tabLength: 2
-    tabType: "hard"
+    tabType: "softg"
   "tabs-to-spaces":
     onSave: "tabify"
 ".python.text.traceback":
@@ -367,4 +367,4 @@
     showIndentGuide: true
     showInvisibles: true
     softWrap: true
-    tabType: "hard"
+    tabType: "soft"
