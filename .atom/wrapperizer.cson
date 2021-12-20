@@ -1,41 +1,41 @@
 "text.md":
   NewTextList: [
-    "[%ST%](\#%FT%)"
-    "[%ST%](./CLASSES_D.md\#%FT%)"
-    "[%ST%](./GLOSSARY.md\#%FT%)"
-    "[%ST%](./CONST_D.md\#%FT%)"
-    "[%ST%](./DEFS_D.md\#%FT%)"
-    "[%ST%](./KEYS_D.md\#%FT%)"
-    "[%ST%](./SUBM_D.md\#%FT%)"
-    "%ST%7"
-    "%ST%8"
-    "%ST%9"
-    "%ST%A"
-    "**%ST%**"
-    "%ST%C"
-    "%ST%D"
-    "%ST%E"
-    "%ST%F"
-    "%ST%G"
-    "***%ST%***"
-    "*%ST%*"
-    "%ST%J"
-    "%ST%K"
-    "%ST%L"
-    "%ST%M"
-    "%ST%N"
-    "***~~%ST%~~***"
-    "&nbsp;&nbsp;%ST%"
-    ">&nbsp;&nbsp;%ST%: "
-    "%ST%R"
-    "%ST%S"
-    "%ST%T"
-    "%ST%U"
-    "%ST%V"
-    "%ST%W"
-    "%ST%X"
-    "%ST%Y"
-    "%ST%Z"
+    "[%ST%](\#%FT%)"  # 0
+    "[%ST%](./CLASSES_D.md\#%FT%)"  # 1
+    "[%ST%](./GLOSSARY.md\#%FT%)"  # 2
+    "[%ST%](./CONST_D.md\#%FT%)"  # 3
+    "[%ST%](./DEFS_D.md\#%FT%)"  # 4
+    "[%ST%](./KEYS_D.md\#%FT%)"  # 5
+    "[%ST%](./SUBM_D.md\#%FT%)"  # 6
+    "%ST%7"  # 7
+    "%ST%8"  # 8
+    "%ST%9"  # 9
+    "%ST%A"  # A
+    "**%ST%**"  # B
+    "%ST%C"  # C
+    "%ST%D"  # D
+    "%ST%E"  # E
+    "%ST%F"  # F
+    "%ST%G"  # G
+    "***%ST%***"  # H
+    "*%ST%*"  # I
+    "%ST%J"  # J
+    "%ST%K"  # K
+    "%ST%L"  # L
+    "%ST%M"  # M
+    "%ST%N"  # N
+    "***~~%ST%~~***"  # O
+    "&nbsp;&nbsp;%ST%"  # P
+    ">&nbsp;&nbsp;%ST%: "  # Q
+    "%ST%R"  # R
+    "%ST%S"  # S
+    "%ST%T"  # T
+    "%ST%U"  # U
+    "%ST%V"  # V
+    "%ST%W"  # W
+    "%ST%X"  # X
+    "%ST%Y"  # Y
+    "%ST%Z"  # Z
   ]
   LowerCaseFixedText: true
   UpperCaseSelectedText: false

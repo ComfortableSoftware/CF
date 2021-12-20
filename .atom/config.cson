@@ -357,9 +357,9 @@
     showInvisibles: true
     softWrap: false
     tabLength: 2
-    tabType: "softg"
+    tabType: "soft"
   "tabs-to-spaces":
-    onSave: "tabify"
+    onSave: "untabify"
 ".python.text.traceback":
   editor:
     autoIndentOnPaste: false
