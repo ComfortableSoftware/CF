@@ -4,12 +4,12 @@
 [INTRODUCTION](./0001_INTRODUCTION.md)
 
 # CLASSES
-- [_01_APPDS_C App Data Storage: Pickles and unpickles dictionaries for persistent data storage within apps.](./_01_APPDS_C.md)
-- [_01_INDEXES](./_01_INDEXES_C.md)
-- [_01_OPTIONS Manages command line options and parameters parsing](./_01_OPTIONS_C.MD)
-- [_01_PKL_C Pickles and unpickles any object](./_01_PKL_C.md)
-- [_01_SRI_C](./_01_SRI_C.md)
-- [_01_ZENITY_C Dialog generation for errors and info display, input, file and calendar selection, etc.](./_01_ZENITY_C.md)
+- [_01_APPDS_C Manage pickled app data storage, similar to _01_PKL_C except manages just dictionaries with some added keys](_01_APPDS_C.md)
+- [_01_DIALOG_C Wrapper for zenity allowing notices and errors and interactive input](./_01_DIALOG_C.md)
+- [_01_INDEXES_C Class to manage persistant indexes](./_01_INDEXES_C.md)
+- [_01_OPTIONS_C Manage command line options, arguments, and parameters](./_01_OPTIONS_C.md)
+- [_01_PKL_C Manage pickled data storage of any objects](./_01_PKL_C.md)
+- [_01_SRI_C Manage 8 digit hex incremental serial numbers](./_01_SRI_C.md)
 
 # CONSTANTS
 - [_00_DAYS](./_00_DAYS.md)
@@ -18,8 +18,6 @@
 - [_00_VALS](./_00_VALS.md)
 - [_01_FILESYSTEM_CONST](./_01_FILESYSTEM_CONST.md)
 - [_01_TEXTTOOLS](./_01_TEXTTOOLS.md)
-
-# DEFINITIONS
 
 # KEYS
 - [_00_NAMES_KEYS](./_00_NAMES_KEYS.md)

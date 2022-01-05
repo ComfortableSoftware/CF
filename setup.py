@@ -15,15 +15,15 @@ from setuptools import setup
 
 setup(
   author="GaelicGrime",
-  author_email="gaelicgrime@justpagans.org",
-  license="BSD",
+  author_email="will.angus.blaylock@gmail.com",
+  license="GPLv3",
   name="CF",
   url="https://github.com/ComfortableSoftware/commonFunctions_py",
   version="0.8.0",
   package_dir={"CF": "CF"},
   package_data={
       "CF": [
-          ".FM/*",
+          "../book/*",
           "CLASSES_D/*",
           "CONST_D/*",
           "DEFS_D/*",

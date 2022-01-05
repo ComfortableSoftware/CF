@@ -181,4 +181,3 @@ Application Options:
   --password                                        Display password dialog
   --forms                                           Display forms dialog
   --display=DISPLAY                                 X display to use
-
