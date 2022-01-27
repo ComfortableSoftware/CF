@@ -21,7 +21,7 @@
     strictMatching: true
   "autocomplete-python":
     caseInsensitiveCompletion: false
-    useKite: true
+    useKite: false
     useSnippets: "all"
   autosave:
     enabled: true
@@ -181,9 +181,6 @@
     rope: {}
   "iv-terminal":
     defaultLocation: "right"
-  kite:
-    loggingLevel: "debug"
-    showWelcomeNotificationOnStartup: false
   "linter-spell":
     defaultLanguages: [
       "en es_any es_mx"
