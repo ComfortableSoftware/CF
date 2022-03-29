@@ -1,6 +1,6 @@
 
 
-from CF.SUBM_D import _00_OS_P as CF_OSP
+from CF.SUBM_D import _00_OS as CF_OS
 import pickle as PD
 
 

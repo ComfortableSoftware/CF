@@ -16,7 +16,7 @@ import shutil as SHU
 
 
 from CF.KEYS_D import _01_FILESYSTEM_KEYS as CF_FSK
-from CF.SUBM_D import _00_OS_P as CF_OSP
+from CF.SUBM_D import _00_OS as CF_OS
 
 
 CHMOD = OS.chmod
@@ -32,7 +32,7 @@ SUB = RE.sub
 
 CHMODDIR = 0o755  # default mode for directories this program needs to oerate in
 CHMODFILE = 0o655  # default mode for files this program needs to oerate in
-# CONFIGDIR = f"""{CF_OSP.HOME}/.config/{CFFS_V.__NAME__}"""  # default mode for files this program needs to oerate in
+# CONFIGDIR = f"""{CF_OS.HOME}/.config/{CFFS_V.__NAME__}"""  # default mode for files this program needs to oerate in
 DIRBLACKLIST = "[a-zA-Z0-9./]+"  # PCRE for directory characters to blacklist as it's result
 DIRWHITELIST = "[^a-zA-Z0-9./]+"  # PCRE for directory characters to whitelist as it's result
 FILEBLACKLIST = "[a-zA-Z0-9.]+"  #
