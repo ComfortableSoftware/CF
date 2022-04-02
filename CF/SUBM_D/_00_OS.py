@@ -16,10 +16,16 @@ import sys
 
 
 ABS_PATH = OS_PATH.abspath
+ABS_DOT = ABS_PATH(".")
+
 BASE_NAME = OS_PATH.basename
+CHDIR = os.chdir
+CHMOD = os.chmod
+CHOWN = os.chown
 COMMON_PATH = OS_PATH.commonpath
 COMMON_PREFIX = OS_PATH.commonprefix
 DIR_NAME = OS_PATH.dirname
+ESCAPE = glob.escape
 EXISTS = OS_PATH.exists
 EXPAND_USER = OS_PATH.expanduser
 EXPAND_VARS = OS_PATH.expandvars
@@ -27,34 +33,6 @@ GET_A_TIME = OS_PATH.getatime
 GET_C_TIME = OS_PATH.getctime
 GET_M_TIME = OS_PATH.getmtime
 GET_SIZE = OS_PATH.getsize
-HOME = f"""{OS_PATH.expanduser('~')}"""
-IS_ABS = OS_PATH.isabs
-IS_DIR = OS_PATH.isdir
-IS_FILE = OS_PATH.isfile
-IS_LINK = OS_PATH.islink
-IS_MOUNT = OS_PATH.ismount
-JOIN = OS_PATH.join
-L_EXISTS = OS_PATH.lexists
-NORM_CASE = OS_PATH.normcase
-NORM_PATH = OS_PATH.normpath
-REAL_PATH = OS_PATH.realpath
-REL_PATH = OS_PATH.relpath
-SAME_FILE = OS_PATH.samefile
-SAME_OPEN_FILE = OS_PATH.sameopenfile
-SAME_STAT = OS_PATH.samestat
-SPLIT = OS_PATH.split
-SPLIT_DRIVE = OS_PATH.splitdrive
-SPLIT_EXT = OS_PATH.splitext
-SUPPORTS_UNICODE_FILENAMES = OS_PATH.supports_unicode_filenames
-
-
-ABS_DOT = ABS_PATH(".")
-
-
-CHDIR = os.chdir
-CHMOD = os.chmod
-CHOWN = os.chown
-ESCAPE = glob.escape
 GETCWD = os.getcwd
 GETEGID = os.getegid
 GETEUID = os.geteuid
@@ -62,27 +40,70 @@ GETGID = os.getgid
 GETLOGIN = os.getlogin
 GETUID = os.getuid
 GLOB = glob.glob
+HOME = f"""{OS_PATH.expanduser('~')}"""
 IGLOB = glob.iglob
-LN = os.symlink
+IS_ABS = OS_PATH.isabs
+IS_DIR = OS_PATH.isdir
+IS_FILE = OS_PATH.isfile
+IS_LINK = OS_PATH.islink
+IS_MOUNT = OS_PATH.ismount
+JOIN = OS_PATH.join
+L_EXISTS = OS_PATH.lexists
+LN = os.link
+LNS = os.symlink
 MKDIR = os.mkdir
 MKDIRS = os.makedirs
+NORM_CASE = OS_PATH.normcase
+NORM_PATH = OS_PATH.normpath
+REAL_PATH = OS_PATH.realpath
+REL_PATH = OS_PATH.relpath
 RM = os.remove
 RMDIR = os.rmdir
 RMDIRS = os.removedirs
+SAME_FILE = OS_PATH.samefile
+SAME_OPEN_FILE = OS_PATH.sameopenfile
+SAME_STAT = OS_PATH.samestat
+SPLIT = OS_PATH.split
+SPLIT_DRIVE = OS_PATH.splitdrive
+SPLIT_EXT = OS_PATH.splitext
 STAT = os.stat
+SUPPORTS_UNICODE_FILENAMES = OS_PATH.supports_unicode_filenames
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * start of fileList
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-def globList(source):
+def globList(source_):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  _listToRtn_ = GLOB(ESCAPE(source))
+  _listToRtn_ = GLOB(source_)
   return _listToRtn_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * end of fileList
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * start of globFileList
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+def globFileList(source_):
+  # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
+  _listToUse_ = globList(source_)
+  _listToRtn_ = []
+  for __thisEntry__ in _listToUse_:
+    __myPath__, __myFinalBit__ = SPLIT(__thisEntry__)
+    if (
+        (__myFinalBit__ == "")
+    ):
+      _listToRtn_.append(__myPath__)
+    else:
+      _listToRtn_.append(__myFinalBit__)
+  return _listToRtn_
+  # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * end of globFileList
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
