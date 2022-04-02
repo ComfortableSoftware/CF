@@ -2,5 +2,5 @@
 authors = ["GaelicGrime"]
 language = "en"
 multilingual = false
-src = "doc"
+src = "src"
 title = "Common Functions For Python"

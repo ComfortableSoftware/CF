@@ -18,8 +18,8 @@ __all__ = [
 ]
 
 
-print(f"""
-__file__ {__file__}""")
+# print(f"""
+# __file__ {__file__}""")
 
 
 #
