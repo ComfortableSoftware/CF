@@ -32,7 +32,7 @@
     disabledPackages: [
       "archive-view"
       "buildium"
-      "Chromo-Color-Previews"
+      # "Chromo-Color-Previews"
       "image-view"
       "language-arduino"
       "language-c"
@@ -64,6 +64,7 @@
       "minimap"
       "open-on-github"
       "package-generator"
+      "pylint"
       "script"
       "spell-check"
       "atom-html-preview"
