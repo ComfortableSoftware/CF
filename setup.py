@@ -14,38 +14,39 @@ from setuptools import setup
 
 
 setup(
-	author="GaelicGrime",
-	author_email="gaelicgrime@justpagans.org",
-	license="BSD",
-	name="CF",
-	url="https://github.com/ComfortableSoftware-DEV/CF_commonFunctions_py",
-	version="0.8.0",
-	package_dir={"CF": "CF"},
-	package_data={
-			"CF": [
-					".FM/*",
-					"CLASSES_D/*",
-					"CONST_D/*",
-					"DEFS_D/*",
-					"DOCS_D/*",
-					"KEYS_D/*",
-					"SUBM_D/*",
-			]
-	},
-	packages=["CF"],
-	install_requires=[
-	],
-	extras_require={
-			"hashing": ["hashlib"],
-			"pickling": ["pickle"],
-			"timestuff": [
-					"datedelta",
-					"datetime",
-					"dateutil",
-					"time",
-			],
-			"debugging": [
-					"inspect",
-			],
-	}
+  author="GaelicGrime",
+  author_email="will.angus.blaylock@gmail.com",
+  license="GPLv3",
+  name="CF",
+  url="https://github.com/ComfortableSoftware/commonFunctions_py",
+  version="0.9.1",
+  package_dir={"CF": "CF"},
+  package_data={
+      "CF": [
+          "../book/*",
+          "CLASSES_D/*",
+          "CONST_D/*",
+          "DEFS_D/*",
+          "DOCS_D/*",
+          "KEYS_D/*",
+          "SUBM_D/*",
+      ]
+  },
+  packages=["CF"],
+  install_requires=[
+  ],
+  extras_require={
+      "hashing": ["hashlib"],
+      "pickling": ["pickle"],
+      "databases": ["mysql"],
+      "timestuff": [
+          "datedelta",
+          "datetime",
+          "dateutil",
+          "time",
+      ],
+      "debugging": [
+          "inspect",
+      ],
+  }
 )

@@ -141,6 +141,15 @@ DAYS_xMTWTFSS = 0b01111111
 
 DAYS_STR = "xmtwtfss"
 
+DAYMASK_xxx = 0b10000000
+DAYMASK_MON = 0b01000000
+DAYMASK_TUE = 0b00100000
+DAYMASK_WED = 0b00010000
+DAYMASH_THU = 0b00001000
+DAYMASK_FRI = 0b00000100
+DAYMASK_SAT = 0b00000010
+DAYMASK_SUN = 0b00000001
+
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # fixDays
