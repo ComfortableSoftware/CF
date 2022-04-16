@@ -19,7 +19,7 @@ setup(
   license="GPLv3",
   name="CF",
   url="https://github.com/ComfortableSoftware/commonFunctions_py",
-  version="0.9.0",
+  version="0.9.1",
   package_dir={"CF": "CF"},
   package_data={
       "CF": [
@@ -38,6 +38,7 @@ setup(
   extras_require={
       "hashing": ["hashlib"],
       "pickling": ["pickle"],
+      "databases": ["mysql"],
       "timestuff": [
           "datedelta",
           "datetime",
