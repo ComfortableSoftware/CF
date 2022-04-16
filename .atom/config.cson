@@ -31,8 +31,9 @@
     closeDeletedFileTabs: true
     disabledPackages: [
       "archive-view"
+      "atom-html-preview"
       "buildium"
-      # "Chromo-Color-Previews"
+      "Chromo-Color-Previews"
       "image-view"
       "language-arduino"
       "language-c"
@@ -67,7 +68,6 @@
       "pylint"
       "script"
       "spell-check"
-      "atom-html-preview"
     ]
     followSymlinks: false
     ignoredNames: [
@@ -281,45 +281,6 @@
     visibility: "showButtonsOnAll"
   welcome:
     showOnStartup: false
-  wrapperizer:
-    NewTextList: [
-      "[%ST%](#%FT%)"
-      "[%ST%](./fileOne.md#%FT%)"
-      "%ST%2"
-      "%ST%3"
-      "%ST%4"
-      "%ST%5"
-      "%ST%6"
-      "%ST%7"
-      "%ST%8"
-      "%ST%9"
-      "%ST%A"
-      "%ST%B"
-      "%ST%C"
-      "%ST%D"
-      "%ST%E"
-      "%ST%F"
-      "%ST%G"
-      "%ST%H"
-      "if (%N%%T%%T%(%ST%%C%)%N%):%N%%T%# code"
-      "%ST%J"
-      "%ST%K"
-      "%ST%L"
-      "%ST%M"
-      "%ST%N"
-      "%ST%O"
-      "%ST%P"
-      "%ST%Q"
-      "%ST%R"
-      "%ST%S"
-      "%ST%T"
-      "%ST%U"
-      "%ST%V"
-      "%ST%W"
-      "%ST%X"
-      "%ST%Y"
-      "%ST%Z"
-    ]
 ".console.python.text":
   editor:
     autoIndentOnPaste: false

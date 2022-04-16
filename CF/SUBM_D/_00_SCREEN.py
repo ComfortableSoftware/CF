@@ -22,6 +22,35 @@ POSITION_S = "POSITION_S"
 POSITION_SE = "POSITION_SE"
 POSITION_SW = "POSITION_SW"
 POSITION_W = "POSITION_W"
+LOCATIONS_LIST = [
+    POSITION_CLOSE_E,
+    POSITION_CLOSE_N,
+    POSITION_CLOSE_NE,
+    POSITION_CLOSE_NW,
+    POSITION_CLOSE_S,
+    POSITION_CLOSE_SE,
+    POSITION_CLOSE_SW,
+    POSITION_CLOSE_W,
+    POSITION_E,
+    POSITION_N,
+    POSITION_NE,
+    POSITION_NW,
+    POSITION_OVER,
+    POSITION_S,
+    POSITION_SE,
+    POSITION_SW,
+    POSITION_W,
+]
+CLOSE_LOCATIONS_LIST = [
+    POSITION_CLOSE_E,
+    POSITION_CLOSE_N,
+    POSITION_CLOSE_NE,
+    POSITION_CLOSE_NW,
+    POSITION_CLOSE_S,
+    POSITION_CLOSE_SE,
+    POSITION_CLOSE_SW,
+    POSITION_CLOSE_W,
+]
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
