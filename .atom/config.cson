@@ -144,42 +144,6 @@
     highlightBackground: true
     onlyHighlightWholeWords: false
     showResultsOnScrollBar: true
-  "ide-python":
-    pylsPlugins:
-      autopep8:
-        enabled: false
-      flake8:
-        enabled: true
-        exclude: [
-          ".svn"
-          "CVS"
-          ".bzr"
-          ".hg"
-          ".git"
-          "__pycache__"
-          ".tox"
-          ".eggs"
-          "*.egg"
-          ".idea"
-          ".circleci"
-        ]
-        maxLineLength: 500
-      jedi_definition:
-        follow_builtin_imports: true
-        follow_imports: true
-      mccabe:
-        threshold: 100
-      preload:
-        enabled: false
-      pycodestyle:
-        maxLineLength: 500
-      pydocstyle:
-        enabled: true
-      pylint: {}
-      rope_completion: {}
-      yapf:
-        enabled: true
-    rope: {}
   "iv-terminal":
     defaultLocation: "right"
   "linter-spell":

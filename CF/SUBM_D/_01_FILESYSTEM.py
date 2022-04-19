@@ -21,6 +21,40 @@ from CF.SUBM_D import (
 )
 
 
+
+DIR_BLACK_LIST = "[a-zA-Z0-9./]+"
+DIRWHITELIST = "[^a-zA-Z0-9./]+"
+FILEBLACKLIST = "[a-zA-Z0-9.]+"
+FILEWHITELIST = "[^a-zA-Z0-9.]+"
+
+
+ILLEGALPATHS = [  # list of absolute paths to be completely ignored if used
+  "/",  # do not operate on / ever
+]
+
+ILLEGALWILDCARDS = [  # list all of the portions of a filename which will result in an error [0:] based
+  "/bin/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/boot/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/dev/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/efi/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/etc/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/home/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/lib/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/lib64/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/media/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/opt/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/proc/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/root/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/run/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/sbin/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/srv/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/sys/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/tmp/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/usr/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+  "/var/",  # illegal wildcards, these are most often /path/ and will be [0:] based
+]
+
+
 # *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 # * make sequential directories if not present
 # *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
@@ -99,7 +133,7 @@ def deFuxDir(*
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
   _thisWhiteTail_ = CF_FSC.SUB(DIRWHITELIST, "", filenameToDeFux_)
-  _thisBlackTail_ = CF_FSC.SUB(DIRBLACKLIST, "", filenameToDeFux_)
+  _thisBlackTail_ = CF_FSC.SUB(DIR_BLACK_LIST, "", filenameToDeFux_)
   return _thisWhiteTail_, _thisBlackTail_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*

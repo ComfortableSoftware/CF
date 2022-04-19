@@ -30,14 +30,14 @@ STAT = OS.stat
 SUB = RE.sub
 
 
-CHMODDIR = 0o755  # default mode for directories this program needs to oerate in
-CHMODFILE = 0o655  # default mode for files this program needs to oerate in
-# CONFIGDIR = f"""{CF_OS.HOME}/.config/{CFFS_V.__NAME__}"""  # default mode for files this program needs to oerate in
-DIRBLACKLIST = "[a-zA-Z0-9./]+"  # PCRE for directory characters to blacklist as it's result
-DIRWHITELIST = "[^a-zA-Z0-9./]+"  # PCRE for directory characters to whitelist as it's result
-FILEBLACKLIST = "[a-zA-Z0-9.]+"  #
-FILEWHITELIST = "[^a-zA-Z0-9.]+"  #
-TMPDIR = "/tmp/{CFFS_V.__NAME__}"  # default mode for files this program needs to oerate in
+CHMODDIR = 0o755
+CHMODFILE = 0o655
+# CONFIGDIR = f"""{CF_OS.HOME}/.config/{CFFS_V.__NAME__}"""
+DIR_BLACK_LIST = "[a-zA-Z0-9./]+"
+DIRWHITELIST = "[^a-zA-Z0-9./]+"
+FILEBLACKLIST = "[a-zA-Z0-9.]+"
+FILEWHITELIST = "[^a-zA-Z0-9.]+"
+TMPDIR = "/tmp/{CFFS_V.__NAME__}"
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
