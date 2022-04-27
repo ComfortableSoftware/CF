@@ -106,6 +106,35 @@ SUPPORTS_UNICODE_FILENAMES = OS_PATH.supports_unicode_filenames
 HOME = f"""{OS_PATH.expanduser('~')}"""
 
 
+K_BLACK_TAIL = "K_BLACK_TAIL"
+K_EXTENSION_GUESSED = "K_EXTENSION_GUESSED"
+K_EXT_HEAD = "K_EXT_HEAD"
+K_EXT_TAIL = "K_EXT_TAIL"
+K_FILE_TYPE_EXT = "K_FILE_TYPE_EXT"
+K_FILE_TYPE_FILE = "K_FILE_TYPE_FILE"
+K_FILE_TYPE_ID = "K_FILE_TYPE_ID"
+K_GID = "K_GID"
+K_I_CAN_EXECUTE = "K_I_CAN_EXECUTE"
+K_I_CAN_READ = "K_I_CAN_READ"
+K_I_CAN_WRITE = "K_I_CAN_WRITE"
+K_IS_A_DIR = "K_IS_A_DIR"
+K_IS_A_FILE = "K_IS_A_FILE"
+K_IS_A_KNOWN_FILE_TYPE = "K_IS_A_KNOWN_FILE_TYPE"
+K_IS_A_SYMLINK = "K_IS_A_SYMLINK"
+K_MODE = "K_MODE"
+K_PATH = "K_PATH"
+K_PATH_HEAD = "K_PATH_HEAD"
+K_PATH_TAIL = "K_PATH_TAIL"
+K_RAW_ENTRY = "K_RAW_ENTRY"
+K_SIZE = "K_SIZE"
+K_UID = "K_UID"
+K_WHITE_EXT_HEAD = "K_WHITE_EXT_HEAD"
+K_WHITE_EXT_TAIL = "K_WHITE_EXT_TAIL"
+K_WHITE_FILENAME = "K_WHITE_FILENAME"
+K_WHITE_FULL_NAME = "K_WHITE_FULL_NAME"
+K_WHITE_FULL_PATH = "K_WHITE_FULL_PATH"
+
+
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * start of throwError
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -119,6 +148,41 @@ def throwError(message_, code_):
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * end of throwError
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+
+EMPTYENTRYTUP = (
+  (CF_FSK.K_BLACK_TAIL, ""),  # holds the blacklisted filename tail
+  (CF_FSK.K_EXTENSION_GUESSED, ""),  # whole extension
+  (CF_FSK.K_EXT_HEAD, ""),  # whole FILENAME
+  (CF_FSK.K_EXT_TAIL, ""),  # whole FILENAME
+  (CF_FSK.K_FILE_TYPE_EXT, CF_FSK.UNKNOWN),  # filetype group flag
+  (CF_FSK.K_FILE_TYPE_FILE, CF_FSK.UNKNOWN),  # filetype group flag
+  (CF_FSK.K_FILE_TYPE_ID, CF_FSK.UNKNOWN),  # filetype group flag
+  (CF_FSK.K_GID, ""),  # path tail
+  (CF_FSK.K_I_CAN_EXECUTE, ""),  # path tail
+  (CF_FSK.K_I_CAN_READ, ""),  # path tail
+  (CF_FSK.K_I_CAN_WRITE, ""),  # path tail
+  (CF_FSK.K_IS_A_DIR, False),  # entry is a directory
+  (CF_FSK.K_IS_A_FILE, False),  # entry is a file
+  (CF_FSK.K_IS_A_KNOWN_FILE_TYPE, False),  # in an unknown filetype
+  (CF_FSK.K_IS_A_SYMLINK, False),  # is a synlink
+  (CF_FSK.K_MODE, 0),  # mode bits
+  (CF_FSK.K_PATH, ""),  # whole path
+  (CF_FSK.K_PATH_HEAD, ""),  # path head
+  (CF_FSK.K_PATH_TAIL, ""),  # path tail
+  (CF_FSK.K_RAW_ENTRY, ""),  # path tail
+  (CF_FSK.K_SIZE, 0),  # size of file, 0/1 for a directory if empty/not-empty
+  (CF_FSK.K_UID, ""),  # path tail
+  (CF_FSK.K_WHITE_EXT_HEAD, ""),  #
+  (CF_FSK.K_WHITE_EXT_TAIL, ""),  #
+  (CF_FSK.K_WHITE_FILENAME, ""),  # white filename
+  (CF_FSK.K_WHITE_FULL_NAME, ""),  # white path+filename
+  (CF_FSK.K_WHITE_FULL_PATH, ""),  # white full path
+)
+
+def EMPTYENTRYDICT():
+  return dict((x, y) for x, y in EMPTYENTRYTUP)
+
 
 
 # *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
@@ -277,9 +341,9 @@ def fixDir(*
     makeIfNeeded_=True,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  dirToCk_ = CF_OS.ABS_PATH(dirToCk_)
-  _isADir_ = CF_OS.ISDIR(dirToCk_)
-  _dirExists_ = CF_OS.EXISTS(dirToCk_)
+  dirToCk_ = ABS_PATH(dirToCk_)
+  _isADir_ = ISDIR(dirToCk_)
+  _dirExists_ = EXISTS(dirToCk_)
   # print(f"""dirToCk_ {dirToCk_} _isADir_ {_isADir_}""")
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   if (
@@ -402,43 +466,43 @@ def globPythonModulesList(
 def returnMyEntry(osDirEntry_):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
   entryToRtn_ = EMPTYENTRYDICT()
-  entryToRtn_[RAWENTRY] = osDirEntry_
+  entryToRtn_[K_RAW_ENTRY] = osDirEntry_
 
-  entryToRtn_[GID] = osDirEntry_.stat()[4]
-  entryToRtn_[ICANEXECUTE] = OS_ACCESS(entryToRtn_[PATH], os.X_OK)
-  entryToRtn_[ICANREAD] = OS_ACCESS(entryToRtn_[PATH], os.R_OK)
-  entryToRtn_[ICANWRITE] = OS_ACCESS(entryToRtn_[PATH], os.W_OK)
-  entryToRtn_[ISADIR] = osDirEntry_.is_dir(follow_symlinks=False)
-  entryToRtn_[ISAFILE] = osDirEntry_.is_file(follow_symlinks=False)
-  entryToRtn_[ISASYMLINK] = osDirEntry_.is_symlink()
-  entryToRtn_[MODE] = osDirEntry_.stat()[0] & 0o777
-  entryToRtn_[SIZE] = GETSIZE(osDirEntry_.path)
-  entryToRtn_[UID] = osDirEntry_.stat()[5]
+  entryToRtn_[K_GID] = osDirEntry_.stat()[4]
+  entryToRtn_[K_I_CAN_EXECUTE] = OS_ACCESS(entryToRtn_[K_PATH], os.X_OK)
+  entryToRtn_[K_I_CAN_READ] = OS_ACCESS(entryToRtn_[K_PATH], os.R_OK)
+  entryToRtn_[K_I_CAN_WRITE] = OS_ACCESS(entryToRtn_[K_PATH], os.W_OK)
+  entryToRtn_[K_IS_A_DIR] = osDirEntry_.is_dir(follow_symlinks=False)
+  entryToRtn_[K_IS_A_FILE] = osDirEntry_.is_file(follow_symlinks=False)
+  entryToRtn_[K_IS_A_SYMLINK] = osDirEntry_.is_symlink()
+  entryToRtn_[K_MODE] = osDirEntry_.stat()[0] & 0o777
+  entryToRtn_[K_SIZE] = GETSIZE(osDirEntry_.path)
+  entryToRtn_[K_UID] = osDirEntry_.stat()[5]
 
-  entryToRtn_[PATH] = osDirEntry_.path
-  entryToRtn_[PATHHEAD], entryToRtn_[PATHTAIL] = OS_PATH.split(entryToRtn_[PATH])
-  entryToRtn_[EXTHEAD], entryToRtn_[EXTTAIL] = OS_PATH.splitext(entryToRtn_[PATHTAIL])
+  entryToRtn_[K_PATH] = osDirEntry_.path
+  entryToRtn_[K_PATH_HEAD], entryToRtn_[K_PATH_TAIL] = OS_PATH.split(entryToRtn_[K_PATH])
+  entryToRtn_[K_EXT_HEAD], entryToRtn_[K_EXT_TAIL] = OS_PATH.splitext(entryToRtn_[K_PATH_TAIL])
 
-  if entryToRtn_[ISADIR] is True:
-    entryToRtn_[WHITEFILENAME], entryToRtn_[BLACKTAIL] = deFuxDir(entryToRtn_[PATHTAIL])
-    entryToRtn_[WHITEEXTHEAD], entryToRtn_[WHITEEXTTAIL] = OS_PATH.splitext(entryToRtn_[WHITEFILENAME])
-    entryToRtn_[ISAKNOWNFILETYPE] = True
-  if entryToRtn_[ISAFILE] is True:
-    entryToRtn_[WHITEFILENAME], entryToRtn_[BLACKTAIL] = deFuxFile(entryToRtn_[PATHTAIL])
-    entryToRtn_[WHITEEXTHEAD], entryToRtn_[WHITEEXTTAIL] = OS_PATH.splitext(entryToRtn_[WHITEFILENAME])
-    entryToRtn_[WHITEEXTTAIL] = entryToRtn_[WHITEEXTTAIL].lower()
-    if entryToRtn_[EXTTAIL] != entryToRtn_[WHITEEXTTAIL]:
-      entryToRtn_[WHITEFILENAME] = f"""{entryToRtn_[WHITEEXTHEAD]}{entryToRtn_[WHITEEXTTAIL]}"""
+  if entryToRtn_[K_IS_A_DIR] is True:
+    entryToRtn_[K_WHITE_FILENAME], entryToRtn_[K_BLACK_TAIL] = deFuxDir(entryToRtn_[K_PATH_TAIL])
+    entryToRtn_[K_WHITE_EXT_HEAD], entryToRtn_[K_WHITE_EXT_TAIL] = OS_PATH.splitext(entryToRtn_[K_WHITE_FILENAME])
+    entryToRtn_[K_IS_A_KNOWN_FILE_TYPE] = True
+  if entryToRtn_[K_IS_A_FILE] is True:
+    entryToRtn_[K_WHITE_FILENAME], entryToRtn_[K_BLACK_TAIL] = deFuxFile(entryToRtn_[K_PATH_TAIL])
+    entryToRtn_[K_WHITE_EXT_HEAD], entryToRtn_[K_WHITE_EXT_TAIL] = OS_PATH.splitext(entryToRtn_[K_WHITE_FILENAME])
+    entryToRtn_[K_WHITE_EXT_TAIL] = entryToRtn_[K_WHITE_EXT_TAIL].lower()
+    if entryToRtn_[K_EXT_TAIL] != entryToRtn_[K_WHITE_EXT_TAIL]:
+      entryToRtn_[K_WHITE_FILENAME] = f"""{entryToRtn_[K_WHITE_EXT_HEAD]}{entryToRtn_[K_WHITE_EXT_TAIL]}"""
 
-    if (entryToRtn_[ISAFILE] is True) and (entryToRtn_[WHITEEXTTAIL] in EXTENSIONLOOKUP):
-      entryToRtn_[ISAKNOWNFILETYPE] = True
+    if (entryToRtn_[K_IS_A_FILE] is True) and (entryToRtn_[K_WHITE_EXT_TAIL] in EXTENSIONLOOKUP):
+      entryToRtn_[K_IS_A_KNOWN_FILE_TYPE] = True
     else:
-      entryToRtn_[ISAKNOWNFILETYPE] = False
+      entryToRtn_[K_IS_A_KNOWN_FILE_TYPE] = False
 
-  entryToRtn_[WHITEFULLPATH] = entryToRtn_[PATHHEAD] + "/"  # + entryToRtn_[WHITEFILENAME]
-  entryToRtn_[WHITEFULLNAME] = entryToRtn_[WHITEFULLPATH] + entryToRtn_[WHITEFILENAME]
-  entryToRtn_[FILETYPEEXT], entryToRtn_[FILETYPEFILE], entryToRtn_[EXTENSIONGUESSED] = getMimeTypes(entryToRtn_[PATH])
-  entryToRtn_[FILETYPEID] = EXTENSIONLOOKUP.get(entryToRtn_[EXTTAIL], UNKNOWN)
+  entryToRtn_[K_WHITE_FULL_PATH] = entryToRtn_[K_PATH_HEAD] + "/"  # + entryToRtn_[K_WHITE_FILENAME]
+  entryToRtn_[K_WHITE_FULL_NAME] = entryToRtn_[K_WHITE_FULL_PATH] + entryToRtn_[K_WHITE_FILENAME]
+  entryToRtn_[K_FILE_TYPE_EXT], entryToRtn_[K_FILE_TYPE_FILE], entryToRtn_[K_EXTENSION_GUESSED] = getMimeTypes(entryToRtn_[K_PATH])
+  entryToRtn_[K_FILE_TYPE_ID] = EXTENSIONLOOKUP.get(entryToRtn_[K_EXT_TAIL], UNKNOWN)
 
   return entryToRtn_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
@@ -450,33 +514,33 @@ def returnMyEntry(osDirEntry_):
 def returnThisEntryStr(thisEntry_):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
   strToRtn_ = f"""
-  {CF.frameIt("BLACKTAIL", thisEntry_[BLACKTAIL])}
-  {CF.frameIt("EXTENSIONGUESSED", thisEntry_[EXTENSIONGUESSED])}
-  {CF.frameIt("EXTHEAD", thisEntry_[EXTHEAD])}
-  {CF.frameIt("EXTTAIL", thisEntry_[EXTTAIL])}
-  {CF.frameIt("FILETYPEEXT", thisEntry_[FILETYPEEXT])}
-  {CF.frameIt("FILETYPEFILE", thisEntry_[FILETYPEFILE])}
-  {CF.frameIt("FILETYPEID", thisEntry_[FILETYPEID])}
-  {CF.frameIt("GID", thisEntry_[GID])}
-  {CF.frameIt("ICANEXECUTE", thisEntry_[ICANEXECUTE])}
-  {CF.frameIt("ICANREAD", thisEntry_[ICANREAD])}
-  {CF.frameIt("ICANWRITE", thisEntry_[ICANWRITE])}
-  {CF.frameIt("ISADIR", thisEntry_[ISADIR])}
-  {CF.frameIt("ISAFILE", thisEntry_[ISAFILE])}
-  {CF.frameIt("ISAKNOWNFILETYPE", thisEntry_[ISAKNOWNFILETYPE])}
-  {CF.frameIt("ISASYMLINK", thisEntry_[ISASYMLINK])}
-  {CF.frameIt("MODE", thisEntry_[MODE])}
-  {CF.frameIt("PATH", thisEntry_[PATH])}
-  {CF.frameIt("PATHHEAD", thisEntry_[PATHHEAD])}
-  {CF.frameIt("PATHTAIL", thisEntry_[PATHTAIL])}
-  {CF.frameIt("RAWENTRY", thisEntry_[RAWENTRY])}
-  {CF.frameIt("SIZE", thisEntry_[SIZE])}
-  {CF.frameIt("UID", thisEntry_[UID])}
-  {CF.frameIt("WHITEEXTHEAD", thisEntry_[WHITEEXTHEAD])}
-  {CF.frameIt("WHITEEXTTAIL", thisEntry_[WHITEEXTTAIL])}
-  {CF.frameIt("WHITEFILENAME", thisEntry_[WHITEFILENAME])}
-  {CF.frameIt("WHITEFULLNAME", thisEntry_[WHITEFULLNAME])}
-  {CF.frameIt("WHITEFULLPATH", thisEntry_[WHITEFULLPATH])}
+  {CF.frameIt("K_BLACK_TAIL", thisEntry_[K_BLACK_TAIL])}
+  {CF.frameIt("K_EXTENSION_GUESSED", thisEntry_[K_EXTENSION_GUESSED])}
+  {CF.frameIt("K_EXT_HEAD", thisEntry_[K_EXT_HEAD])}
+  {CF.frameIt("K_EXT_TAIL", thisEntry_[K_EXT_TAIL])}
+  {CF.frameIt("K_FILE_TYPE_EXT", thisEntry_[K_FILE_TYPE_EXT])}
+  {CF.frameIt("K_FILE_TYPE_FILE", thisEntry_[K_FILE_TYPE_FILE])}
+  {CF.frameIt("K_FILE_TYPE_ID", thisEntry_[K_FILE_TYPE_ID])}
+  {CF.frameIt("K_GID", thisEntry_[K_GID])}
+  {CF.frameIt("K_I_CAN_EXECUTE", thisEntry_[K_I_CAN_EXECUTE])}
+  {CF.frameIt("K_I_CAN_READ", thisEntry_[K_I_CAN_READ])}
+  {CF.frameIt("K_I_CAN_WRITE", thisEntry_[K_I_CAN_WRITE])}
+  {CF.frameIt("K_IS_A_DIR", thisEntry_[K_IS_A_DIR])}
+  {CF.frameIt("K_IS_A_FILE", thisEntry_[K_IS_A_FILE])}
+  {CF.frameIt("K_IS_A_KNOWN_FILE_TYPE", thisEntry_[K_IS_A_KNOWN_FILE_TYPE])}
+  {CF.frameIt("K_IS_A_SYMLINK", thisEntry_[K_IS_A_SYMLINK])}
+  {CF.frameIt("K_MODE", thisEntry_[K_MODE])}
+  {CF.frameIt("K_PATH", thisEntry_[K_PATH])}
+  {CF.frameIt("K_PATH_HEAD", thisEntry_[K_PATH_HEAD])}
+  {CF.frameIt("K_PATH_TAIL", thisEntry_[K_PATH_TAIL])}
+  {CF.frameIt("K_RAW_ENTRY", thisEntry_[K_RAW_ENTRY])}
+  {CF.frameIt("K_SIZE", thisEntry_[K_SIZE])}
+  {CF.frameIt("K_UID", thisEntry_[K_UID])}
+  {CF.frameIt("K_WHITE_EXT_HEAD", thisEntry_[K_WHITE_EXT_HEAD])}
+  {CF.frameIt("K_WHITE_EXT_TAIL", thisEntry_[K_WHITE_EXT_TAIL])}
+  {CF.frameIt("K_WHITE_FILENAME", thisEntry_[K_WHITE_FILENAME])}
+  {CF.frameIt("K_WHITE_FULL_NAME", thisEntry_[K_WHITE_FULL_NAME])}
+  {CF.frameIt("K_WHITE_FULL_PATH", thisEntry_[K_WHITE_FULL_PATH])}
 """
   return strToRtn_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
@@ -486,25 +550,19 @@ def returnThisEntryStr(thisEntry_):
 # scanADir
 # #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 def scanADir(
-    recurse_=None,
+    recurse_=True,
     rootPath_=None,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
-  if (
-      (recurse_ is None)
-  ):
-    recurse_ = True
-  # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
 
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   if (
       (rootPath_ is None)
   ):
-    rootPath_ = CF_OS.ABS_DOT
+    rootPath_ = ABS_DOT
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
 
-  rootPath_ = CF_OS.ABS_PATH(rootPath_)
+  rootPath_ = ABS_PATH(rootPath_)
 
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   if (
@@ -513,7 +571,7 @@ def scanADir(
     return False
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
 
-  print(f"""{V.NEWLINE}getting directory list starting at {rootPath_} recursively {recurse_}{V.NEWLINE}""")
+  print(f"""\ngetting directory list starting at {rootPath_} recursively {recurse_}\n""")
   listToRtn_ = []
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   with os.scandir(rootPath_) as dirEntries_:
@@ -530,15 +588,15 @@ def scanADir(
 
         # 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱ 4⟱
         if (
-            (thisEntryData_[ICANREAD] is not True) or
-            (thisEntryData_[ICANWRITE] is not True) or
-            (thisEntryData_[ICANEXECUTE] is not True)
+            (thisEntryData_[K_I_CAN_READ] is not True) or
+            (thisEntryData_[K_I_CAN_WRITE] is not True) or
+            (thisEntryData_[K_I_CAN_EXECUTE] is not True)
         ):
-          setMode(thisEntryData_[PATH], CHMODDIR)
-          thisEntryData_[MODE] = CHMODDIR
-          thisEntryData_[ICANREAD] = True
-          thisEntryData_[ICANWRITE] = True
-          thisEntryData_[ICANEXECUTE] = True
+          setMode(thisEntryData_[K_PATH], CHMODDIR)
+          thisEntryData_[K_MODE] = CHMODDIR
+          thisEntryData_[K_I_CAN_READ] = True
+          thisEntryData_[K_I_CAN_WRITE] = True
+          thisEntryData_[K_I_CAN_EXECUTE] = True
         # ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4 ⟰4
 
         listToRtn_.append(thisEntryData_)
@@ -548,7 +606,7 @@ def scanADir(
             (recurse_ is True)
         ):
           _result_ = addToListToRtn_ = scanADir(
-              rootPath_=thisEntryData_[PATH],
+              rootPath_=thisEntryData_[K_PATH],
               recurse_=recurse_
           )
           # 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱ 5⟱
@@ -576,7 +634,7 @@ def scanADirForFiles(rootPath_, recurse_):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
   # you are responsibile for making sure this recurse_ variable is set correctly, it doesn't check with the CF.py.OPTIONS* stuff
   # files will be chmod +rw from my perspective if they are not currently at least +rw
-  print(f"""{V.NEWLINE}getting file list starting at {rootPath_} recursively {recurse_}{V.NEWLINE}""")
+  print(f"""\ngetting file list starting at {rootPath_} recursively {recurse_}\n""")
   listToRtn_ = []
   with os.scandir(rootPath_) as dirEntries_:
 
@@ -589,23 +647,23 @@ def scanADirForFiles(rootPath_, recurse_):
   # ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱
     # ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱
       # 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱
-      if thisEntryData_[ISAFILE] is True:
+      if thisEntryData_[K_IS_A_FILE] is True:
 
-        if (thisEntryData_[ICANWRITE] is False) or (thisEntryData_[ICANREAD] is False):
-          setMode(thisEntryData_[PATH], CHMODFILE)
-          thisEntryData_[ICANREAD] = True
-          thisEntryData_[ICANWRITE] = True
-          thisEntryData_[MODE] = CHMODFILE
+        if (thisEntryData_[K_I_CAN_WRITE] is False) or (thisEntryData_[K_I_CAN_READ] is False):
+          setMode(thisEntryData_[K_PATH], CHMODFILE)
+          thisEntryData_[K_I_CAN_READ] = True
+          thisEntryData_[K_I_CAN_WRITE] = True
+          thisEntryData_[K_MODE] = CHMODFILE
         listToRtn_.append(thisEntryData_)
       # ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3
 
   # ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱
     # ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱ ⟰2⟱
       # 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱ 3⟱
-      if recurse_ is True and thisEntryData_[ISADIR] is True:
-        addToListToRtn_ = scanADirForFiles(thisEntryData_[PATH], recurse_)
+      if recurse_ is True and thisEntryData_[K_IS_A_DIR] is True:
+        addToListToRtn_ = scanADirForFiles(thisEntryData_[K_PATH], recurse_)
         for thisEntry_ in addToListToRtn_:
-          if thisEntry_[ISAFILE] is True:
+          if thisEntry_[K_IS_A_FILE] is True:
             listToRtn_.append(thisEntry_)
       # ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3 ⟰3
 
@@ -620,7 +678,7 @@ def scanADirForFiles(rootPath_, recurse_):
 # #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 def scanAFile(fullURL_):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  print(f"""{V.NEWLINE}getting file info {fullURL_}{V.NEWLINE}""")
+  print(f"""\ngetting file info {fullURL_}\n""")
   listToRtn_ = []
   with os.scandir(fullURL_) as dirEntries_:
     for entry_ in dirEntries_:
