@@ -1,5 +1,8 @@
 
 
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * Keys
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 K_ACCESS_TIME = "K_ACCESS_TIME"
 K_BLOCKS_ALLOCATED = "K_BLOCKS_ALLOCATED"
 K_CHANGED_TIME = "K_CHANGED_TIME"
@@ -25,13 +28,16 @@ K_IS_A_KNOWN_FILE_TYPE = "K_IS_A_KNOWN_FILE_TYPE"
 K_IS_A_SYMLINK = "K_IS_A_SYMLINK"
 K_JUST_FILENAME = "K_JUST_FILENAME"
 K_MODE = "K_MODE"
-K_MTIME = "K_MTIME"
+K_MODIFY_TIME = "K_MODIFY_TIME"
 K_NUMS = "K_NUMS"
 K_PATH = "K_PATH"
 K_SIZE = "K_SIZE"
 K_UID = "K_UID"
 
 
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * File Entry Vars
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 SHORT_ENTRY_TUP = (
     (K_PATH, ""),
     (K_DIR, ""),
@@ -61,8 +67,8 @@ ENTRY_TUP = (
     (K_IS_A_KNOWN_FILE_TYPE, False),
     (K_IS_A_SYMLINK, False),
     (K_JUST_FILENAME, False),
-    (K_MODE, 0),
-    (K_MTIME, 0),
+    (K_MODE, -1),
+    (K_MODIFY_TIME, 0),
     (K_NUMS, 0),
     (K_PATH, ""),
     (K_SIZE, 0),
@@ -72,6 +78,9 @@ def E_ENTRY():
   return dict((x, y) for x, y in ENTRY_TUP)
 
 
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * Sanity Checks
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 DIR_BLACK_LIST = "[a-zA-Z0-9./]+"
 DIRWHITELIST = "[^a-zA-Z0-9./]+"
 FILEBLACKLIST = "[a-zA-Z0-9.]+"
@@ -105,7 +114,10 @@ ILLEGALWILDCARDS = [  # list all of the portions of a filename which will result
 ]
 
 
-FTL__CODE = [
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * File Extension Vars
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+FTL_CODE = [
     ".c",
     ".coffee",
     ".pl",
@@ -114,7 +126,7 @@ FTL__CODE = [
     ".zsh",
 ]
 
-FTL__DATA = [
+FTL_DATA = [
     ".cson",
     ".csv",
     ".db",
@@ -122,22 +134,22 @@ FTL__DATA = [
     ".kml",
     ".kmz",
 ]
-FTL__TEXT_DATA = [
+FTL_TEXT_DATA = [
     ".cson",
     ".csv",
     ".json",
     ".kml",
 ]
 
-
-FTL__DOCS = [
+FTL_DOCS = [
     ".md",
     ".pdf",
 ]
-FTL__TEXT_DOCS = [
+FTL_TEXT_DOCS = [
     ".md",
 ]
-FTL__PICS = [
+
+FTL_PICS = [
     ".bmp",
     ".gif",
     ".jpeg",
@@ -146,17 +158,17 @@ FTL__PICS = [
     ".webp",
 ]
 
-FTL__SNDS = [
+FTL_SNDS = [
     ".au",
     ".mp3",
     ".wav",
 ]
 
-FTL__TEXT = [
+FTL_TEXT = [
 ]
-FTL__TEXT.extend(FTL__CODE)
+FTL_TEXT.extend(FTL_CODE)
 
-FTL__VIDS = [
+FTL_VIDS = [
     ".avi",
     ".divx",
     ".flv",
@@ -173,9 +185,49 @@ FTL__VIDS = [
 ]
 
 # LEAVE AT BOTTOM OF FILE TYPES
-FTL__ALL_KNOWN = []
-FTL__ALL_KNOWN.extend(FTL__CODE)
-FTL__ALL_KNOWN.extend(FTL__DOCS)
-FTL__ALL_KNOWN.extend(FTL__PICS)
-FTL__ALL_KNOWN.extend(FTL__TEXT)
-FTL__ALL_KNOWN.extend(FTL__VIDS)
+FTL_MEDIA = []
+FTL_MEDIA.extend(FTL_PICS)
+FTL_MEDIA.extend(FTL_VIDS)
+# FTL_MEDIA.extend(FTL_SNDS)
+
+FTL_ALL_KNOWN = []
+FTL_ALL_KNOWN.extend(FTL_CODE)
+FTL_ALL_KNOWN.extend(FTL_DOCS)
+FTL_ALL_KNOWN.extend(FTL_PICS)
+FTL_ALL_KNOWN.extend(FTL_TEXT)
+FTL_ALL_KNOWN.extend(FTL_VIDS)
+
+
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * Ignore File Lists
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+IL_PYTHON = [
+    "__enter__.py",
+    "__exit__.py",
+    "__init__.py",
+    "__main__.py",
+]
+
+IL_MEDIA = [
+    "thumbs.db",
+    "__UNRENAME__.zsh"
+]
+
+
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * File Modes
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+U_R = lambda __MODE__: __MODE__ and 0o400
+U_W = lambda __MODE__: __MODE__ and 0o200
+U_X = lambda __MODE__: __MODE__ and 0o100
+G_R = lambda __MODE__: __MODE__ and 0o040
+G_W = lambda __MODE__: __MODE__ and 0o020
+G_X = lambda __MODE__: __MODE__ and 0o010
+A_R = lambda __MODE__: __MODE__ and 0o004
+A_W = lambda __MODE__: __MODE__ and 0o002
+A_X = lambda __MODE__: __MODE__ and 0o001
+
+
+
+
+#
