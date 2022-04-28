@@ -34,9 +34,9 @@ CHMODDIR = 0o755
 CHMODFILE = 0o655
 # CONFIGDIR = f"""{CF_OS.HOME}/.config/{CFFS_V.__NAME__}"""
 DIR_BLACK_LIST = "[a-zA-Z0-9./]+"
-DIRWHITELIST = "[^a-zA-Z0-9./]+"
-FILEBLACKLIST = "[a-zA-Z0-9.]+"
-FILEWHITELIST = "[^a-zA-Z0-9.]+"
+DIR_WHITE_LIST = "[^a-zA-Z0-9./]+"
+FILE_BLACK_LIST = "[a-zA-Z0-9.]+"
+FILE_WHITE_LIST = "[^a-zA-Z0-9.]+"
 TMPDIR = "/tmp/{CFFS_V.__NAME__}"
 
 
@@ -194,6 +194,10 @@ EXTENSIONSTYPES = {
 
   CF_FSK.VIDS:  [# filetype video
   # fold here ⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2⟱2
+    '.hdv1',
+    '.hdv2',
+    '.hdv3',
+    '.vcr2',
     ".asx",  # asx/wmv video file
     ".ASX",  # asx/wmv video file
     ".avi",  # avi video file
@@ -214,23 +218,19 @@ EXTENSIONSTYPES = {
     ".MKV",  # mkv video file
     ".mov",  # mov video file
     ".MOV",  # mov video file
+    ".mp1v",
     ".mp4",  # mp4 video file
     ".MP4",  # mp4 video file
+    ".mpeg",
     ".mpeg",  # mpeg video file
     ".MPEG",  # mpeg video file
     ".mpg",  # mpg video file
     ".MPG",  # mpg video file
+    ".mpg1",
     ".webm",  # webm video file
     ".WEBM",  # webm video file
     ".wmv",  # wmv video file
     ".WMV",  # wmv video file
-    ".mpeg",
-    "mp1v",
-    "mpg1",
-    'vcr2',
-    'hdv1',
-    'hdv2',
-    'hdv3',
   ],
   # fold here ⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2
 

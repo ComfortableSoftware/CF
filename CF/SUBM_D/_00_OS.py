@@ -9,14 +9,13 @@
 #
 
 
-import inspect as INS
+from CF.SUBM_D import _00_OS_VARS as CF_OSV
 from os import path as OS_PATH
 import glob
-import os
-## uses os.scandir
-import sys
-## uses exit
-from CF.SUBM_D import _00_OS_VARS as V
+import inspect as INS
+import os  ## uses *
+import re  ## uses sub
+import sys  ## uses exit
 
 
 ABS_PATH = OS_PATH.abspath
@@ -72,6 +71,7 @@ SPLIT = OS_PATH.split
 SPLIT_DRIVE = OS_PATH.splitdrive
 SPLIT_EXT = OS_PATH.splitext
 STAT = os.stat
+SUB = re.sub
 SUPPORTS_UNICODE_FILENAMES = OS_PATH.supports_unicode_filenames
 
 
@@ -120,8 +120,8 @@ def deFuxDir(*
     filenameToDeFux_,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  _thisWhiteTail_ = CF_FSC.SUB(DIRWHITELIST, "", filenameToDeFux_)
-  _thisBlackTail_ = CF_FSC.SUB(DIR_BLACK_LIST, "", filenameToDeFux_)
+  _thisWhiteTail_ = SUB(CF_OSV.DIR_WHITE_LIST, "", filenameToDeFux_)
+  _thisBlackTail_ = SUB(CF_OSV.DIR_BLACK_LIST, "", filenameToDeFux_)
   return _thisWhiteTail_, _thisBlackTail_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -136,8 +136,8 @@ def deFuxFile(*
     filenameToDeFux_,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  thisWhiteTail_ = CF_FSC.SUB(CF_FSC.FILEWHITELIST, "", filenameToDeFux_)
-  thisBlackTail_ = CF_FSC.SUB(CF_FSC.FILEBLACKLIST, "", filenameToDeFux_)
+  thisWhiteTail_ = SUB(CF_OSV.FILE_WHITE_LIST, "", filenameToDeFux_)
+  thisBlackTail_ = SUB(CF_OSV.FILE_BLACK_LIST, "", filenameToDeFux_)
   return thisWhiteTail_, thisBlackTail_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -154,12 +154,12 @@ def filePieces(source_):
   __dirToRtn__, __wholeFilename__ = SPLIT(__sourceToRtn__)
   __justTheName__, __extension__ = SPLIT_EXT(__wholeFilename__)
   return {
-      V.K_PATH: __sourceToRtn__,
-      V.K_DIR: __dirToRtn__,
-      V.K_FILENAME: __wholeFilename__,
-      V.K_JUST_FILENAME: __justTheName__,
-      V.K_EXTENSION: __extension__,
-      V.K_NUMS: -1,
+      CF_OSV.K_PATH: __sourceToRtn__,
+      CF_OSV.K_DIR: __dirToRtn__,
+      CF_OSV.K_FILENAME: __wholeFilename__,
+      CF_OSV.K_JUST_FILENAME: __justTheName__,
+      CF_OSV.K_EXTENSION: __extension__,
+      CF_OSV.K_NUMS: -1,
   }
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -192,12 +192,12 @@ def filePiecesNums(source_):
     __nums__ = -0
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
   return {
-      V.K_PATH: __sourceToRtn__,
-      V.K_DIR: __dirToRtn__,
-      V.K_FILENAME: __wholeFilename__,
-      V.K_JUST_FILENAME: __justTheName__,
-      V.K_EXTENSION: __extension__,
-      V.K_NUMS: __nums__,
+      CF_OSV.K_PATH: __sourceToRtn__,
+      CF_OSV.K_DIR: __dirToRtn__,
+      CF_OSV.K_FILENAME: __wholeFilename__,
+      CF_OSV.K_JUST_FILENAME: __justTheName__,
+      CF_OSV.K_EXTENSION: __extension__,
+      CF_OSV.K_NUMS: __nums__,
   }
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -237,12 +237,12 @@ def fixDir(*
     return None
   # ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱
   elif (
-      (dirToCk_ in CF_FSC.ILLEGALPATHS)
+      (dirToCk_ in ILLEGALPATHS)
   ):
     return None
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
-  for thisStub_ in CF_FSC.ILLEGALWILDCARDS:
+  for thisStub_ in ILLEGALWILDCARDS:
     isFoundNdx_ = dirToCk_.find(thisStub_)
     # print(f"""dirToCk_ {dirToCk_}  thisStub_ {thisStub_}  isFoundNdx_ {isFoundNdx_}""")
   # ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱
@@ -310,16 +310,16 @@ def globFilePiecesList(
   if (
       (goodExtList_ is None)
   ):
-    goodExtList_ = V.FTL_ALL_KNOWN
+    goodExtList_ = CF_OSV.FTL_ALL_KNOWN
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
   _sourceList_ = globList(source_)
   _listToRtn_ = []
   for _thisEntry_ in _sourceList_:
-    _dictToRtn_ = V.E_SHORT_ENTRY()
+    _dictToRtn_ = CF_OSV.E_SHORT_ENTRY()
     _dictToRtn_.update(filePieces(_thisEntry_))
     if (
         (goodExtList_ == []) or
-        (_dictToRtn_[V.K_EXTENSION] in goodExtList_)
+        (_dictToRtn_[CF_OSV.K_EXTENSION] in goodExtList_)
     ):
       _listToRtn_.append(_dictToRtn_)
   return _listToRtn_
@@ -345,7 +345,7 @@ def globFilePiecesNumsList(
   if (
       (goodExtList_ is None)
   ):
-    goodExtList_ = V.FTL_ALL_KNOWN
+    goodExtList_ = CF_OSV.FTL_ALL_KNOWN
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
 
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
@@ -353,11 +353,11 @@ def globFilePiecesNumsList(
     __tempDict__ = filePiecesNums(_thisEntry_)
     # 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱
     if (
-        (__tempDict__[V.K_EXTENSION].lower() in goodExtList_) or
+        (__tempDict__[CF_OSV.K_EXTENSION].lower() in goodExtList_) or
         (goodExtList_ == []) or
         (goodExtList_ == ["*"])
     ):
-      _dictToRtn_ = V.E_SHORT_ENTRY()
+      _dictToRtn_ = CF_OSV.E_SHORT_ENTRY()
       _dictToRtn_.update(__tempDict__)
       _listToRtn_.append(_dictToRtn_)
     # ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2
@@ -384,17 +384,18 @@ def globPythonModulesList(
   if (
       (ignoreFilesList_ is None)
   ):
-    ignoreFilesList_ = V.IL_PYTHON
+    ignoreFilesList_ = CF_OSV.IL_PYTHON
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
 
   source_ = DIR_NAME(source_) + "/*"
-  _sourceList_ = globList(source_, goodExtList_=[".py"])
+  _sourceList_ = globList(source_)
   _listToRtn_ = []
   for _thisEntry_ in _sourceList_:
-    _dictToRtn_ = V.E_SHORT_ENTRY()
+    _dictToRtn_ = CF_OSV.E_SHORT_ENTRY()
     __tempDict__ = filePiecesNums(_thisEntry_)
     if (
-        (__tempDict__[V.K_FILENAME] not in ignoreFilesList_)
+        (__tempDict__[CF_OSV.K_FILENAME].lower() not in ignoreFilesList_) and
+        (__tempDict__[CF_OSV.K_EXTENSION].lower() == ".py")
     ):
       _listToRtn_.append(__tempDict__)
   return _listToRtn_
@@ -430,7 +431,7 @@ def readFileToStr(*
 # *#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#
 def returnMyEntry(osDirEntry_):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  entryToRtn_ = V.E_ENTRY()
+  entryToRtn_ = CF_OSV.E_ENTRY()
 
   entryToRtn_[K_GID] = osDirEntry_.stat()[4]
   entryToRtn_[K_I_CAN_EXECUTE] = OS_ACCESS(entryToRtn_[K_PATH], os.X_OK)
@@ -537,30 +538,30 @@ def SCAN_DIR(*,
   with os.scandir(rootPath_) as dirEntries_:
     # 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱
     for _entry_ in dirEntries_:
-      _thisEntry_ = V.E_ENTRY()
+      _thisEntry_ = CF_OSV.E_ENTRY()
       # the easy stuff
       _thisShortEntry_ = filePieces(_entry_.path)
-      _thisEntry_[V.K_DIR] = _thisShortEntry_[V.K_DIR]
-      _thisEntry_[V.K_EXTENSION] = _thisShortEntry_[V.K_EXTENSION]
-      _thisEntry_[V.K_FILENAME] = _thisShortEntry_[V.K_FILENAME]
-      _thisEntry_[V.K_IS_A_DIR] = _entry_.is_dir()
-      _thisEntry_[V.K_IS_A_FILE] = _entry_.is_file()
-      _thisEntry_[V.K_IS_A_SYMLINK] = _entry_.is_symlink()
-      _thisEntry_[V.K_JUST_FILENAME] = _thisShortEntry_[V.K_JUST_FILENAME]
-      _thisEntry_[V.K_PATH] = _thisShortEntry_[V.K_PATH]
+      _thisEntry_[CF_OSV.K_DIR] = _thisShortEntry_[CF_OSV.K_DIR]
+      _thisEntry_[CF_OSV.K_EXTENSION] = _thisShortEntry_[CF_OSV.K_EXTENSION]
+      _thisEntry_[CF_OSV.K_FILENAME] = _thisShortEntry_[CF_OSV.K_FILENAME]
+      _thisEntry_[CF_OSV.K_IS_A_DIR] = _entry_.is_dir()
+      _thisEntry_[CF_OSV.K_IS_A_FILE] = _entry_.is_file()
+      _thisEntry_[CF_OSV.K_IS_A_SYMLINK] = _entry_.is_symlink()
+      _thisEntry_[CF_OSV.K_JUST_FILENAME] = _thisShortEntry_[CF_OSV.K_JUST_FILENAME]
+      _thisEntry_[CF_OSV.K_PATH] = _thisShortEntry_[CF_OSV.K_PATH]
       # stat entries
       _thisStat_ = _entry_.stat()
-      _thisEntry_[V.K_ACCESS_TIME] = _thisStat_.st_atime
-      _thisEntry_[V.K_BLOCKS_ALLOCATED] = _thisStat_.st_blocks
-      _thisEntry_[V.K_CHANGED_TIME] = _thisStat_.st_ctime
-      _thisEntry_[V.K_GID] = _thisStat_.st_gid
-      _thisEntry_[V.K_MODIFY_TIME] = _thisStat_.st_mtime
-      _thisEntry_[V.K_SIZE] = _thisStat_.st_size
-      _thisEntry_[V.K_UID] = _thisStat_.st_uid
+      _thisEntry_[CF_OSV.K_ACCESS_TIME] = _thisStat_.st_atime
+      _thisEntry_[CF_OSV.K_BLOCKS_ALLOCATED] = _thisStat_.st_blocks
+      _thisEntry_[CF_OSV.K_CHANGED_TIME] = _thisStat_.st_ctime
+      _thisEntry_[CF_OSV.K_GID] = _thisStat_.st_gid
+      _thisEntry_[CF_OSV.K_MODIFY_TIME] = _thisStat_.st_mtime
+      _thisEntry_[CF_OSV.K_SIZE] = _thisStat_.st_size
+      _thisEntry_[CF_OSV.K_UID] = _thisStat_.st_uid
       # mode entries
-      _thisEntry_[V.K_I_CAN_EXECUTE] = ACCESS(_thisShortEntry_[V.K_PATH], os.X_OK)
-      _thisEntry_[V.K_I_CAN_READ] = ACCESS(_thisShortEntry_[V.K_PATH], os.R_OK)
-      _thisEntry_[V.K_I_CAN_WRITE] = ACCESS(_thisShortEntry_[V.K_PATH], os.W_OK)
+      _thisEntry_[CF_OSV.K_I_CAN_EXECUTE] = ACCESS(_thisShortEntry_[CF_OSV.K_PATH], os.X_OK)
+      _thisEntry_[CF_OSV.K_I_CAN_READ] = ACCESS(_thisShortEntry_[CF_OSV.K_PATH], os.R_OK)
+      _thisEntry_[CF_OSV.K_I_CAN_WRITE] = ACCESS(_thisShortEntry_[CF_OSV.K_PATH], os.W_OK)
       # _thisEntry_[C.K_MODE] = _thisStat_.st_mode is currently unsupported, K_I_CAN_EXECUTE K_I_CAN_READ K_I_CAN_WRITE are slower but effective without adding a lot of other overhead to figure groups
       _listToRtn_.append(_thisEntry_)
     # ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2

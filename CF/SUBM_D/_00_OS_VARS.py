@@ -29,6 +29,7 @@ K_IS_A_SYMLINK = "K_IS_A_SYMLINK"
 K_JUST_FILENAME = "K_JUST_FILENAME"
 K_MODE = "K_MODE"
 K_MODIFY_TIME = "K_MODIFY_TIME"
+K_NEW_FILENAME = "K_NEW_FILENAME"
 K_NUMS = "K_NUMS"
 K_PATH = "K_PATH"
 K_SIZE = "K_SIZE"
@@ -69,6 +70,7 @@ ENTRY_TUP = (
     (K_JUST_FILENAME, False),
     (K_MODE, -1),
     (K_MODIFY_TIME, 0),
+    (K_NEW_FILENAME, ""),
     (K_NUMS, 0),
     (K_PATH, ""),
     (K_SIZE, 0),
@@ -82,9 +84,9 @@ def E_ENTRY():
 # * Sanity Checks
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 DIR_BLACK_LIST = "[a-zA-Z0-9./]+"
-DIRWHITELIST = "[^a-zA-Z0-9./]+"
-FILEBLACKLIST = "[a-zA-Z0-9.]+"
-FILEWHITELIST = "[^a-zA-Z0-9.]+"
+DIR_WHITE_LIST = "[^a-zA-Z0-9./]+"
+FILE_BLACK_LIST = "[a-zA-Z0-9.]+"
+FILE_WHITE_LIST = "[^a-zA-Z0-9.]+"
 
 
 ILLEGALPATHS = [  # list of absolute paths to be completely ignored if used
@@ -124,6 +126,7 @@ FTL_CODE = [
     ".py",
     ".sh",
     ".zsh",
+    ".php",
 ]
 
 FTL_DATA = [
@@ -165,23 +168,33 @@ FTL_SNDS = [
 ]
 
 FTL_TEXT = [
+    ".lst",
+    ".txt",
 ]
 FTL_TEXT.extend(FTL_CODE)
 
 FTL_VIDS = [
-    ".avi",
+    ".asx",
+    ".avi"
     ".divx",
     ".flv",
-    ".m2ts",
-    ".m4a",
-    ".m4v",
-    ".mkv",
-    ".mov",
-    ".mp4",
-    ".mpeg",
-    ".mpg",
-    ".webm",
-    ".wmv",
+    ".gifv"
+    ".hdv1"
+    ".hdv2"
+    ".hdv3"
+    ".m2ts"
+    ".m4a"
+    ".m4v"
+    ".mkv"
+    ".mov"
+    ".mp1v"
+    ".mp4"
+    ".mpeg"
+    ".mpg"
+    ".mpg1"
+    ".vcr2"
+    ".webm"
+    ".wmv"
 ]
 
 # LEAVE AT BOTTOM OF FILE TYPES
@@ -210,24 +223,28 @@ IL_PYTHON = [
 
 IL_MEDIA = [
     "thumbs.db",
-    "__UNRENAME__.zsh"
+    "__unrename__.zsh"
 ]
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * File Modes
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-U_R = lambda __MODE__: __MODE__ and 0o400
-U_W = lambda __MODE__: __MODE__ and 0o200
-U_X = lambda __MODE__: __MODE__ and 0o100
-G_R = lambda __MODE__: __MODE__ and 0o040
-G_W = lambda __MODE__: __MODE__ and 0o020
-G_X = lambda __MODE__: __MODE__ and 0o010
 A_R = lambda __MODE__: __MODE__ and 0o004
+A_RW = lambda __MODE__: __MODE__ and 0o006
+A_RWX = lambda __MODE__: __MODE__ and 0o007
 A_W = lambda __MODE__: __MODE__ and 0o002
 A_X = lambda __MODE__: __MODE__ and 0o001
-
-
+G_R = lambda __MODE__: __MODE__ and 0o040
+G_RW = lambda __MODE__: __MODE__ and 0o060
+G_RWX = lambda __MODE__: __MODE__ and 0o070
+G_W = lambda __MODE__: __MODE__ and 0o020
+G_X = lambda __MODE__: __MODE__ and 0o010
+U_R = lambda __MODE__: __MODE__ and 0o400
+U_RW = lambda __MODE__: __MODE__ and 0o600
+U_RWX = lambda __MODE__: __MODE__ and 0o700
+U_W = lambda __MODE__: __MODE__ and 0o200
+U_X = lambda __MODE__: __MODE__ and 0o100
 
 
 #

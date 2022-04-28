@@ -3,7 +3,10 @@
 import pickle as PD
 
 
-from CF.SUBM_D import _00_OS as CF_OS
+from CF.SUBM_D import (
+    _00_OS as CF_OS,
+    _00_OS_VARS as CF_OSV,
+)
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -31,11 +34,11 @@ class PKL_C():
     self._VERSION_ = self._DICT_TO_PKL_["K_VERSION"]
 
     __tempTup__ = CF_OS.filePieces(self._PKL_FILENAME_)
-    self._PKL_URL_ = __tempTup__[0]
-    self._PKL_DIR_ = __tempTup__[1]
-    self._PKL_WHOLE_NAME_ = __tempTup__[2]
-    self._PKL_NAME_ = __tempTup__[3]
-    self._PKL_EXT_ = __tempTup__[4]
+    self._PKL_URL_ = __tempTup__[CF_OSV.K_PATH]
+    self._PKL_DIR_ = __tempTup__[CF_OSV.K_DIR]
+    self._PKL_WHOLE_NAME_ = __tempTup__[CF_OSV.K_FILENAME]
+    self._PKL_NAME_ = __tempTup__[CF_OSV.K_JUST_FILENAME]
+    self._PKL_EXT_ = __tempTup__[CF_OSV.K_EXTENSION]
     # fold here ⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2⟰2
   # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
   # end of __init__
