@@ -1,4 +1,8 @@
 "*":
+  "Sublime-Style-Column-Selection": {}
+  "atom-html-preview": {}
+  "atom-ide-code-format":
+    formatOnSave: false
   "atom-ide-hyperclick":
     darwinTriggerKeys: "shiftKey,altKey"
     linuxTriggerKeys: "shiftKey,altKey"
@@ -20,14 +24,15 @@
     minimumWordLength: 2
     strictMatching: true
   "autocomplete-python":
-    caseInsensitiveCompletion: false
-    useKite: false
+    caseInsensitiveCompletion: true
+    useKite: true
     useSnippets: "all"
   autosave:
     enabled: true
   "bracket-matcher":
     highlightMatchingLineNumber: true
   core:
+    autoHideMenuBar: true
     closeDeletedFileTabs: true
     disabledPackages: [
       "archive-view"
@@ -44,6 +49,7 @@
       "language-go"
       "language-java"
       "language-less"
+      "language-lsl"
       "language-lua"
       "language-make"
       "language-mustache"
@@ -61,13 +67,17 @@
       "language-todo"
       "language-toml"
       "language-typescript"
+      "language-xml"
       "language-yaml"
       "minimap"
       "open-on-github"
+      "package-control"
       "package-generator"
       "pylint"
+      "rst-preview-pandoc"
       "script"
       "spell-check"
+      "split-diff"
     ]
     followSymlinks: false
     ignoredNames: [
@@ -91,6 +101,7 @@
     packagesWithSnippetsDisabled: [
       "MagicPython"
     ]
+    projectHome: "/rcr/0-sourceCode"
     reopenProjectMenuCount: 50
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "limited"
@@ -119,6 +130,7 @@
     showInvisibles: true
     softTabs: true
     tabType: "soft"
+    softWrap: true
   "exception-reporting":
     userId: "b54d002a-ce1e-4540-8755-e5d954f2ce78"
   "file-watcher":
@@ -146,11 +158,15 @@
     showResultsOnScrollBar: true
   "iv-terminal":
     defaultLocation: "right"
+  kite:
+    loggingLevel: "debug"
+    showWelcomeNotificationOnStartup: false
   "linter-spell":
     defaultLanguages: [
       "en es_any es_mx"
     ]
     markdownWords: [
+      "derpy"
       "md"
       "uofp"
     ]
@@ -159,9 +175,6 @@
     alwaysTakeMinimumSpace: true
     panelHeight: 150
     useBusySignal: false
-  "markdown-pdf":
-    format: "Legal"
-    ghStyle: false
   "markdown-writer":
     fileExtension: ".md"
     relativeImagePath: true
@@ -183,10 +196,11 @@
     opacity: 70
     useCustomColors: true
   "package-generator":
+    createInDevMode: true
     packageSyntax: "coffeescript"
   "preview-plus":
-    htmlp: true
-    livePreview: true
+    htmlp: false
+    livePreview: false
   "rainbow-delimiters":
     delimiters: [
       "()"
@@ -239,16 +253,50 @@
     personalAccessToken: "328a0526b069cc08de17d5df2e16e165c9cc5f9c"
   "sync-settings-git-location":
     gitUrl: "git@github.com:GaelicGrime/atomSync.git"
+  "tabs-to-spaces":
+    onSave: "untabify"
   "tool-bar":
     position: "Bottom"
   "tool-bar-markdown-writer":
     visibility: "showButtonsOnAll"
   welcome:
     showOnStartup: false
+  "xml-formatter":
+    endLineCharacter: "LF (\\n)"
+".coffee.source":
+  editor:
+    autoIndentOnPaste: false
+    preferredLineLength: 500
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabLength: 2
+    tabType: "auto"
+  "tabs-to-spaces":
+    onSave: "untabify"
+  whitespace:
+    removeTrailingWhitespace: true
 ".console.python.text":
   editor:
     autoIndentOnPaste: false
     preferredLineLength: 500
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: false
+    tabLength: 2
+    tabType: "soft"
+  "tabs-to-spaces":
+    onSave: "untabify"
+".litcoffee.source":
+  editor:
+    autoIndentOnPaste: false
+    preferredLineLength: 500
+    showIndentGuide: true
+    showInvisibles: true
+".lsl.source":
+  editor:
+    autoIndentOnPaste: false
+    preferredLineLength: 150
     showIndentGuide: true
     showInvisibles: true
     softWrap: false
@@ -268,6 +316,8 @@
     tabType: "soft"
   "tabs-to-spaces":
     onSave: "untabify"
+  whitespace:
+    removeTrailingWhitespace: true
 ".python.regexp.source":
   editor:
     preferredLineLength: 500
@@ -283,6 +333,8 @@
     tabType: "soft"
   "tabs-to-spaces":
     onSave: "untabify"
+  whitespace:
+    removeTrailingWhitespace: true
 ".python.text.traceback":
   editor:
     autoIndentOnPaste: false
@@ -291,3 +343,11 @@
     showInvisibles: true
     softWrap: true
     tabType: "soft"
+".text":
+  editor:
+    softWrap: true
+    tabType: "soft"
+  "tabs-to-spaces":
+    onSave: "untabify"
+  whitespace:
+    removeTrailingWhitespace: true
