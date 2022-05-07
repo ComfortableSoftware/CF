@@ -774,7 +774,7 @@ def SCAN_DIR(*,
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 def scanADirForFiles(rootPath_, recurse_):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  # you are responsibile for making sure this recurse_ variable is set correctly, it doesn't check with the CF.py.OPTIONS* stuff
+  # you are responsibile for making sure this recurse_ variable is set correctly, it doesn't check with the CF.py.OPTIONS_ARGS* stuff
   # files will be chmod +rw from my perspective if they are not currently at least +rw
   print(f"""\ngetting file list starting at {rootPath_} recursively {recurse_}\n""")
   _listToRtn_ = []

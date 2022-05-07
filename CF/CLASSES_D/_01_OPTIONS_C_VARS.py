@@ -4,15 +4,15 @@ from sys import argv
 import argparse as AP
 
 
-OPTIONS = {
-}
-
-
-OPTIONS_HELP_DICT = {
+OPTIONS_ARGS = {
 }
 
 
 OPTIONS_DICT = {
+}
+
+
+OPTIONS_HELP_DICT = {
 }
 
 
