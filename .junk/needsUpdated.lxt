@@ -4,3 +4,16 @@
 0-utils/0-personal/wbin/linkWbin.py:from CF.SUBM_D import _00_OS as CF_OS
 0-utils/0-personal/wbin/moveinator.py:    _00_OS as CF_OS,
 0-utils/0-personal/wbin/relinkWbin.py:from CF.SUBM_D import _00_OS as CF_OS
+
+
+
+_thisFileList_ CompletedProcess(
+  args=[
+    'find',
+    '"/rcr/0-sourceCode/0-development/0-ide/0-atom/kenningsManager/.atom/"',
+    '-name',
+    '"kennings.cson"'],
+  returncode=1,
+  stdout=b'',
+  stderr=b
+    'find: \xe2\x80\x98"/rcr/0-sourceCode/0-development/0-ide/0-atom/kenningsManager/.atom/"\xe2\x80\x99: No such file or directory\n')

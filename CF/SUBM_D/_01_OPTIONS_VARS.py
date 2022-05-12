@@ -1,12 +1,12 @@
 
 
-from sys import argv
-import argparse as AP
 from CF.CONST_D import _00_VALS as CF_V
+import argparse as AP
+import sys
 
 
 V = None
-ARGV = argv
+# ARGV = argv
 ARGS = None
 PARSER = None
 
