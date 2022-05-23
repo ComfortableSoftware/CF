@@ -143,7 +143,7 @@ def sortDedupeList(listIn_):
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * File Extension Vars
+# * File Type Lists
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 FTL_CODE = [
     ".c",
@@ -186,9 +186,12 @@ FTL_TEXT_DOCS = [
 FTL_PICS = [
     ".bmp",
     ".gif",
+    ".jp2",
+    ".jpe",
     ".jpeg",
     ".jpg",
     ".png",
+    ".riff",
     ".webp",
 ]
 
@@ -209,26 +212,27 @@ FTL_TEXT = sortDedupeList(FTL_TEXT)
 
 FTL_VIDS = [
     ".asx",
-    ".avi"
+    ".avi",
     ".divx",
     ".flv",
-    ".gifv"
-    ".hdv1"
-    ".hdv2"
-    ".hdv3"
-    ".m2ts"
-    ".m4a"
-    ".m4v"
-    ".mkv"
-    ".mov"
-    ".mp1v"
-    ".mp4"
-    ".mpeg"
-    ".mpg"
-    ".mpg1"
-    ".vcr2"
-    ".webm"
-    ".wmv"
+    ".gifv",
+    ".hdv1",
+    ".hdv2",
+    ".hdv3",
+    ".m2ts",
+    ".m4a",
+    ".m4v",
+    ".mkv",
+    ".mov",
+    ".mp1v",
+    ".mp4",
+    ".mpeg",
+    ".mpg",
+    ".mpg1",
+    ".vcr2",
+    ".video",
+    ".webm",
+    ".wmv",
 ]
 
 # LEAVE AT BOTTOM OF FILE TYPES
