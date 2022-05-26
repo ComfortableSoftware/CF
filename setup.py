@@ -23,7 +23,7 @@ setup(
   package_dir={"CF": "CF"},
   package_data={
       "CF": [
-          "../book/*",
+          "../doc/*",
           "CLASSES_D/*",
           "CONST_D/*",
           "DEFS_D/*",
