@@ -23,6 +23,7 @@ K_CHANGED_TIME = "K_CHANGED_TIME"
 K_DEFAULT = "K_DEFAULT"
 K_DIR = "K_DIR"
 K_EXTENSION = "K_EXTENSION"
+K_F_OK = os.F_OK
 K_FILENAME = "K_FILENAME"
 K_FILETYPE = "K_FILETYPE"
 K_FT_CODE = "K_FT_CODE"
@@ -49,9 +50,12 @@ K_NEW_FILENAME = "K_NEW_FILENAME"
 K_NUMS = "K_NUMS"
 K_PATH = "K_PATH"
 K_QUIT = "K_QUIT"
+K_R_OK = os.R_OK
 K_SIZE = "K_SIZE"
 K_UID = "K_UID"
 K_VERSION = "K_VERSION"
+K_W_OK = os.W_OK
+K_X_OK = os.X_OK
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -413,6 +417,10 @@ def SP_FIND_FILES(*,
 
 
 ALL_THE_KEYS = {
+    "K_F_OK": K_F_OK,
+    "K_R_OK": K_R_OK,
+    "K_W_OK": K_W_OK,
+    "K_X_OK": K_X_OK,
     K_ACCESS_TIME: K_ACCESS_TIME,
     K_BLOCKS_ALLOCATED: K_BLOCKS_ALLOCATED,
     K_CHANGED_TIME: K_CHANGED_TIME,
