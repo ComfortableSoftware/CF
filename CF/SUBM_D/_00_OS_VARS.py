@@ -7,7 +7,7 @@ import inspect as INS
 import os  ## uses *
 import re  ## uses sub
 import subprocess as SP
-import sys  ## uses exit
+from sys import exit as _exit_  ## uses exit
 
 
 V = None
@@ -517,7 +517,9 @@ DEBUG_DATA = {
 }
 
 
-ALL_THE_OS_DATA = {}
+ALL_THE_OS_DATA = {
+    "EXIT": _exit_,
+}
 ALL_THE_OS_DATA.update(ALL_THE_KEYS)
 ALL_THE_OS_DATA.update(FILESYSTEM_DATA)
 ALL_THE_OS_DATA.update(KDIALOG_DATA)

@@ -5,6 +5,7 @@ from CF.SUBM_D import (
     _01_OPTIONS_KEYS as CF_OPTK,
 )
 import argparse as AP
+from argparse import RawTextHelpFormatter as AP_RTF
 import sys
 
 
@@ -138,7 +139,7 @@ Set to true to do nothing and print what would be done to stdout.
 def O_LOUDNESS():
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
   H_LOUDNESS = f"""
-Set loud mode (LOUDNESS = <-l=##>) where ## is how loud to be
+Set loud mode (-l=<howLoud>) where howLoud is and integer for how loud to be.
 {CF_V.INDENT_IN} -1 == no messages
 {CF_V.INDENT_IN} 0 == Splash and welcome.
 {CF_V.INDENT_IN} 1 == Function level messages.
@@ -152,7 +153,7 @@ Set loud mode (LOUDNESS = <-l=##>) where ## is how loud to be
           "-loud"
       ],
       K_KWARGS: {
-          "dest": "loud",
+          "dest": "loudness",
           "help": H_LOUDNESS,
           "nargs": 1,
           "type": int,
@@ -189,6 +190,7 @@ ALL_THE_OPTION_KEYS = CF_OPTK.ALL_THE_OPTION_KEYS
 
 
 ALL_THE_OPTIONS_DATA = {
+    "AP_RTF": AP_RTF,
     "ARGS": ARGS,
     "ARGV": ARGV,
     "E_ADD_ARGS": E_ADD_ARGS,
