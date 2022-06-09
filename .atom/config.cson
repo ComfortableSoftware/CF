@@ -37,6 +37,7 @@
     disabledPackages: [
       "archive-view"
       "atom-html-preview"
+      "auto-update-plus"
       "buildium"
       "Chromo-Color-Previews"
       "image-view"

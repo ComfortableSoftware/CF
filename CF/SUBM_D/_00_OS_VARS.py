@@ -12,6 +12,7 @@ from sys import exit as _exit_  ## uses exit
 
 V = None
 locals().update(CF_V.ALL_THE_VALS)
+EXIT = _exit_
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -44,6 +45,7 @@ K_IS_A_KNOWN_FILE_TYPE = "K_IS_A_KNOWN_FILE_TYPE"
 K_IS_A_SYMLINK = "K_IS_A_SYMLINK"
 K_JUST_FILENAME = "K_JUST_FILENAME"
 K_LAST = "K_LAST"
+K_LIST = "K_LIST"
 K_MODE = "K_MODE"
 K_MODIFY_TIME = "K_MODIFY_TIME"
 K_NEW_FILENAME = "K_NEW_FILENAME"
@@ -447,6 +449,7 @@ ALL_THE_KEYS = {
     K_IS_A_SYMLINK: K_IS_A_SYMLINK,
     K_JUST_FILENAME: K_JUST_FILENAME,
     K_LAST: K_LAST,
+    K_LIST: K_LIST,
     K_MODE: K_MODE,
     K_MODIFY_TIME: K_MODIFY_TIME,
     K_NEW_FILENAME: K_NEW_FILENAME,
