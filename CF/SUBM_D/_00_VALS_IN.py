@@ -35,12 +35,16 @@ TABSTR = "\t"  # TAB
 FTQ = f"""f{DBLQT}{DBLQT}{DBLQT}"""
 INDENT_IN = f"""⇉"""
 INDENT_OUT = f"""⇇"""
-NCR = lambda __NUM__: f"""{CRSTR * __NUM__}"""
-NNL = lambda __NUM__: f"""{NEWLINE * __NUM__}"""
-NSPC = lambda __NUM__: f"""{SPCSTR * __NUM__}"""  # returns a string with __NUM__ SPC
 TRIQT = f"""{DBLQT}{DBLQT}{DBLQT}"""
 USER_CACHE_DIR = "~/.cache"
 USER_CONFIG_DIR = "~/.config"
+
+
+NCR = lambda __NUM__: f"""{CRSTR * __NUM__}"""
+NNL = lambda __NUM__: f"""{NEWLINE * __NUM__}"""
+NSPC = lambda __NUM__: f"""{SPCSTR * __NUM__}"""
+NINDENT_IN = lambda __NUM__: f"""{INDENT_IN * __NUM__}"""
+NINDENT_OUT = lambda __NUM__: f"""{INDENT_OUT * __NUM__}"""
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*

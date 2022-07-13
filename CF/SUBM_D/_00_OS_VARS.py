@@ -7,7 +7,7 @@ import inspect as INS
 import os  ## uses *
 import re  ## uses sub
 import subprocess as SP
-from sys import exit as _exit_  ## uses exit
+from sys import exit as _exit_
 
 
 V = None
