@@ -1,35 +1,42 @@
 
 
-K_ARGS = "args"
-K_BUFSIZE = "bufsize"
-K_CAPTURE_OUTPUT = "capture_output"
-K_CHECK = "check"
-K_CLOSE_FDS = "close_fds"
-K_CREATIONFLAGS = "creationflags"
-K_CWD = "cwd"
-K_ENCODING = "encoding"
-K_ENV = "env"
-K_ERRORS = "errors"
-K_EXECUTABLE = "executable"
-K_EXTRA_GROUPS = "extra_groups"
-K_GROUP = "group"
-K_INPUT = "input"
-K_PASS_FDS = "pass_fds"
-K_PIPESIZE = "pipesize"
-K_PREEXEC_FN = "preexec_fn"
-K_RESTORE_SIGNALS = "restore_signals"
-K_RETURNCODE = "returncode"
-K_SHELL = "shell"
-K_START_NEW_SESSION = "start_new_session"
-K_STARTUPINFO = "startupinfo"
-K_STDERR = "stderr"
-K_STDIN = "stdin"
-K_STDOUT = "stdout"
-K_TEXT = "text"
-K_TIMEOUT = "timeout"
-K_UMASK = "umask"
-K_UNIVERSAL_NEWLINES = "universal_newlines"
-K_USER = "user"
+import subprocess as SUBP
+ALL_THE_KEYS = {
+    "K_ARGS": "args",
+    "K_BUFSIZE": "bufsize",
+    "K_CAPTURE_OUTPUT": "capture_output",
+    "K_CHECK": "check",
+    "K_CLOSE_FDS": "close_fds",
+    "K_CREATIONFLAGS": "creationflags",
+    "K_CWD": "cwd",
+    "K_ENCODING": "encoding",
+    "K_ENV": "env",
+    "K_ERRORS": "errors",
+    "K_EXECUTABLE": "executable",
+    "K_EXTRA_GROUPS": "extra_groups",
+    "K_GROUP": "group",
+    "K_INPUT": "input",
+    "K_KWARGS": "kwargs",
+    "K_PASS_FDS": "pass_fds",
+    "K_PIPESIZE": "pipesize",
+    "K_PREEXEC_FN": "preexec_fn",
+    "K_RESTORE_SIGNALS": "restore_signals",
+    "K_RETURNCODE": "returncode",
+    "K_SHELL": "shell",
+    "K_START_NEW_SESSION": "start_new_session",
+    "K_STARTUPINFO": "startupinfo",
+    "K_STDERR": "stderr",
+    "K_STDIN": "stdin",
+    "K_STDOUT": "stdout",
+    "K_TEXT": "text",
+    "K_TIMEOUT": "timeout",
+    "K_UMASK": "umask",
+    "K_UNIVERSAL_NEWLINES": "universal_newlines",
+    "K_USER": "user",
+    "KSP_ARGS": "args_",
+    "KSP_KWARGS": "KWArgs_",
+}
+locals().update(ALL_THE_KEYS)
 
 
 KWARGS_TUP = (
@@ -74,3 +81,29 @@ RETURN_TUP = (
 )
 def E_RETURN():
   return dict((x, y) for x, y in RETURN_TUP)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
