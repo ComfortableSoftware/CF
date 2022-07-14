@@ -35,6 +35,8 @@ ALL_THE_KEYS = {
     "K_USER": "user",
     "KSP_ARGS": "args_",
     "KSP_KWARGS": "KWArgs_",
+    "KSPR_RESULT": "KSPR_RESULT",
+    "KSPR_STDOUT": "KSPR_STDOUT",
 }
 locals().update(ALL_THE_KEYS)
 
