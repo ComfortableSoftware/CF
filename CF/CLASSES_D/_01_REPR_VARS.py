@@ -238,6 +238,100 @@ def returnContainerValsDict(*,
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 
 
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * Start of returnContainerValsFunc
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+def returnContainerValsFunc(*,
+    containerType_,
+    indentIn_,
+    nameIn_,
+):
+  # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
+  if (
+      (containerType_ == CONTAINER_FUNC_IN_FUNC)
+  ):
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
+    _strEnd_ = f""""""
+    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
+    return {
+        STR_ASSIGN: _strAssign_,
+        STR_END: _strEnd_,
+        STR_FINAL: _strFinal_,
+    }
+
+  if (
+      (containerType_ == CONTAINER_FUNC_IN_FUNC)
+  ):
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
+    _strEnd_ = f""""""
+    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
+    return {
+        STR_ASSIGN: _strAssign_,
+        STR_END: _strEnd_,
+        STR_FINAL: _strFinal_,
+    }
+
+  if (
+      (containerType_ == CONTAINER_FUNC_IN_LIST)
+  ):
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
+    _strEnd_ = f""""""
+    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
+    return {
+        STR_ASSIGN: _strAssign_,
+        STR_END: _strEnd_,
+        STR_FINAL: _strFinal_,
+    }
+
+  if (
+      (containerType_ == CONTAINER_FUNC_IN_MODL)
+  ):
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
+    _strEnd_ = f""""""
+    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
+    return {
+        STR_ASSIGN: _strAssign_,
+        STR_END: _strEnd_,
+        STR_FINAL: _strFinal_,
+    }
+
+  if (
+      (containerType_ == CONTAINER_FUNC_IN_NONE)
+  ):
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
+    _strEnd_ = f""""""
+    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
+    return {
+        STR_ASSIGN: _strAssign_,
+        STR_END: _strEnd_,
+        STR_FINAL: _strFinal_,
+    }
+
+  if (
+      (containerType_ == CONTAINER_FUNC_IN_TUPL)
+  ):
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
+    _strEnd_ = f""""""
+    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
+    return {
+        STR_ASSIGN: _strAssign_,
+        STR_END: _strEnd_,
+        STR_FINAL: _strFinal_,
+    }
+  _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
+  _strEnd_ = f""""""
+  _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
+  return {
+      STR_ASSIGN: _strAssign_,
+      STR_END: _strEnd_,
+      STR_FINAL: _strFinal_,
+  }
+  # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * End of returnContainerValsFunc
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+
 
 
 
