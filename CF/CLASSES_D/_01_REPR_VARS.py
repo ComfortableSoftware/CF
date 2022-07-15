@@ -145,9 +145,9 @@ def fixKeys(nameToFix_):
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * Start of returnContainerVals
+# * Start of returnContainerValsDict
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-def returnContainerVals(*,
+def returnContainerValsDict(*,
     containerType_,
     indentIn_,
     nameIn_,
@@ -156,7 +156,7 @@ def returnContainerVals(*,
   if (
       (containerType_ == CONTAINER_DICT_IN_DICT)
   ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}{fixKeys(nameIn_)}: {OBRCE}{NEWLINE}"""
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)}: {OBRCE}{NEWLINE}"""
     _strEnd_ = f""",{NEWLINE}"""
     _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
     return {
@@ -168,7 +168,7 @@ def returnContainerVals(*,
   if (
       (containerType_ == CONTAINER_DICT_IN_FUNC)
   ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}{fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
     _strEnd_ = f""",{NEWLINE}"""
     _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
     return {
@@ -180,7 +180,7 @@ def returnContainerVals(*,
   if (
       (containerType_ == CONTAINER_DICT_IN_LIST)
   ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}{OBRCE}{NEWLINE}"""
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){OBRCE}{NEWLINE}"""
     _strEnd_ = f""",{NEWLINE}"""
     _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
     return {
@@ -192,7 +192,7 @@ def returnContainerVals(*,
   if (
       (containerType_ == CONTAINER_DICT_IN_MODL)
   ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}{fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
     _strEnd_ = f""",{NEWLINE}"""
     _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
     return {
@@ -204,7 +204,7 @@ def returnContainerVals(*,
   if (
       (containerType_ == CONTAINER_DICT_IN_NONE)
   ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}{fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
     _strEnd_ = f""",{NEWLINE}"""
     _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
     return {
@@ -216,7 +216,7 @@ def returnContainerVals(*,
   if (
       (containerType_ == CONTAINER_DICT_IN_TUPL)
   ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}{OBRCE}{NEWLINE}"""
+    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){OBRCE}{NEWLINE}"""
     _strEnd_ = f""",{NEWLINE}"""
     _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
     return {
@@ -224,41 +224,20 @@ def returnContainerVals(*,
         STR_END: _strEnd_,
         STR_FINAL: _strFinal_,
     }
-
-  CONTAINER_FUNC_IN_DICT
-  CONTAINER_FUNC_IN_FUNC
-  CONTAINER_FUNC_IN_LIST
-  CONTAINER_FUNC_IN_MODL
-  CONTAINER_FUNC_IN_TUPL
-  CONTAINER_FUNC_IN_NONE
-  CONTAINER_LIST_IN_DICT
-  CONTAINER_LIST_IN_FUNC
-  CONTAINER_LIST_IN_LIST
-  CONTAINER_LIST_IN_MODL
-  CONTAINER_LIST_IN_TUPL
-  CONTAINER_LIST_IN_NONE
-  CONTAINER_MODL_IN_DICT
-  CONTAINER_MODL_IN_FUNC
-  CONTAINER_MODL_IN_LIST
-  CONTAINER_MODL_IN_MODL
-  CONTAINER_MODL_IN_TUPL
-  CONTAINER_MODL_IN_NONE
-  CONTAINER_NONE_IN_DICT
-  CONTAINER_NONE_IN_FUNC
-  CONTAINER_NONE_IN_LIST
-  CONTAINER_NONE_IN_MODL
-  CONTAINER_NONE_IN_TUPL
-  CONTAINER_NONE_IN_NONE
-  CONTAINER_TUPL_IN_DICT
-  CONTAINER_TUPL_IN_FUNC
-  CONTAINER_TUPL_IN_LIST
-  CONTAINER_TUPL_IN_MODL
-  CONTAINER_TUPL_IN_TUPL
-  CONTAINER_TUPL_IN_NONE
+  _strAssign_ = f"""{NINDENT_IN(indentIn_)}{nameIn_} = """
+  _strEnd_ = ""
+  _strFinal_ = ""
+  return {
+      STR_ASSIGN: _strAssign_,
+      STR_END: _strEnd_,
+      STR_FINAL: _strFinal_,
+  }
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * End of returnContainerVals
+# * End of returnContainerValsDict
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+
 
 
 
