@@ -87,6 +87,7 @@ ALL_THE_VALS = {
     "TYPE_INT": "TYPE_INT",
     "TYPE_LIST": "TYPE_LIST",
     "TYPE_MODL": "TYPE_MODL",
+    "TYPE_NONE": "TYPE_NONE",
     "TYPE_STR": "TYPE_STR",
     "TYPE_TUPL": "TYPE_TUPL",
     "TYPE_UNK"; "TYPE_UNK",
@@ -105,6 +106,29 @@ TYPES_DICT = {
     str: TYPE_STR,
     tuple: TYPE_TUPL,
 }
+
+
+TYPES_RDICT = {
+    TYPE_BOOL: bool,
+    TYPE_DICT: dict,
+    TYPE_FLT: float,
+    TYPE_FUNC: TTYPES_FunctionType,
+    TYPE_INT: int,
+    TYPE_LIST: list,
+    TYPE_MODL: TTYPES_ModuleType,
+    TYPE_STR: str,
+    TYPE_TUPL: tuple,
+}
+
+
+ALL_THE_BOOLS = [
+    OBJECT_BOOL_IN_DICT,
+    OBJECT_BOOL_IN_FUNC,
+    OBJECT_BOOL_IN_LIST,
+    OBJECT_BOOL_IN_MODL,
+    OBJECT_BOOL_IN_NONE,
+    OBJECT_BOOL_IN_TUPL,
+]
 
 
 ALL_THE_DICTS = [
@@ -167,298 +191,102 @@ ALL_THE_TUPLS = [
 ]
 
 
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * Start of fixKeys
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-def fixKeys(nameToFix_):
-  # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
-  if (
-      (isinstance(nameToFix_, str) is True)
-  ):
-    return f"""{DBLQT}{nameToFix_}{DBLQT}"""
-  # ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱ ⟰1⟱
-  else:
-    return f"""{nameToFix_}"""
-  # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
-  # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * End of fixKeys
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+OBJECT_TYPE_DICT = {
+    TYPE_BOOL: {
+        TYPE_DICT: OBJECT_BOOL_IN_DICT,
+        TYPE_FUNC: OBJECT_BOOL_IN_FUNC,
+        TYPE_LIST: OBJECT_BOOL_IN_LIST,
+        TYPE_MODL: OBJECT_BOOL_IN_MODL,
+        TYPE_NONE: OBJECT_BOOL_IN_NONE,
+        TYPE_TUPL: OBJECT_BOOL_IN_TUPL,
+    },
+    TYPE_DICT: {
+        TYPE_DICT: OBJECT_DICT_IN_DICT,
+        TYPE_FUNC: OBJECT_DICT_IN_FUNC,
+        TYPE_LIST: OBJECT_DICT_IN_LIST,
+        TYPE_MODL: OBJECT_DICT_IN_MODL,
+        TYPE_NONE: OBJECT_DICT_IN_NONE,
+        TYPE_TUPL: OBJECT_DICT_IN_TUPL,
+    },
+    TYPE_FLT: {
+        TYPE_DICT: OBJECT_FLT_IN_DICT,
+        TYPE_FUNC: OBJECT_FLT_IN_FUNC,
+        TYPE_LIST: OBJECT_FLT_IN_LIST,
+        TYPE_MODL: OBJECT_FLT_IN_MODL,
+        TYPE_NONE: OBJECT_FLT_IN_NONE,
+        TYPE_TUPL: OBJECT_FLT_IN_TUPL,
+    },
+    TYPE_FUNC: {
+        TYPE_DICT: OBJECT_FUNC_IN_DICT,
+        TYPE_FUNC: OBJECT_FUNC_IN_FUNC,
+        TYPE_LIST: OBJECT_FUNC_IN_LIST,
+        TYPE_MODL: OBJECT_FUNC_IN_MODL,
+        TYPE_NONE: OBJECT_FUNC_IN_NONE,
+        TYPE_TUPL: OBJECT_FUNC_IN_TUPL,
+    },
+    TYPE_INT: {
+        TYPE_DICT: OBJECT_INT_IN_DICT,
+        TYPE_FUNC: OBJECT_INT_IN_FUNC,
+        TYPE_LIST: OBJECT_INT_IN_LIST,
+        TYPE_MODL: OBJECT_INT_IN_MODL,
+        TYPE_NONE: OBJECT_INT_IN_NONE,
+        TYPE_TUPL: OBJECT_INT_IN_TUPL,
+    },
+    TYPE_LIST: {
+        TYPE_DICT: OBJECT_LIST_IN_DICT,
+        TYPE_FUNC: OBJECT_LIST_IN_FUNC,
+        TYPE_LIST: OBJECT_LIST_IN_LIST,
+        TYPE_MODL: OBJECT_LIST_IN_MODL,
+        TYPE_NONE: OBJECT_LIST_IN_NONE,
+        TYPE_TUPL: OBJECT_LIST_IN_TUPL,
+    },
+    TYPE_MODL: {
+        TYPE_DICT: OBJECT_MODL_IN_DICT,
+        TYPE_FUNC: OBJECT_MODL_IN_FUNC,
+        TYPE_LIST: OBJECT_MODL_IN_LIST,
+        TYPE_MODL: OBJECT_MODL_IN_MODL,
+        TYPE_NONE: OBJECT_MODL_IN_NONE,
+        TYPE_TUPL: OBJECT_MODL_IN_TUPL,
+    },
+    TYPE_NONE: {
+        TYPE_DICT: OBJECT_NONE_IN_DICT,
+        TYPE_FUNC: OBJECT_NONE_IN_FUNC,
+        TYPE_LIST: OBJECT_NONE_IN_LIST,
+        TYPE_MODL: OBJECT_NONE_IN_MODL,
+        TYPE_NONE: OBJECT_NONE_IN_NONE,
+        TYPE_TUPL: OBJECT_NONE_IN_TUPL,
+    },
+    TYPE_STR: {
+        TYPE_DICT: OBJECT_STR_IN_DICT,
+        TYPE_FUNC: OBJECT_STR_IN_FUNC,
+        TYPE_LIST: OBJECT_STR_IN_LIST,
+        TYPE_MODL: OBJECT_STR_IN_MODL,
+        TYPE_NONE: OBJECT_STR_IN_NONE,
+        TYPE_TUPL: OBJECT_STR_IN_TUPL,
+    },
+    TYPE_TUPL: {
+        TYPE_DICT: OBJECT_TUPL_IN_DICT,
+        TYPE_FUNC: OBJECT_TUPL_IN_FUNC,
+        TYPE_LIST: OBJECT_TUPL_IN_LIST,
+        TYPE_MODL: OBJECT_TUPL_IN_MODL,
+        TYPE_NONE: OBJECT_TUPL_IN_NONE,
+        TYPE_TUPL: OBJECT_TUPL_IN_TUPL,
+    },
+    TYPE_UNK: {
+        TYPE_DICT: OBJECT_UNK_IN_DICT,
+        TYPE_FUNC: OBJECT_UNK_IN_FUNC,
+        TYPE_LIST: OBJECT_UNK_IN_LIST,
+        TYPE_MODL: OBJECT_UNK_IN_MODL,
+        TYPE_NONE: OBJECT_UNK_IN_NONE,
+        TYPE_TUPL: OBJECT_UNK_IN_TUPL,
+    },
+}
 
 
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * Start of returnContainerValsDict
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-def returnContainerValsDict(*,
-    containerType_,
-    indentIn_,
-    nameIn_,
-):
-  # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  if (
-      (containerType_ == OBJECT_DICT_IN_DICT)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)}: {OBRCE}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_DICT_IN_FUNC)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_DICT_IN_LIST)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){OBRCE}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_DICT_IN_MODL)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_DICT_IN_NONE)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){fixKeys(nameIn_)} = {OBRCE}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_DICT_IN_TUPL)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(dict){OBRCE}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NTAB(indentIn_)}{CBRCE},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-  return {
-      STR_ASSIGN: None,
-      STR_END: None,
-      STR_FINAL: None,
-  }
-  # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * End of returnContainerValsDict
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 
 
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * Start of returnContainerValsFunc
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-def returnContainerValsFunc(*,
-    containerType_,
-    indentIn_,
-    nameIn_,
-):
-  # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  if (
-      (containerType_ == OBJECT_FUNC_IN_DICT)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
-    _strEnd_ = f""""""
-    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_FUNC_IN_FUNC)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
-    _strEnd_ = f""""""
-    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_FUNC_IN_LIST)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
-    _strEnd_ = f""""""
-    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_FUNC_IN_MODL)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
-    _strEnd_ = f""""""
-    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_FUNC_IN_NONE)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
-    _strEnd_ = f""""""
-    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_FUNC_IN_TUPL)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(func){nameIn_}(<params follow>):{NEWLINE}"""
-    _strEnd_ = f""""""
-    _strFinal_ = f"""{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-  return {
-      STR_ASSIGN: None,
-      STR_END: None,
-      STR_FINAL: None,
-  }
-  # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * End of returnContainerValsFunc
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 
 
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * Start of returnContainerValsList
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-def returnContainerValsList(*,
-    containerType_,
-    indentIn_,
-    nameIn_,
-):
-  # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  if (
-      (containerType_ == OBJECT_LIST_IN_DICT)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(list){fixKeys(nameIn_)}: {OBRKT}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NEWLINE}{NTAB(indentIn_)}{CBRKT},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_LIST_IN_FUNC)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(list){nameIn_} = {OBRKT}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NEWLINE}{NTAB(indentIn_)}{CBRKT}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_LIST_IN_LIST)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(list){OBRKT}{NEWLINE}"""
-    _strEnd_ = f""""""
-    _strFinal_ = f"""{NEWLINE}{NTAB(indentIn_)}{CBRKT},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_LIST_IN_MODL)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(list){nameIn_} = {OBRKT}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NEWLINE}{NTAB(indentIn_)}{CBRKT}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_LIST_IN_NONE)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(list){nameIn_} = {OBRKT}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NEWLINE}{NTAB(indentIn_)}{CBRKT}{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  if (
-      (containerType_ == OBJECT_LIST_IN_TUPL)
-  ):
-    _strAssign_ = f"""{NINDENT_IN(indentIn_)}(list){OBRKT}{NEWLINE}"""
-    _strEnd_ = f""",{NEWLINE}"""
-    _strFinal_ = f"""{NEWLINE}{NTAB(indentIn_)}{CBRKT},{NEWLINE}{NINDENT_OUT(indentIn_)}{NEWLINE}"""
-    return {
-        STR_ASSIGN: _strAssign_,
-        STR_END: _strEnd_,
-        STR_FINAL: _strFinal_,
-    }
-
-  return {
-      STR_ASSIGN: None,
-      STR_END: None,
-      STR_FINAL: None,
-  }
-  # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-# * End of returnContainerValsList
-# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 
 
 
