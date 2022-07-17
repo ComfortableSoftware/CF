@@ -1,9 +1,8 @@
 
 
-from CF.CLASSES_D import _01_REPR_VARS as V
+from CF.SUBM_D import _00_VALS_IN as CF_V
 
-
-locals().update(V.ALL_THE_VALS)
+locals().update(CF_V.ALL_THE_VALS)
 V = None
 
 
