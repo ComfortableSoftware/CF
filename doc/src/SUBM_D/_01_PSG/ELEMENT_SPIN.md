@@ -2,7 +2,7 @@ Get = get\(self\)
 
 Update = update\(self, value=None, values=None, disabled=None, readonly=None, visible=None\)
 
-__init__\(self, values, initial_value=None, disabled=False, change_submits=False, enable_events=False, readonly=False, size=\(None, None\), s=\(None, None\), auto_size_text=None, font=None, background_color=None, text_color=None, key=None, k=None, pad=None, p=None, tooltip=None, right_click_menu=None, expand_x=False, expand_y=False, visible=True, metadata=None\)
+\_\_init\_\_\(self, values, initial_value=None, disabled=False, change_submits=False, enable_events=False, readonly=False, size=\(None, None\), s=\(None, None\), auto_size_text=None, font=None, background_color=None, text_color=None, key=None, k=None, pad=None, p=None, tooltip=None, right_click_menu=None, expand_x=False, expand_y=False, visible=True, metadata=None\)
     :param values:           List of valid values
     :type values:            Tuple\[Any] or List\[Any]
     :param initial_value:    Initial item to show in window. Choose from list of values supplied

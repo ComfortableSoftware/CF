@@ -1,4 +1,4 @@
-__init__\(self, color=None, pad=None, p=None, key=None, k=None\)
+\_\_init\_\_\(self, color=None, pad=None, p=None, key=None, k=None\)
     :param color: Color of the line. Defaults to theme's text color. Can be name or #RRGGBB format
     :type color:  \(str\)
     :param pad:   Amount of padding to put around element in pixels \(left/right, top/bottom\) or \(\(left, right\), \(top, bottom\)\) or an int. If an int, then it's converted into a tuple \(int, int\)

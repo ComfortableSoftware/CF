@@ -6,8 +6,8 @@ SetValue = set_value\(self, values\)
 
 Update = update\(self, values=None, disabled=None, set_to_index=None, scroll_to_index=None, select_mode=None, visible=None\)
 
-__init__\(self, values, default_values=None, select_mode=None, change_submits=False, enable_events=False, bind_return_key=False, size=\(None, None\), s=\(None, None\), disabled=False, auto_size_text=None, font=None, no_scrollbar=False, horizontal_scroll=False, background_color=None, text_color=None, highlight_background_color=None, highlight_text_color=None, key=None, k=None, pad=None, p=None, tooltip=None, expand_x=False, expand_y=False, right_click_menu=None, visible=True, metadata=None\)
-    :param values:                     list of values to display. Can be any type including mixed types as long as they have __str__ method
+\_\_init\_\_\(self, values, default_values=None, select_mode=None, change_submits=False, enable_events=False, bind_return_key=False, size=\(None, None\), s=\(None, None\), disabled=False, auto_size_text=None, font=None, no_scrollbar=False, horizontal_scroll=False, background_color=None, text_color=None, highlight_background_color=None, highlight_text_color=None, key=None, k=None, pad=None, p=None, tooltip=None, expand_x=False, expand_y=False, right_click_menu=None, visible=True, metadata=None\)
+    :param values:                     list of values to display. Can be any type including mixed types as long as they have \_\_str\_\_ method
     :type values:                      List\[Any\] or Tuple\[Any\]
     :param default_values:             which values should be initially selected
     :type default_values:              List\[Any\]

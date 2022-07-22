@@ -4,7 +4,7 @@ Layout = layout\(self, rows\)
 
 Update = update\(self, value=None, visible=None\)
 
-__init__\(self, title, layout, title_color=None, background_color=None, title_location=None, relief='groove', size=\(None, None\), s=\(None, None\), font=None, pad=None, p=None, border_width=None, key=None, k=None, tooltip=None, right_click_menu=None, expand_x=False, expand_y=False, grab=None, visible=True, element_justification='left', vertical_alignment=None, metadata=None\)
+\_\_init\_\_\(self, title, layout, title_color=None, background_color=None, title_location=None, relief='groove', size=\(None, None\), s=\(None, None\), font=None, pad=None, p=None, border_width=None, key=None, k=None, tooltip=None, right_click_menu=None, expand_x=False, expand_y=False, grab=None, visible=True, element_justification='left', vertical_alignment=None, metadata=None\)
     :param title:                 text that is displayed as the Frame's "label" or title
     :type title:                  \(str\)
     :param layout:                The layout to put inside the Frame

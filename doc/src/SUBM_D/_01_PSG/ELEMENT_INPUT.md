@@ -2,7 +2,7 @@ Get = get\(self\)
 
 Update = update\(self, value=None, disabled=None, select=None, visible=None, text_color=None, background_color=None, move_cursor_to='end', password_char=None, paste=None\)
 
-__init__\(self, default_text='', size=\(None, None\), s=\(None, None\), disabled=False, password_char='', justification=None, background_color=None, text_color=None, font=None, tooltip=None, border_width=None, change_submits=False, enable_events=False, do_not_clear=True, key=None, k=None, focus=False, pad=None, p=None, use_readonly_for_disable=True, readonly=False, disabled_readonly_background_color=None, disabled_readonly_text_color=None, expand_x=False, expand_y=False, right_click_menu=None, visible=True, metadata=None\)
+\_\_init\_\_\(self, default_text='', size=\(None, None\), s=\(None, None\), disabled=False, password_char='', justification=None, background_color=None, text_color=None, font=None, tooltip=None, border_width=None, change_submits=False, enable_events=False, do_not_clear=True, key=None, k=None, focus=False, pad=None, p=None, use_readonly_for_disable=True, readonly=False, disabled_readonly_background_color=None, disabled_readonly_text_color=None, expand_x=False, expand_y=False, right_click_menu=None, visible=True, metadata=None\)
     :param default_text:                       Text initially shown in the input box as a default value\(Default value = ''\). Will automatically be converted to string
     :type default_text:                        \(Any\)
     :param size:                               w=characters-wide, h=rows-high. If an int is supplied rather than a tuple, then a tuple is created width=int supplied and heigh=1

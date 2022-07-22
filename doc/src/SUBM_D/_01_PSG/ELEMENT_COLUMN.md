@@ -4,7 +4,7 @@ Layout = layout\(self, rows\)
 
 Update = update\(self, visible=None\)
 
-__init__\(self, layout, background_color=None, size=\(None, None\), s=\(None, None\), pad=None, p=None, scrollable=False, vertical_scroll_only=False, right_click_menu=None, key=None, k=None, visible=True, justification=None, element_justification=None, vertical_alignment=None, grab=None, expand_x=None, expand_y=None, metadata=None\)
+\_\_init\_\_\(self, layout, background_color=None, size=\(None, None\), s=\(None, None\), pad=None, p=None, scrollable=False, vertical_scroll_only=False, right_click_menu=None, key=None, k=None, visible=True, justification=None, element_justification=None, vertical_alignment=None, grab=None, expand_x=None, expand_y=None, metadata=None\)
     :param layout:                Layout that will be shown in the Column container
     :type layout:                 List\[List\[Element\]\]
     :param background_color:      color of background of entire Column

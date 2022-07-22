@@ -4,7 +4,7 @@ ResetGroup = reset_group\(self\)
 
 Update = update\(self, value=None, text=None, background_color=None, text_color=None, circle_color=None, disabled=None, visible=None\)
 
-__init__\(self, text, group_id, default=False, disabled=False, size=\(None, None\), s=\(None, None\), auto_size_text=None, background_color=None, text_color=None, circle_color=None, font=None, key=None, k=None, pad=None, p=None, tooltip=None, change_submits=False, enable_events=False, right_click_menu=None, expand_x=False, expand_y=False, visible=True, metadata=None\)
+\_\_init\_\_\(self, text, group_id, default=False, disabled=False, size=\(None, None\), s=\(None, None\), auto_size_text=None, background_color=None, text_color=None, circle_color=None, font=None, key=None, k=None, pad=None, p=None, tooltip=None, change_submits=False, enable_events=False, right_click_menu=None, expand_x=False, expand_y=False, visible=True, metadata=None\)
     :param text:             Text to display next to button
     :type text:              \(str\)
     :param group_id:         Groups together multiple Radio Buttons. Any type works
