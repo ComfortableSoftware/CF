@@ -5,9 +5,9 @@ total 608K
  20K -rw-r--r-- 1 will will  18K Jan 17  2022 .py
 4.0K -rw-r--r-- 1 will will 2.1K Dec 14  2021 _00_GET_ROOT_DIR.py
 4.0K -rw-r--r-- 1 will will 1.4K Dec 14  2021 _00_GMT.py
- 32K -rw-r--r-- 1 will will  31K May  3 19:15 _00_ITERABLES.py
+ 32K -rw-r--r-- 1 will will  31K May  3 19:15 .py
  16K -rw-r--r-- 1 will will  14K Dec 14  2021 _00_MAKE_ALL.py
-112K -rw-r--r-- 1 will will 111K Jun 18 19:48 _00_OS.py
+112K -rw-r--r-- 1 will will 111K Jun 18 19:48 .py
  28K -rw-r--r-- 1 will will  27K Jul 12 13:20 _00_OS_VARS.py
 8.0K -rw-r--r-- 1 will will 4.5K Apr  2 02:31 _00_PATHLIB.py
 4.0K -rw-r--r-- 1 will will 1.5K Dec 14  2021 _00_PL_MKDIR.py
