@@ -31,6 +31,7 @@ ALL_THE_VALS = {
     "K_DISABLED_READONLY_TEXT_COLOR": "disabled_readonly_text_color",
     "K_DISABLED": "disabled",
     "K_DO_NOT_CLEAR": "do_not_clear",
+    "K_ELEMENT_JUSTIFICATION": "element_justification",
     "K_ENABLE_EVENTS": "enable_events",
     "K_EVENT": "K_EVENT",
     "K_EXPAND_X": "expand_x",
@@ -51,6 +52,7 @@ ALL_THE_VALS = {
     "K_KEY_IN" = "key_in",
     "K_KEY": "key",
     "K_KWARGS" = "kwargs_",
+    "K_LAYOUT": "layout",
     "K_METADATA": "metadata",
     "K_MOUSEOVER_COLORS": "mouseover_colors",
     "K_MOVE_CURSOR_TO": "move_cursor_to",
@@ -62,6 +64,7 @@ ALL_THE_VALS = {
     "K_RELIEF": "relief",
     "K_RIGHT_CLICK_MENU": "right_click_menu",
     "K_S": "s",
+    "K_SCROLLABLE": "scrollable",
     "K_SELECT": "select",
     "K_SIZE": "size",
     "K_TARGET": "target",
@@ -72,6 +75,8 @@ ALL_THE_VALS = {
     "K_USE_TTK_BUTTONS": "use_ttk_buttons",
     "K_VALUE": "value",
     "K_VALUES": "K_VALUES",
+    "K_VERTICAL_ALIGNMENT": "vertical_alignment",
+    "K_VERTICAL_SCROLL_ONLY": "vertical_scroll_only",
     "K_VISIBLE": "visible",
 }
 locals().update(ALL_THE_VALS)
