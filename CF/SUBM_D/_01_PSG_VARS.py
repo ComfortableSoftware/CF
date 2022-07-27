@@ -16,7 +16,10 @@ ALL_THE_VALS = {
     "K_AUTO_SIZE_TEXT": "auto_size_text",
     "K_BACKGROUND_COLOR": "background_color",
     "K_BIND_RETURN_KEY": "bind_return_key",
+    "K_BIND_RETURN_KEY": "bind_return_key",
     "K_BORDER_WIDTH": "border_width",
+    "K_BUTTON_ARROW_COLOR": "button_arrow_color",
+    "K_BUTTON_BACKGROUND_COLOR": "button_background_color",
     "K_BUTTON_COLOR": "button_color",
     "K_BUTTON_TEXT": "button_text",
     "K_BUTTON_TYPE": "button_type",
@@ -25,6 +28,7 @@ ALL_THE_VALS = {
     "K_CLICK_SUBMITS": "click_submits",
     "K_DEFAULT_EXTENSION": "default_extension",
     "K_DEFAULT_TEXT": "default_text",
+    "K_DEFAULT_VALUE": "default_value",
     "K_DEFAULT": "default",
     "K_DISABLED_BUTTON_COLOR": "disabled_button_color",
     "K_DISABLED_READONLY_BACKGROUND_COLOR": "disabled_readonly_background_color",
@@ -66,6 +70,7 @@ ALL_THE_VALS = {
     "K_S": "s",
     "K_SCROLLABLE": "scrollable",
     "K_SELECT": "select",
+    "K_SET_TO_INDEX": "set_to_index",
     "K_SIZE": "size",
     "K_TARGET": "target",
     "K_TEXT_COLOR": "text_color",
@@ -75,9 +80,11 @@ ALL_THE_VALS = {
     "K_USE_TTK_BUTTONS": "use_ttk_buttons",
     "K_VALUE": "value",
     "K_VALUES": "K_VALUES",
+    "K_VALUES": "values",
     "K_VERTICAL_ALIGNMENT": "vertical_alignment",
     "K_VERTICAL_SCROLL_ONLY": "vertical_scroll_only",
     "K_VISIBLE": "visible",
+
 }
 locals().update(ALL_THE_VALS)
 
