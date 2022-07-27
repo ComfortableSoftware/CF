@@ -112,6 +112,34 @@ K_TOOLTIP
 K_VERTICAL_ALIGNMENT
 K_VISIBLE
 
+values
+default_values
+select_mode
+change_submits
+enable_events
+bind_return_key
+size
+s
+disabled
+auto_size_text
+font
+no_scrollbar
+horizontal_scroll
+background_color
+text_color
+highlight_background_color
+highlight_text_color
+key
+k
+pad
+p
+tooltip
+expand_x
+expand_y
+right_click_menu
+visible
+metadata
+
 }
 locals().update(ALL_THE_VALS)
 
