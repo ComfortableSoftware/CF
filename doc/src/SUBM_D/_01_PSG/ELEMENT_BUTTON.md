@@ -1,6 +1,8 @@
+
+
+
   - ButtonCallBack\(self\)
     - Not user callable! Called by tkinter when a button is clicked.  This is where all the fun begins!
-
   - ButtonPressCallBack\(self, parm\)
     - Not a user callable method. Callback called by tkinter when a "realtime" button is pressed
       - :param parm: Event info passed in by tkinter

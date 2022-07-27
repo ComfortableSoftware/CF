@@ -23,8 +23,12 @@ ALL_THE_VALS = {
     "K_CHANGE_SUBMITS": "change_submits",
     "K_CLICK_SUBMITS": "click_submits",
     "K_DEFAULT_EXTENSION": "default_extension",
+    "K_DEFAULT_TEXT": "default_text",
     "K_DISABLED_BUTTON_COLOR": "disabled_button_color",
+    "K_DISABLED_READONLY_BACKGROUND_COLOR": "disabled_readonly_background_color",
+    "K_DISABLED_READONLY_TEXT_COLOR": "disabled_readonly_text_color",
     "K_DISABLED": "disabled",
+    "K_DO_NOT_CLEAR": "do_not_clear",
     "K_ENABLE_EVENTS": "enable_events",
     "K_EVENT": "K_EVENT",
     "K_EXPAND_X": "expand_x",
@@ -49,6 +53,8 @@ ALL_THE_VALS = {
     "K_MOUSEOVER_COLORS": "mouseover_colors",
     "K_P": "p",
     "K_PAD": "pad",
+    "K_PASSWORD_CHAR": "password_char",
+    "K_READONLY": "readonly",
     "K_RELIEF": "relief",
     "K_RIGHT_CLICK_MENU": "right_click_menu",
     "K_S": "s",
@@ -57,10 +63,20 @@ ALL_THE_VALS = {
     "K_TEXT_COLOR": "text_color",
     "K_TEXT": "text",
     "K_TOOLTIP": "tooltip",
+    "K_USE_READONLY_FOR_DISABLE": "use_readonly_for_disable",
     "K_USE_TTK_BUTTONS": "use_ttk_buttons",
     "K_VALUE": "value",
     "K_VALUES": "K_VALUES",
     "K_VISIBLE": "visible",
+value
+disabled
+select
+visible
+text_color
+background_color
+move_cursor_to
+password_char
+paste
 }
 locals().update(ALL_THE_VALS)
 
