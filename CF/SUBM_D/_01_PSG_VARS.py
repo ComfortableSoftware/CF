@@ -21,9 +21,11 @@ ALL_THE_VALS = {
     "K_BUTTON_TEXT": "button_text",
     "K_BUTTON_TYPE": "button_type",
     "K_CHANGE_SUBMITS": "change_submits",
+    "K_CHECKBOX_COLOR": "checkbox_color",
     "K_CLICK_SUBMITS": "click_submits",
     "K_DEFAULT_EXTENSION": "default_extension",
     "K_DEFAULT_TEXT": "default_text",
+    "K_DEFAULT": "default",
     "K_DISABLED_BUTTON_COLOR": "disabled_button_color",
     "K_DISABLED_READONLY_BACKGROUND_COLOR": "disabled_readonly_background_color",
     "K_DISABLED_READONLY_TEXT_COLOR": "disabled_readonly_text_color",
@@ -51,13 +53,16 @@ ALL_THE_VALS = {
     "K_KWARGS" = "kwargs_",
     "K_METADATA": "metadata",
     "K_MOUSEOVER_COLORS": "mouseover_colors",
+    "K_MOVE_CURSOR_TO": "move_cursor_to",
     "K_P": "p",
     "K_PAD": "pad",
     "K_PASSWORD_CHAR": "password_char",
+    "K_PASTE": "paste",
     "K_READONLY": "readonly",
     "K_RELIEF": "relief",
     "K_RIGHT_CLICK_MENU": "right_click_menu",
     "K_S": "s",
+    "K_SELECT": "select",
     "K_SIZE": "size",
     "K_TARGET": "target",
     "K_TEXT_COLOR": "text_color",
@@ -68,15 +73,6 @@ ALL_THE_VALS = {
     "K_VALUE": "value",
     "K_VALUES": "K_VALUES",
     "K_VISIBLE": "visible",
-value
-disabled
-select
-visible
-text_color
-background_color
-move_cursor_to
-password_char
-paste
 }
 locals().update(ALL_THE_VALS)
 
