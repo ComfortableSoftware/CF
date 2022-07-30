@@ -16,7 +16,6 @@ ALL_THE_VALS = {
     "K_AUTO_SIZE_TEXT": "auto_size_text",
     "K_BACKGROUND_COLOR": "background_color",
     "K_BIND_RETURN_KEY": "bind_return_key",
-    "K_BIND_RETURN_KEY": "bind_return_key",
     "K_BORDER_WIDTH": "border_width",
     "K_BUTTON_ARROW_COLOR": "button_arrow_color",
     "K_BUTTON_BACKGROUND_COLOR": "button_background_color",
@@ -29,6 +28,7 @@ ALL_THE_VALS = {
     "K_DEFAULT_EXTENSION": "default_extension",
     "K_DEFAULT_TEXT": "default_text",
     "K_DEFAULT_VALUE": "default_value",
+    "K_DEFAULT_VALUES": "default_values",
     "K_DEFAULT": "default",
     "K_DISABLED_BUTTON_COLOR": "disabled_button_color",
     "K_DISABLED_READONLY_BACKGROUND_COLOR": "disabled_readonly_background_color",
@@ -45,7 +45,10 @@ ALL_THE_VALS = {
     "K_FONT": "font",
     "K_FRAME_IN": "frame_in_"
     "K_GRAB": "grab",
+    "K_HIGHLIGHT_BACKGROUND_COLOR": "highlight_background_color",
     "K_HIGHLIGHT_COLORS": "highlight_colors",
+    "K_HIGHLIGHT_TEXT_COLOR": "highlight_text_color",
+    "K_HORIZONTAL_SCROLL": "horizontal_scroll",
     "K_IMAGE_DATA": "image_data",
     "K_IMAGE_FILENAME": "image_filename",
     "K_IMAGE_SIZE": "image_size",
@@ -60,6 +63,7 @@ ALL_THE_VALS = {
     "K_METADATA": "metadata",
     "K_MOUSEOVER_COLORS": "mouseover_colors",
     "K_MOVE_CURSOR_TO": "move_cursor_to",
+    "K_NO_SCROLLBAR": "no_scrollbar",
     "K_P": "p",
     "K_PAD": "pad",
     "K_PASSWORD_CHAR": "password_char",
@@ -68,77 +72,26 @@ ALL_THE_VALS = {
     "K_RELIEF": "relief",
     "K_RIGHT_CLICK_MENU": "right_click_menu",
     "K_S": "s",
+    "K_SCROLL_TO_INDEX_": "scroll_to_index_",
     "K_SCROLLABLE": "scrollable",
+    "K_SELECT_MODE": "select_mode",
     "K_SELECT": "select",
     "K_SET_TO_INDEX": "set_to_index",
     "K_SIZE": "size",
     "K_TARGET": "target",
     "K_TEXT_COLOR": "text_color",
     "K_TEXT": "text",
+    "K_TITLE_COLOR": "title_color",
+    "K_TITLE_LOCATION": "title_location",
+    "K_TITLE": "title",
     "K_TOOLTIP": "tooltip",
     "K_USE_READONLY_FOR_DISABLE": "use_readonly_for_disable",
     "K_USE_TTK_BUTTONS": "use_ttk_buttons",
     "K_VALUE": "value",
-    "K_VALUES": "K_VALUES",
     "K_VALUES": "values",
     "K_VERTICAL_ALIGNMENT": "vertical_alignment",
     "K_VERTICAL_SCROLL_ONLY": "vertical_scroll_only",
     "K_VISIBLE": "visible",
-
-
-
-
-K_BACKGROUND_COLOR
-K_BORDER_WIDTH
-K_ELEMENT_JUSTIFICATION
-K_EXPAND_X
-K_EXPAND_Y
-K_FONT
-K_GRAB
-K_K
-K_KEY
-K_LAYOUT
-K_METADATA
-K_P
-K_PAD
-K_RELIEF
-K_RIGHT_CLICK_MENU
-K_S
-K_SIZE
-K_TITLE
-K_TITLE_COLOR
-K_TITLE_LOCATION
-K_TOOLTIP
-K_VERTICAL_ALIGNMENT
-K_VISIBLE
-
-values
-default_values
-select_mode
-change_submits
-enable_events
-bind_return_key
-size
-s
-disabled
-auto_size_text
-font
-no_scrollbar
-horizontal_scroll
-background_color
-text_color
-highlight_background_color
-highlight_text_color
-key
-k
-pad
-p
-tooltip
-expand_x
-expand_y
-right_click_menu
-visible
-metadata
 
 }
 locals().update(ALL_THE_VALS)
