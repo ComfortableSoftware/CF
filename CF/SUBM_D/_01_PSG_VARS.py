@@ -92,7 +92,29 @@ ALL_THE_VALS = {
     "K_VERTICAL_ALIGNMENT": "vertical_alignment",
     "K_VERTICAL_SCROLL_ONLY": "vertical_scroll_only",
     "K_VISIBLE": "visible",
-
+text_
+group_id_
+default_
+disabled_
+size_
+s_
+auto_size_text_
+background_color_
+text_color_
+circle_color_
+font_
+key_
+k_
+pad_
+p_
+tooltip_
+change_submits_
+enable_events_
+right_click_menu_
+expand_x_
+expand_y_
+visible_
+metadata_
 }
 locals().update(ALL_THE_VALS)
 
