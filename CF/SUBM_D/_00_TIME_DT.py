@@ -449,4 +449,31 @@ def USGS2LocalTime(usgsTimeZ):
 #
 #
 
+ALL_THE_VALS = {
+    "dateIntvl": dateIntvl,
+    "dateToStr": dateToStr,
+    "gmdate": gmdate,
+    "ISO2TS": ISO2TS,
+    "now": now,
+    "nowStr": nowStr,
+    "nowStrHMS": nowStrHMS,
+    "relSecondsDiff": relSecondsDiff,
+    "relTimeDiff": relTimeDiff,
+    "relTimeDiffStripped": relTimeDiffStripped,
+    "timeHoler": timeHoler,
+    "timestamp": timestamp,
+    "timestampTrim": timestampTrim,
+    "today": today,
+    "todayStr": todayStr,
+    "todayStrFull": todayStrFull,
+    "tomorrow": tomorrow,
+    "tomorrowStr": tomorrowStr,
+    "toStr": toStr,
+    "TS2ISO": TS2ISO,
+    "TS2ISO": TS2ISO,
+    "yesterday": yesterday,
+    "yesterdayStr": yesterdayStr,
+}
+
+
 #

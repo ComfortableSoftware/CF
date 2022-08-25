@@ -240,6 +240,8 @@ FTL_VIDS = [
     ".mpeg",
     ".mpg",
     ".mpg1",
+    ".ogv",
+    ".qt",
     ".vcr2",
     ".video",
     ".webm",
