@@ -17,6 +17,7 @@ locals().update(CF_V.ALL_THE_VALS)
 
 ARGV = sys.argv
 ARGS = None
+ARGS_UNKNOWN = None
 PARSER = None
 LOUDNESS = -1
 ABS_DOT = path.abspath(path.expanduser("."))

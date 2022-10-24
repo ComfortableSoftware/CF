@@ -2,17 +2,18 @@
 
 from CF.SUBM_D import _00_VALS_IN as CF_V
 from os import path as OSPATH
+from pathlib import Path as LPATH
 import glob
 import inspect as INS
 import os  ## uses *
-import re  ## uses sub
+import re  ## uses sub and split
 import subprocess as SP
-from sys import exit as _exit_
+import sys as SYS
 
 
 V = None
 locals().update(CF_V.ALL_THE_VALS)
-EXIT = _exit_
+EXIT = SYS.exit
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -421,46 +422,46 @@ def SP_FIND_FILES(*,
 
 
 ALL_THE_KEYS = {
+    "K_ACCESS_TIME": K_ACCESS_TIME,
+    "K_BLOCKS_ALLOCATED": K_BLOCKS_ALLOCATED,
+    "K_CHANGED_TIME": K_CHANGED_TIME,
+    "K_DEFAULT": K_DEFAULT,
+    "K_DIR": K_DIR,
+    "K_EXTENSION": K_EXTENSION,
     "K_F_OK": K_F_OK,
+    "K_FILENAME": K_FILENAME,
+    "K_FILETYPE": K_FILETYPE,
+    "K_FT_CODE": K_FT_CODE,
+    "K_FT_DATA": K_FT_DATA,
+    "K_FT_DOCS": K_FT_DOCS,
+    "K_FT_PICS": K_FT_PICS,
+    "K_FT_SNDS": K_FT_SNDS,
+    "K_FT_TEXT": K_FT_TEXT,
+    "K_FT_UNKNOWN": K_FT_UNKNOWN,
+    "K_FT_VIDS": K_FT_VIDS,
+    "K_GID": K_GID,
+    "K_I_CAN_EXECUTE": K_I_CAN_EXECUTE,
+    "K_I_CAN_READ": K_I_CAN_READ,
+    "K_I_CAN_WRITE": K_I_CAN_WRITE,
+    "K_IS_A_DIR": K_IS_A_DIR,
+    "K_IS_A_FILE": K_IS_A_FILE,
+    "K_IS_A_KNOWN_FILE_TYPE": K_IS_A_KNOWN_FILE_TYPE,
+    "K_IS_A_SYMLINK": K_IS_A_SYMLINK,
+    "K_JUST_FILENAME": K_JUST_FILENAME,
+    "K_LAST": K_LAST,
+    "K_LIST": K_LIST,
+    "K_MODE": K_MODE,
+    "K_MODIFY_TIME": K_MODIFY_TIME,
+    "K_NEW_FILENAME": K_NEW_FILENAME,
+    "K_NUMS": K_NUMS,
+    "K_PATH": K_PATH,
+    "K_QUIT": K_QUIT,
     "K_R_OK": K_R_OK,
+    "K_SIZE": K_SIZE,
+    "K_UID": K_UID,
+    "K_VERSION": K_VERSION,
     "K_W_OK": K_W_OK,
     "K_X_OK": K_X_OK,
-    K_ACCESS_TIME: K_ACCESS_TIME,
-    K_BLOCKS_ALLOCATED: K_BLOCKS_ALLOCATED,
-    K_CHANGED_TIME: K_CHANGED_TIME,
-    K_DEFAULT: K_DEFAULT,
-    K_DIR: K_DIR,
-    K_EXTENSION: K_EXTENSION,
-    K_FILENAME: K_FILENAME,
-    K_FILETYPE: K_FILETYPE,
-    K_FT_CODE: K_FT_CODE,
-    K_FT_DATA: K_FT_DATA,
-    K_FT_DOCS: K_FT_DOCS,
-    K_FT_PICS: K_FT_PICS,
-    K_FT_SNDS: K_FT_SNDS,
-    K_FT_TEXT: K_FT_TEXT,
-    K_FT_UNKNOWN: K_FT_UNKNOWN,
-    K_FT_VIDS: K_FT_VIDS,
-    K_GID: K_GID,
-    K_I_CAN_EXECUTE: K_I_CAN_EXECUTE,
-    K_I_CAN_READ: K_I_CAN_READ,
-    K_I_CAN_WRITE: K_I_CAN_WRITE,
-    K_IS_A_DIR: K_IS_A_DIR,
-    K_IS_A_FILE: K_IS_A_FILE,
-    K_IS_A_KNOWN_FILE_TYPE: K_IS_A_KNOWN_FILE_TYPE,
-    K_IS_A_SYMLINK: K_IS_A_SYMLINK,
-    K_JUST_FILENAME: K_JUST_FILENAME,
-    K_LAST: K_LAST,
-    K_LIST: K_LIST,
-    K_MODE: K_MODE,
-    K_MODIFY_TIME: K_MODIFY_TIME,
-    K_NEW_FILENAME: K_NEW_FILENAME,
-    K_NUMS: K_NUMS,
-    K_PATH: K_PATH,
-    K_QUIT: K_QUIT,
-    K_SIZE: K_SIZE,
-    K_UID: K_UID,
-    K_VERSION: K_VERSION,
 }
 
 
@@ -523,7 +524,7 @@ DEBUG_DATA = {
 
 
 ALL_THE_OS_DATA = {
-    "EXIT": _exit_,
+    "EXIT": EXIT,
 }
 ALL_THE_OS_DATA.update(ALL_THE_KEYS)
 ALL_THE_OS_DATA.update(FILESYSTEM_DATA)
