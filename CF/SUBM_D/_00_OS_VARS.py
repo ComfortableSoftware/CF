@@ -13,7 +13,11 @@ import sys as SYS
 
 V = None
 locals().update(CF_V.ALL_THE_VALS)
+
+ARGV = SYS.argv
 EXIT = SYS.exit
+OS = os
+RE = re
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -108,10 +112,10 @@ def E_ENTRY():
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * Sanity Checks
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-DIR_BLACK_LIST = "[a-zA-Z0-9./]+"
-DIR_WHITE_LIST = "[^a-zA-Z0-9./]+"
-FILE_BLACK_LIST = "[a-zA-Z0-9.]+"
-FILE_WHITE_LIST = "[^a-zA-Z0-9.]+"
+DIR_BLACK_LIST = "[a-zA-Z0-9./]"
+DIR_WHITE_LIST = "[^a-zA-Z0-9\-_\./]"
+FILE_BLACK_LIST = "[a-zA-Z0-9.]"
+FILE_WHITE_LIST = "[^a-zA-Z0-9\-_\.]"
 
 
 ILLEGALPATHS = [  # list of absolute paths to be completely ignored if used
@@ -524,7 +528,16 @@ DEBUG_DATA = {
 
 
 ALL_THE_OS_DATA = {
+    "ARGV": ARGV,
+    "CF_V": CF_V,
     "EXIT": EXIT,
+    "INS": INS,
+    "LPATH": LPATH,
+    "OS": OS,
+    "OSPATH": OSPATH,
+    "RE": RE,
+    "SP": SP,
+    "SYS": SYS,
 }
 ALL_THE_OS_DATA.update(ALL_THE_KEYS)
 ALL_THE_OS_DATA.update(FILESYSTEM_DATA)

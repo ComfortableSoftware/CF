@@ -13,7 +13,14 @@ from CF.SUBM_D import _00_OS_VARS as V
 
 
 V.V = V
-locals().update(V.ALL_THE_OS_DATA)
+ALL_THE_OS_DATA = V.ALL_THE_OS_DATA
+ARGV = V.ARGV
+EXIT = V.EXIT
+OS = V.OS
+RE = V.RE
+
+
+locals().update(ALL_THE_OS_DATA)
 
 
 ABS_PATH = V.OSPATH.abspath
@@ -56,10 +63,12 @@ LNS = V.os.symlink
 LPATH = V.LPATH
 MKDIR = V.os.mkdir
 MKDIRS = V.os.makedirs
+MV = V.os.rename
 NORM_CASE = V.OSPATH.normcase
 NORM_PATH = V.OSPATH.normpath
 REAL_PATH = V.OSPATH.realpath
 REL_PATH = V.OSPATH.relpath
+RENAME = V.os.rename
 RM = V.os.remove
 RMDIR = V.os.rmdir
 RMDIRS = V.os.removedirs
