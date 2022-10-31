@@ -526,6 +526,7 @@ DEBUG_DATA = {
 
 
 ALL_THE_OS_DATA = {
+    "ALL_THE_VALS": CF_V.ALL_THE_VALS,
     "ARGV": ARGV,
     "CF_V": CF_V,
     "EXIT": EXIT,

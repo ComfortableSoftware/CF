@@ -16,6 +16,7 @@ V = V
 
 
 locals().update(V.ALL_THE_OS_DATA)
+ALL_THE_OS_DATA = V.ALL_THE_OS_DATA
 
 
 ABS_PATH = OSPATH.abspath
@@ -30,6 +31,7 @@ CHOWN = OS.chown
 COMMON_PATH = OSPATH.commonpath
 COMMON_PREFIX = OSPATH.commonprefix
 DIR_NAME = OSPATH.dirname
+ENVIRON = OS.environ
 ESCAPE = GLOB_.escape
 EXISTS = OSPATH.exists
 EXPAND_USER = OSPATH.expanduser
