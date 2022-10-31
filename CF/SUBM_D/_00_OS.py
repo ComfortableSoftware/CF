@@ -12,78 +12,73 @@
 from CF.SUBM_D import _00_OS_VARS as V
 
 
-V.V = V
-ALL_THE_OS_DATA = V.ALL_THE_OS_DATA
-ARGV = V.ARGV
-EXIT = V.EXIT
-OS = V.OS
-RE = V.RE
+V = V
 
 
-locals().update(ALL_THE_OS_DATA)
+locals().update(V.ALL_THE_OS_DATA)
 
 
-ABS_PATH = V.OSPATH.abspath
+ABS_PATH = OSPATH.abspath
 ABS_DOT = ABS_PATH(".")
 
 
-ACCESS = V.os.access
-BASE_NAME = V.OSPATH.basename
-CHDIR = V.os.chdir
-CHMOD = V.os.chmod
-CHOWN = V.os.chown
-COMMON_PATH = V.OSPATH.commonpath
-COMMON_PREFIX = V.OSPATH.commonprefix
-DIR_NAME = V.OSPATH.dirname
-ESCAPE = V.glob.escape
-EXISTS = V.OSPATH.exists
-EXPAND_USER = V.OSPATH.expanduser
-EXPAND_VARS = V.OSPATH.expandvars
-GET_A_TIME = V.OSPATH.getatime
-GET_C_TIME = V.OSPATH.getctime
-GET_M_TIME = V.OSPATH.getmtime
-GET_SIZE = V.OSPATH.getsize
-GETCWD = V.os.getcwd
-GETEGID = V.os.getegid
-GETEUID = V.os.geteuid
-GETGID = V.os.getgid
-GETLOGIN = V.os.getlogin
-GETUID = V.os.getuid
-GLOB = V.glob.glob
-IGLOB = V.glob.iglob
-IS_ABS = V.OSPATH.isabs
-IS_DIR = V.OSPATH.isdir
-IS_FILE = V.OSPATH.isfile
-IS_LINK = V.OSPATH.islink
-IS_MOUNT = V.OSPATH.ismount
-JOIN = V.OSPATH.join
-L_EXISTS = V.OSPATH.lexists
-LN = V.os.link
-LNS = V.os.symlink
-LPATH = V.LPATH
-MKDIR = V.os.mkdir
-MKDIRS = V.os.makedirs
-MV = V.os.rename
-NORM_CASE = V.OSPATH.normcase
-NORM_PATH = V.OSPATH.normpath
-REAL_PATH = V.OSPATH.realpath
-REL_PATH = V.OSPATH.relpath
-RENAME = V.os.rename
-RM = V.os.remove
-RMDIR = V.os.rmdir
-RMDIRS = V.os.removedirs
-SAME_FILE = V.OSPATH.samefile
-SAME_OPEN_FILE = V.OSPATH.sameopenfile
-SAME_STAT = V.OSPATH.samestat
-SPLIT = V.OSPATH.split
-SPLIT_DRIVE = V.OSPATH.splitdrive
-SPLIT_EXT = V.OSPATH.splitext
-STAT = V.os.stat
-SUB = V.re.sub
-SUPPORTS_UNICODE_FILENAMES = V.OSPATH.supports_unicode_filenames
+ACCESS = OS.access
+BASE_NAME = OSPATH.basename
+CHDIR = OS.chdir
+CHMOD = OS.chmod
+CHOWN = OS.chown
+COMMON_PATH = OSPATH.commonpath
+COMMON_PREFIX = OSPATH.commonprefix
+DIR_NAME = OSPATH.dirname
+ESCAPE = GLOB_.escape
+EXISTS = OSPATH.exists
+EXPAND_USER = OSPATH.expanduser
+EXPAND_VARS = OSPATH.expandvars
+GET_A_TIME = OSPATH.getatime
+GET_C_TIME = OSPATH.getctime
+GET_M_TIME = OSPATH.getmtime
+GET_SIZE = OSPATH.getsize
+GETCWD = OS.getcwd
+GETEGID = OS.getegid
+GETEUID = OS.geteuid
+GETGID = OS.getgid
+GETLOGIN = OS.getlogin
+GETUID = OS.getuid
+GLOB = GLOB_.glob
+IGLOB = GLOB_.iglob
+IS_ABS = OSPATH.isabs
+IS_DIR = OSPATH.isdir
+IS_FILE = OSPATH.isfile
+IS_LINK = OSPATH.islink
+IS_MOUNT = OSPATH.ismount
+JOIN = OSPATH.join
+L_EXISTS = OSPATH.lexists
+LN = OS.link
+LNS = OS.symlink
+LPATH = LPATH_
+MKDIR = OS.mkdir
+MKDIRS = OS.makedirs
+MV = OS.rename
+NORM_CASE = OSPATH.normcase
+NORM_PATH = OSPATH.normpath
+REAL_PATH = OSPATH.realpath
+REL_PATH = OSPATH.relpath
+RENAME = OS.rename
+RM = OS.remove
+RMDIR = OS.rmdir
+RMDIRS = OS.removedirs
+SAME_FILE = OSPATH.samefile
+SAME_OPEN_FILE = OSPATH.sameopenfile
+SAME_STAT = OSPATH.samestat
+SPLIT = OSPATH.split
+SPLIT_DRIVE = OSPATH.splitdrive
+SPLIT_EXT = OSPATH.splitext
+STAT = OS.stat
+SUB = RE.sub
+SUPPORTS_UNICODE_FILENAMES = OSPATH.supports_unicode_filenames
 
 
-HOME = f"""{V.OSPATH.expanduser('~')}"""
+HOME = f"""{OSPATH.expanduser('~')}"""
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -92,15 +87,15 @@ HOME = f"""{V.OSPATH.expanduser('~')}"""
 def getDebugInfo(*,
     numTBLinesToRtn_=0,
 ):
-  _previousFrame_ = V.INS.currentframe().f_back.f_back
+  _previousFrame_ = INS.currentframe().f_back.f_back
   _previousPreviousFrame_ = _previousFrame_.f_back.f_back
-  (_PFilename_, _PLinenumber_, _PFunctionName_, _PLines_, _PIndex_) = V.INS.getframeinfo(_previousFrame_)
+  (_PFilename_, _PLinenumber_, _PFunctionName_, _PLines_, _PIndex_) = INS.getframeinfo(_previousFrame_)
   _strToRtn_ = ""
-  _stackFrameResults_ = V.INS.getouterframes(_previousFrame_)
+  _stackFrameResults_ = INS.getouterframes(_previousFrame_)
   if (
       (_previousPreviousFrame_ is not None)
   ):
-    (_PPFilename_, _PPLinenumber_, _PPFunctionName_, _PPLines_, _PPIndex_) = V.INS.getframeinfo(_previousPreviousFrame_)
+    (_PPFilename_, _PPLinenumber_, _PPFunctionName_, _PPLines_, _PPIndex_) = INS.getframeinfo(_previousPreviousFrame_)
     _strToRtn_ += f"""
 file {_PPFilename_}
 line {_PPLinenumber_}
@@ -161,7 +156,7 @@ def doErrorDialog(*,
     message_,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  return V.SP.run(KD_ERROR_DIALOG(
+  return SP.run(KD_ERROR_DIALOG(
       details_=details_,
       message_=message_,
   ))
@@ -178,7 +173,7 @@ def doWarningDialog(*,
     message_,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  return V.SP.run(KD_WARNING_DIALOG_LIST(
+  return SP.run(KD_WARNING_DIALOG_LIST(
       message_=message_,
   ))
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
@@ -212,7 +207,7 @@ ERROR CODE: {code_}
       details_=details_,
       message_=message_,
   )
-  V.EXIT(code_)
+  EXIT(code_)
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * end of throwError
@@ -256,7 +251,7 @@ WARNING:{message_}
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 def whoAmI():
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  _stack_ = V.INS.stack()
+  _stack_ = INS.stack()
   _strToRtn_ = ""
 
   _myFilename_ = _stack_[0][1]
@@ -361,8 +356,8 @@ def deFuxDir(*,
     filenameToDeFux_,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  _thisWhiteTail_ = SUB(V.DIR_WHITE_LIST, "", filenameToDeFux_)
-  _thisBlackTail_ = SUB(V.DIR_BLACK_LIST, "", filenameToDeFux_)
+  _thisWhiteTail_ = SUB(DIR_WHITE_LIST, "", filenameToDeFux_)
+  _thisBlackTail_ = SUB(DIR_BLACK_LIST, "", filenameToDeFux_)
   return _thisWhiteTail_, _thisBlackTail_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -377,8 +372,8 @@ def deFuxFile(*,
     filenameToDeFux_,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  thisWhiteTail_ = SUB(V.FILE_WHITE_LIST, "", filenameToDeFux_)
-  thisBlackTail_ = SUB(V.FILE_BLACK_LIST, "", filenameToDeFux_)
+  thisWhiteTail_ = SUB(FILE_WHITE_LIST, "", filenameToDeFux_)
+  thisBlackTail_ = SUB(FILE_BLACK_LIST, "", filenameToDeFux_)
   return thisWhiteTail_, thisBlackTail_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -401,7 +396,7 @@ def doA2BtnDialog(*,
   ):
     question_ = "Yes or No"
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
-  _result_ = V.SP.run(
+  _result_ = SP.run(
       KD_TWO_BTN_DIALOG(
           message_=question_,
       )
@@ -434,7 +429,7 @@ def doA3BtnDialog(*,
     yesLabel_="yes",
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  _result_ = V.SP.run(V.YES_NO(question_))
+  _result_ = SP.run(YES_NO(question_))
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   if (
       (_result_.returncode == 0)
@@ -461,7 +456,7 @@ def doRun(
     **KWArgs_,
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  _result_ = V.SP.run(*args_, **KWArgs_)
+  _result_ = SP.run(*args_, **KWArgs_)
   return _result_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -611,11 +606,11 @@ An error occurred:  Error code 2 {DEBUG_ERROR_CODES[2]}
         message_=_textStr_,
     )
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
-  _TResult_ = V.SP_FIND_FILES(
+  _TResult_ = SP_FIND_FILES(
       filename_=filename_,
       rootDir_=rootDir_,
   )
-  _result_ = V.SP.run(_TResult_[0], **_TResult_[1])
+  _result_ = SP.run(_TResult_[0], **_TResult_[1])
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   if (
       (_result_.returncode != 0)
@@ -759,8 +754,8 @@ def getMimeTypes(*,
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
   # mimeTypeExt_ = mimetypes.guess_type(fullFileURL_, strict=False)
   # mimeTypeExt_ = mimeTypeExt_[0]
-  # args_, KWin_ = V.SP.FILEDICT(fullFileURL_)
-  # result_ = V.SP.doRun(*args_, **KWin_)
+  # args_, KWin_ = SP.FILEDICT(fullFileURL_)
+  # result_ = SP.doRun(*args_, **KWin_)
   # mimeTypeFileList_ = result_.stdout.split(": ")
   # stdOut_ = mimeTypeFileList_[1]
   # mimeTypeFile_ = stdOut_[:stdOut_.find(";")]
@@ -947,7 +942,7 @@ def inspectMembers(*,
     objToInspect_
 ):
   # fold here ⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1⟱1
-  return V.INS.getmembers(objToInspect_)
+  return INS.getmembers(objToInspect_)
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * End of inspectMembers
@@ -992,17 +987,17 @@ def returnMyEntry(*,
     _entryToRtn_[K_PATH] = osDirEntry_.path
 
     _entryToRtn_[K_GID] = osDirEntry_.stat()[4]
-    _entryToRtn_[K_I_CAN_EXECUTE] = ACCESS(_entryToRtn_[K_PATH], V.K_X_OK)
-    _entryToRtn_[K_I_CAN_READ] = ACCESS(_entryToRtn_[K_PATH], V.K_R_OK)
-    _entryToRtn_[K_I_CAN_WRITE] = ACCESS(_entryToRtn_[K_PATH], V.K_W_OK)
+    _entryToRtn_[K_I_CAN_EXECUTE] = ACCESS(_entryToRtn_[K_PATH], K_X_OK)
+    _entryToRtn_[K_I_CAN_READ] = ACCESS(_entryToRtn_[K_PATH], K_R_OK)
+    _entryToRtn_[K_I_CAN_WRITE] = ACCESS(_entryToRtn_[K_PATH], K_W_OK)
     _entryToRtn_[K_IS_A_DIR] = osDirEntry_.is_dir(follow_symlinks=False)
     _entryToRtn_[K_IS_A_FILE] = osDirEntry_.is_file(follow_symlinks=False)
     _entryToRtn_[K_IS_A_SYMLINK] = osDirEntry_.is_symlink()
     _entryToRtn_[K_MODE] = osDirEntry_.stat()[0] & 0o777
     _entryToRtn_[K_SIZE] = GET_SIZE(osDirEntry_.path)
     _entryToRtn_[K_UID] = osDirEntry_.stat()[5]
-    _entryToRtn_[K_DIR], _entryToRtn_[K_FILENAME] = V.OSPATH.split(_entryToRtn_[K_PATH])
-    _entryToRtn_[K_JUST_FILENAME], _entryToRtn_[K_EXTENSION] = V.OSPATH.splitext(_entryToRtn_[K_FILENAME])
+    _entryToRtn_[K_DIR], _entryToRtn_[K_FILENAME] = OSPATH.split(_entryToRtn_[K_PATH])
+    _entryToRtn_[K_JUST_FILENAME], _entryToRtn_[K_EXTENSION] = OSPATH.splitext(_entryToRtn_[K_FILENAME])
 
     return _entryToRtn_
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
@@ -1082,7 +1077,7 @@ def SCAN_DIR(*,
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1WHIRL()
   _listToRtn_ = []
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
-  with V.os.scandir(rootPath_) as dirEntries_:
+  with OS.scandir(rootPath_) as dirEntries_:
     # 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱
     for _entry_ in dirEntries_:
       _thisEntry_ = E_ENTRY()
@@ -1108,9 +1103,9 @@ def SCAN_DIR(*,
       _thisEntry_[K_SIZE] = _thisStat_.st_size
       _thisEntry_[K_UID] = _thisStat_.st_uid
       # mode entries
-      _thisEntry_[K_I_CAN_EXECUTE] = ACCESS(_thisShortEntry_[K_PATH], V.os.X_OK)
-      _thisEntry_[K_I_CAN_READ] = ACCESS(_thisShortEntry_[K_PATH], V.os.R_OK)
-      _thisEntry_[K_I_CAN_WRITE] = ACCESS(_thisShortEntry_[K_PATH], V.os.W_OK)
+      _thisEntry_[K_I_CAN_EXECUTE] = ACCESS(_thisShortEntry_[K_PATH], OS.X_OK)
+      _thisEntry_[K_I_CAN_READ] = ACCESS(_thisShortEntry_[K_PATH], OS.R_OK)
+      _thisEntry_[K_I_CAN_WRITE] = ACCESS(_thisShortEntry_[K_PATH], OS.W_OK)
       # _thisEntry_[C.K_MODE] = _thisStat_.st_mode is currently unsupported, K_I_CAN_EXECUTE K_I_CAN_READ K_I_CAN_WRITE are slower but effective without adding a lot of other overhead to figure groups
       _listToRtn_.append(_thisEntry_)
     # ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2 ⟰2
@@ -1140,7 +1135,7 @@ def scanADirForFiles(*,
     WHIRL()
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1WHIRL()
   _listToRtn_ = []
-  with V.os.scandir(rootPath_) as dirEntries_:
+  with OS.scandir(rootPath_) as dirEntries_:
     # 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱ 2⟱
     for _thisEntry_ in dirEntries_:
       _thisEntryData_ = returnMyEntry(

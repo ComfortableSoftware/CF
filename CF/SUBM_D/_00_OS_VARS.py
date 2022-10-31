@@ -2,11 +2,11 @@
 
 from CF.SUBM_D import _00_VALS_IN as CF_V
 from os import path as OSPATH
-from pathlib import Path as LPATH
-import glob
+from pathlib import Path as LPATH_
+import glob as GLOB_
 import inspect as INS
-import os  ## uses *
-import re  ## uses sub and split
+import os as OS
+import re as RE
 import subprocess as SP
 import sys as SYS
 
@@ -16,8 +16,6 @@ locals().update(CF_V.ALL_THE_VALS)
 
 ARGV = SYS.argv
 EXIT = SYS.exit
-OS = os
-RE = re
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -29,7 +27,7 @@ K_CHANGED_TIME = "K_CHANGED_TIME"
 K_DEFAULT = "K_DEFAULT"
 K_DIR = "K_DIR"
 K_EXTENSION = "K_EXTENSION"
-K_F_OK = os.F_OK
+K_F_OK = OS.F_OK
 K_FILENAME = "K_FILENAME"
 K_FILETYPE = "K_FILETYPE"
 K_FT_CODE = "K_FT_CODE"
@@ -57,12 +55,12 @@ K_NEW_FILENAME = "K_NEW_FILENAME"
 K_NUMS = "K_NUMS"
 K_PATH = "K_PATH"
 K_QUIT = "K_QUIT"
-K_R_OK = os.R_OK
+K_R_OK = OS.R_OK
 K_SIZE = "K_SIZE"
 K_UID = "K_UID"
 K_VERSION = "K_VERSION"
-K_W_OK = os.W_OK
-K_X_OK = os.X_OK
+K_W_OK = OS.W_OK
+K_X_OK = OS.X_OK
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -531,8 +529,9 @@ ALL_THE_OS_DATA = {
     "ARGV": ARGV,
     "CF_V": CF_V,
     "EXIT": EXIT,
+    "GLOB_": GLOB_,
     "INS": INS,
-    "LPATH": LPATH,
+    "LPATH_": LPATH_,
     "OS": OS,
     "OSPATH": OSPATH,
     "RE": RE,
@@ -545,7 +544,6 @@ ALL_THE_OS_DATA.update(KDIALOG_DATA)
 ALL_THE_OS_DATA.update(SUBPROCESS_DATA)
 ALL_THE_OS_DATA.update(DEBUG_DATA)
 ALL_THE_OS_DATA.update(CF_V.ALL_THE_VALS)
-
 
 
 
