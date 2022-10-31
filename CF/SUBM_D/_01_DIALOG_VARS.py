@@ -10,11 +10,18 @@ V = None
 locals().update(CF_V.ALL_THE_VALS)
 
 
-YES_NO = lambda __TEXT__: [
-    "kdialog",
-    "--yesno",
-    f"""{__TEXT__}""",
-]
+def runIt(commandsToRun_, *, **KWArgs_={}):
+  if (
+      ("capture_output" not in KWArgs_)
+  ):
+    KWArgs_["capture_output"] = True
+
+  if (
+      ("text" not in KWArgs_)
+  ):
+    KWArgs_["text"] = True
+
+  SP.run(commandsToRun_, **KWArgs_)
 
 
 
