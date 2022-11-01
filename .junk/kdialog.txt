@@ -148,13 +148,15 @@ qdbus org.kde.kdialog-605714 /ProgressDialog org.freedesktop.DBus.Properties.Set
 
 works like a boss‼
 
-kdialog --title="hello" --progressbar "how are you"
+kdialog --title="hello" --progressbar "how are you" 10
 
 »»org.kde.kdialog-605714 /ProgressDialog
+»»org.kde.kdialog-616463 /ProgressDialog
 
 qdbus org.kde.kdialog-605714 /ProgressDialog org.kde.kdialog.ProgressDialog.value 2
-
+qdbus org.kde.kdialog-616463 /ProgressDialog org.kde.kdialog.ProgressDialog.value 2
 qdbus org.kde.kdialog-605714 /ProgressDialog org.kde.kdialog.ProgressDialog.wasCancelled
+qdbus org.kde.kdialog-616463 /ProgressDialog org.kde.kdialog.ProgressDialog.close
 
 Anything wrong returncode will be non zero
 
@@ -162,6 +164,25 @@ Anything wrong returncode will be non zero
 
 
 
+<!DOCTYPE node PUBLIC "-//freedesktop//DTD D-BUS Object Introspection 1.0//EN"
+"http://www.freedesktop.org/standards/dbus/1.0/introspect.dtd">
+<node>
+  <interface name="org.kde.kdialog.ProgressDialog">
+    <property name="maximum" type="i" access="readwrite"/>
+    <property name="value" type="i" access="readwrite"/>
+    <property name="autoClose" type="b" access="readwrite"/>
+    <method name="setLabelText">
+      <arg type="s" name="label" direction="in"/>
+    </method>
+    <method name="showCancelButton">
+      <arg name="value" type="b" direction="in"/>
+    </method>
+    <method name="wasCancelled">
+      <arg type="b" direction="out"/>
+    </method>
+    <method name="close"/>
+  </interface>
+</node>
 
 
 
