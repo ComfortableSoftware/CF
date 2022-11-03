@@ -11,6 +11,7 @@ locals().update(CF_V.ALL_THE_VALS)
 
 
 SM_PROGRESSBAR_AUTOCLOSE = "org.kde.kdialog.ProgressDialog.autoclose"
+SM_PROGRESSBAR_CLOSE = "org.kde.kdialog.ProgressDialog.close"
 SM_PROGRESSBAR_MAXIMUM = "org.kde.kdialog.ProgressDialog.maximum"
 SM_PROGRESSBAR_SHOW_CANCEL_BUTTON = "org.kde.kdialog.ProgressDialog.showCancelButton"
 SM_PROGRESSBAR_VALUE = "org.kde.kdialog.ProgressDialog.value"
@@ -19,15 +20,17 @@ SM_PROGRESSBAR_WASCANCELLED = "org.kde.kdialog.ProgressDialog.wasCancelled"
 
 ALL_THE_KEYS = {
   "K_ARGS": "K_ARGS",
-  "K_RETURN_CODE": "K_RETURN_CODE",
   "K_RESULT": "K_RESULT",
+  "K_RETURN_CODE": "K_RETURN_CODE",
   "K_SERVICE_ARGS": "K_SERVICE_ARGS",
   "K_SERVICE_METHOD": "K_SERVICE_METHOD",
   "K_SERVICE_NAME": "K_SERVICE_NAME",
   "K_SERVICE_PATH": "K_SERVICE_PATH",
+  "K_STATUS": "K_STATUS",
   "K_STDERR": "K_STDERR",
   "K_STDIN": "K_STDIN",
   "K_STDOUT": "K_STDOUT",
+  "K_VALUE": "K_VALUE",
 }
 locals().update(ALL_THE_KEYS)
 
