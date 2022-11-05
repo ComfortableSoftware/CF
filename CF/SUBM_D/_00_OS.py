@@ -12,10 +12,11 @@
 from CF.SUBM_D import _00_OS_VARS as V
 
 
-V = V
+V.V = V
 
 
 locals().update(V.ALL_THE_OS_DATA)
+# locals().update(V.CF_V.ALL_THE_VALS)
 ALL_THE_OS_DATA = V.ALL_THE_OS_DATA
 
 

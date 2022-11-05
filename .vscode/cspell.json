@@ -5,7 +5,13 @@
   // language - current active spelling language
   "language": "en",
   // words - list of words to be always considered correct
-  "words": ["freedesktop", "kdialog"],
+  "words": [
+    "combobox",
+    "detailederror",
+    "detailedsorry",
+    "freedesktop",
+    "kdialog"
+  ],
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.
   // For example "hte" should be "the"
