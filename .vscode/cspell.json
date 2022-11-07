@@ -6,11 +6,37 @@
   "language": "en",
   // words - list of words to be always considered correct
   "words": [
+    "BOOLS",
     "combobox",
+    "dateformat",
     "detailederror",
     "detailedsorry",
+    "dontagain",
     "freedesktop",
-    "kdialog"
+    "getcolor",
+    "getexistingdirectory",
+    "geticon",
+    "getopenfilename",
+    "getopenurl",
+    "getsavefilename",
+    "getsaveurl",
+    "imgbox",
+    "imginputbox",
+    "inputbox",
+    "kdialog",
+    "msgbox",
+    "newpassword",
+    "ok",
+    "passivepopup",
+    "radiolist",
+    "textbox",
+    "textinputbox",
+    "warningcontinuecancel",
+    "warningyesno",
+    "warningyesnocancel",
+    "winid",
+    "yesno",
+    "yesnocancel"
   ],
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.
