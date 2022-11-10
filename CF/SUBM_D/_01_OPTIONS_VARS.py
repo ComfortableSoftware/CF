@@ -32,6 +32,36 @@ L_SPEWAGE = 4
 L_DEBUG = 5
 
 
+ALL_THE_OPTION_KEYS = {
+    "K_ACTION": "action",
+    "K_ADD_HELP": "add_help",
+    "K_ALLOW_ABBREV": "allow_abbrev",
+    "K_ARGS": "args",
+    "K_ARGUMENT_DEFAULT": "argument_default",
+    "K_CHOICES": "choices",
+    "K_CONFLICT_HANDLER": "conflict_handler",
+    "K_CONST": "const",
+    "K_DEFAULT": "default",
+    "K_DESCRIPTION": "description",
+    "K_DEST": "dest",
+    "K_EPILOG": "epilog",
+    "K_EXIT_ON_ERROR": "exit_on_error",
+    "K_FORMATTER_CLASS": "formatter_class",
+    "K_FROMFILE_PREFIX_CHARS": "fromfile_prefix_chars",
+    "K_HELP": "help",
+    "K_KWARGS": "kwargs",
+    "K_METAVAR": "metavar",
+    "K_NARGS": "nargs",
+    "K_OPTION_STRINGS": "option_strings",
+    "K_PARENTS": "parents",
+    "K_PREFIX_CHARS": "prefix_chars",
+    "K_PROG": "prog",
+    "K_REQUIRED": "required",
+    "K_TYPE": "type",
+    "K_USAGE": "usage",
+}
+
+
 BOOL_TRUE_LIST = [
   "1",
   "true",
@@ -137,7 +167,7 @@ def O_CHOICES_MAKER(*,
     for _thisChoice_ in choices_:
       _help_ += f"""{_thisChoice_}, """
     _help_ = _help_[:-2] + f"""{CBRCE}{NEWLINE}"""
-  return {
+  _dictToRtn_ = {
       K_ARGS: args_,
       K_KWARGS: {
           K_CHOICES: choices_,
@@ -149,6 +179,8 @@ def O_CHOICES_MAKER(*,
           K_TYPE: str,
       }
   }
+  # print(f"""{_dictToRtn_}""")
+  return _dictToRtn_
   # fold here ⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1⟰1
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * End of O_CHOICES_MAKER
@@ -517,10 +549,6 @@ def RETURN_BOOL(boolToFix_):
 
 
 
-ALL_THE_OPTION_KEYS = CF_OPTK.ALL_THE_OPTION_KEYS
-
-
-
 ALL_THE_OPTIONS_DATA = {
     "AP_RTF": AP_RTF,
     "E_ADD_ARGS": E_ADD_ARGS,
@@ -546,7 +574,7 @@ ALL_THE_OPTIONS_DATA = {
     "PARSER": PARSER,
     "RETURN_BOOL": RETURN_BOOL,
 }
-ALL_THE_OPTIONS_DATA.update(CF_OPTK.ALL_THE_OPTION_KEYS)
+ALL_THE_OPTIONS_DATA.update(ALL_THE_OPTION_KEYS)
 
 
 

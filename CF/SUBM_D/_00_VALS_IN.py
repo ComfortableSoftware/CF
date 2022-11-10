@@ -360,6 +360,7 @@ ALL_THE_VALS = {
     "OBRKT": OBRKT,
     "OPAREN": OPAREN,
     "QTSET": QTSET,
+    "READ_FILE_TO_STR": readFileToStr,
     "RNDCHRS": RNDCHRS,
     "RS": RS,
     "SERIALNUMBER": SERIALNUMBER,

@@ -157,6 +157,12 @@ qdbus org.kde.kdialog-605714 /ProgressDialog org.kde.kdialog.ProgressDialog.valu
 qdbus org.kde.kdialog-616463 /ProgressDialog org.kde.kdialog.ProgressDialog.value 2
 qdbus org.kde.kdialog-605714 /ProgressDialog org.kde.kdialog.ProgressDialog.wasCancelled
 qdbus org.kde.kdialog-616463 /ProgressDialog org.kde.kdialog.ProgressDialog.close
+qdbus org.kde.kdialog-1150193 /ProgressDialog org.kde.kdialog.ProgressDialog.value 2
+
+(%) qdbus "org.kde.kdialog-1600287" "/ProgressDialog" "org.kde.kdialog.ProgressDialog.value" "1"
+
+
+qdbus org.kde.kdialog-1150799 /ProgressDialog org.kde.kdialog.ProgressDialog.showCancelButton true
 
 Anything wrong returncode will be non zero
 
