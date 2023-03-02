@@ -46,10 +46,10 @@ def closeProgressbar(*,
 ):
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   _commands_ = [
-      "qdbus",
-      f"""{serviceName_}""",
-      f"""{servicePath_}""",
-      f"""{V.SM_PROGRESSBAR_CLOSE}""",
+    "qdbus",
+    f"""{serviceName_}""",
+    f"""{servicePath_}""",
+    f"""{V.SM_PROGRESSBAR_CLOSE}""",
   ]
   _result_ = V.runIt(_commands_)
   return _result_
@@ -64,15 +64,15 @@ def doA2BtnDialog(*,
 ):
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   _commands_ = [
-      "kdialog",
-      "--title",
-      f"""{DBLQT}{title_}{DBLQT}""",
-      "--no-label",
-      f"""{DBLQT}{noLabel_}{DBLQT}""",
-      "--yes-label",
-      f"""{DBLQT}{yesLabel_}{DBLQT}""",
-      "--yesno",
-      f"""{DBLQT}{question_}{DBLQT}"""
+    "kdialog",
+    "--title",
+    f"""{DBLQT}{title_}{DBLQT}""",
+    "--no-label",
+    f"""{DBLQT}{noLabel_}{DBLQT}""",
+    "--yes-label",
+    f"""{DBLQT}{yesLabel_}{DBLQT}""",
+    "--yesno",
+    f"""{DBLQT}{question_}{DBLQT}"""
   ]
   _result_ = V.runIt(_commands_)
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱

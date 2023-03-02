@@ -1,5 +1,6 @@
 
 
+# import magic as MAGIC
 from CF.SUBM_D import _00_VALS_IN as CF_V
 from os import path as OSPATH
 from pathlib import Path as LPATH_
@@ -16,75 +17,121 @@ locals().update(CF_V.ALL_THE_VALS)
 
 ARGV = SYS.argv
 EXIT = SYS.exit
+# MIME = MAGIC.Magic(mime=True)
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * Keys
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
-K_ACCESS_TIME = "K_ACCESS_TIME"
-K_BLOCKS_ALLOCATED = "K_BLOCKS_ALLOCATED"
-K_CHANGED_TIME = "K_CHANGED_TIME"
-K_DEFAULT = "K_DEFAULT"
-K_DIR = "K_DIR"
-K_EXTENSION = "K_EXTENSION"
-K_F_OK = OS.F_OK
-K_FILENAME = "K_FILENAME"
-K_FILETYPE = "K_FILETYPE"
-K_FT_CODE = "K_FT_CODE"
-K_FT_DATA = "K_FT_DATA"
-K_FT_DOCS = "K_FT_DOCS"
-K_FT_PICS = "K_FT_PICS"
-K_FT_SNDS = "K_FT_SNDS"
-K_FT_TEXT = "K_FT_TEXT"
-K_FT_UNKNOWN = "K_FT_UNKNOWN"
-K_FT_VIDS = "K_FT_VIDS"
-K_GID = "K_GID"
-K_I_CAN_EXECUTE = "K_I_CAN_EXECUTE"
-K_I_CAN_READ = "K_I_CAN_READ"
-K_I_CAN_WRITE = "K_I_CAN_WRITE"
-K_IS_A_DIR = "K_IS_A_DIR"
-K_IS_A_FILE = "K_IS_A_FILE"
-K_IS_A_KNOWN_FILE_TYPE = "K_IS_A_KNOWN_FILE_TYPE"
-K_IS_A_SYMLINK = "K_IS_A_SYMLINK"
-K_JUST_FILENAME = "K_JUST_FILENAME"
-K_LAST = "K_LAST"
-K_LIST = "K_LIST"
-K_MODE = "K_MODE"
-K_MODIFY_TIME = "K_MODIFY_TIME"
-K_NEW_FILENAME = "K_NEW_FILENAME"
-K_NUMS = "K_NUMS"
-K_PATH = "K_PATH"
-K_QUIT = "K_QUIT"
-K_R_OK = OS.R_OK
-K_SIZE = "K_SIZE"
-K_UID = "K_UID"
-K_VERSION = "K_VERSION"
-K_W_OK = OS.W_OK
-K_X_OK = OS.X_OK
+ALL_THE_KEYS = {
+  "K_ALLOCATED_SIZE": "K_ALLOCATED_SIZE",
+  "K_BLOCKS_ALLOCATED": "K_BLOCKS_ALLOCATED",
+  "K_COLOR_DEPTH": "K_COLOR_DEPTH",
+  "K_COLORS": "K_COLORS",
+  "K_COLORSPACE": "K_COLORSPACE",
+  "K_DEFAULT": "K_DEFAULT",
+  "K_DIR": "K_DIR",
+  "K_EXTENSION": "K_EXTENSION",
+  "K_F_OK": OS.F_OK,
+  "K_FILENAME": "K_FILENAME",
+  "K_FILETYPE": "K_FILETYPE",
+  "K_FORMAT": "K_FORMAT",
+  "K_FRAME": "K_FRAME",
+  "K_FT_CODE": "K_FT_CODE",
+  "K_FT_DATA": "K_FT_DATA",
+  "K_FT_DOCS": "K_FT_DOCS",
+  "K_FT_PICS": "K_FT_PICS",
+  "K_FT_SNDS": "K_FT_SNDS",
+  "K_FT_TEXT": "K_FT_TEXT",
+  "K_FT_UNKNOWN": "K_FT_UNKNOWN",
+  "K_FT_VIDS": "K_FT_VIDS",
+  "K_GEOMETRY_ORIGIN": "K_GEOMETRY_ORIGIN",
+  "K_GEOMETRY_PAGE": "K_GEOMETRY_PAGE",
+  "K_GID": "K_GID",
+  "K_I_CAN_EXECUTE": "K_I_CAN_EXECUTE",
+  "K_I_CAN_READ": "K_I_CAN_READ",
+  "K_I_CAN_WRITE": "K_I_CAN_WRITE",
+  "K_IS_A_DIR": "K_IS_A_DIR",
+  "K_IS_A_FILE": "K_IS_A_FILE",
+  "K_IS_A_KNOWN_FILE_TYPE": "K_IS_A_KNOWN_FILE_TYPE",
+  "K_IS_A_SYMLINK": "K_IS_A_SYMLINK",
+  "K_JUST_FILENAME": "K_JUST_FILENAME",
+  "K_LAST": "K_LAST",
+  "K_LIST": "K_LIST",
+  "K_MODE": "K_MODE",
+  "K_NEW_DIR": "K_NEW_DIR",
+  "K_NEW_EXTENSION": "K_NEW_EXTENSION",
+  "K_NEW_FILENAME": "K_NEW_FILENAME",
+  "K_NUMS": "K_NUMS",
+  "K_PATH": "K_PATH",
+  "K_QUIT": "K_QUIT",
+  "K_R_OK": OS.R_OK,
+  "K_SIZE": "K_SIZE",
+  "K_TIME_ACCESSED": "K_TIME_ACCESSED",
+  "K_TIME_CHANGED": "K_TIME_CHANGED",
+  "K_TIME_CREATED": "K_TIME_CREATED",
+  "K_TIME_META_MODIFIED": "K_TIME_META_MODIFIED",
+  "K_UID": "K_UID",
+  "K_VERSION": "K_VERSION",
+  "K_W_OK": OS.W_OK,
+  "K_X_OK": OS.X_OK,
+}
+locals().update(ALL_THE_KEYS)
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * File Entry Vars
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 SHORT_ENTRY_TUP = (
-    (K_PATH, ""),
-    (K_DIR, ""),
-    (K_FILENAME, ""),
-    (K_JUST_FILENAME, ""),
-    (K_EXTENSION, ""),
-    (K_NUMS, 0),
+    (K_DIR, ""),  # Just the directory portion of the path.
+    (K_EXTENSION, ""),  # Just the extension
+    (K_FILENAME, ""),  # The filename and extension.
+    (K_JUST_FILENAME, ""),  # Just the filename without the extension.
+    (K_NUMS, 0),  # Numerical prefixes if asked for.
+    (K_PATH, ""),  # The whole path to the file.
 )
 def E_SHORT_ENTRY():
   return dict((x, y) for x, y in SHORT_ENTRY_TUP)
 
 
+DIR_ENTRY_TUP = (
+    (K_ALLOCATED_SIZE, 0),
+    (K_DIR, ""),  # Just the directory portion of the path.
+    (K_EXTENSION, ""),  # Just the extension
+    (K_FILENAME, ""),  # The filename and extension.
+    (K_FILETYPE, K_FT_UNKNOWN),
+    (K_GID, ""),
+    # (K_I_CAN_EXECUTE, False),
+    # (K_I_CAN_READ, False),
+    # (K_I_CAN_WRITE, False),
+    # (K_IS_A_DIR, False),
+    # (K_IS_A_FILE, False),
+    # (K_IS_A_KNOWN_FILE_TYPE, False),
+    # (K_IS_A_SYMLINK, False),
+    (K_JUST_FILENAME, ""),  # Just the filename without the extension.
+    (K_MODE, ""),
+    # (K_NEW_DIR, ""),
+    # (K_NEW_EXTENSION, ""),
+    (K_NEW_FILENAME, ""),
+    # (K_NUMS, 0),  # Numerical prefixes if asked for.
+    (K_PATH, ""),  # The whole path to the file.
+    (K_SIZE, 0),
+    # (K_TIME_ACCESSED, 0),
+    (K_TIME_CHANGED, 0),
+    # (K_TIME_CREATED, 0),
+    # (K_TIME_META_MODIFIED, 0),
+    (K_UID, ""),
+)
+def E_DIR_ENTRY():
+  return dict((x, y) for x, y in DIR_ENTRY_TUP)
+
+
 ENTRY_TUP = (
-    (K_ACCESS_TIME, 0),
+    (K_ALLOCATED_SIZE, 0),
     (K_BLOCKS_ALLOCATED, 0),
-    (K_CHANGED_TIME, 0),
-    (K_DIR, ""),
-    (K_EXTENSION, ""),
-    (K_FILENAME, ""),
+    (K_DIR, ""),  # Just the directory portion of the path.
+    (K_EXTENSION, ""),  # Just the extension
+    (K_FILENAME, ""),  # The filename and extension.
     (K_FILETYPE, K_FT_UNKNOWN),
     (K_GID, 0),
     (K_I_CAN_EXECUTE, False),
@@ -94,17 +141,35 @@ ENTRY_TUP = (
     (K_IS_A_FILE, False),
     (K_IS_A_KNOWN_FILE_TYPE, False),
     (K_IS_A_SYMLINK, False),
-    (K_JUST_FILENAME, False),
+    (K_JUST_FILENAME, ""),  # Just the filename without the extension.
     (K_MODE, -1),
-    (K_MODIFY_TIME, 0),
+    (K_NEW_DIR, ""),
+    (K_NEW_EXTENSION, ""),
     (K_NEW_FILENAME, ""),
-    (K_NUMS, 0),
-    (K_PATH, ""),
+    (K_NUMS, 0),  # Numerical prefixes if asked for.
+    (K_PATH, ""),  # The whole path to the file.
     (K_SIZE, 0),
+    (K_TIME_ACCESSED, 0),
+    (K_TIME_CHANGED, 0),
+    (K_TIME_CREATED, 0),
+    (K_TIME_META_MODIFIED, 0),
     (K_UID, 0),
 )
 def E_ENTRY():
   return dict((x, y) for x, y in ENTRY_TUP)
+
+
+MEDIA_TUP = (
+  (K_COLOR_DEPTH, ""),
+  (K_COLORS, 0),
+  (K_COLORSPACE, ""),
+  (K_FORMAT, ""),
+  (K_FRAME, 0),
+  (K_GEOMETRY_ORIGIN, ""),
+  (K_GEOMETRY_PAGE, (0, 0)),
+)
+def E_MEDIA():
+  return dict((x, y) for x, y in MEDIA_TUP)
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -160,64 +225,75 @@ def sortDedupeList(listIn_):
 # * File Type Lists
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 FTL_CODE = [
-    ".c",
-    ".coffee",
-    ".php",
-    ".pl",
-    ".py",
-    ".sh",
-    ".zsh",
+  ".c",
+  ".coffee",
+  ".js",
+  ".php",
+  ".pl",
+  ".py",
+  ".sh",
+  ".ts",
+  ".zsh",
 ]
 
 FTL_DATA = [
-    ".cson",
-    ".csv",
-    ".db",
-    ".json",
-    ".kml",
-    ".kmz",
-    ".sqlite",
+  ".cson",
+  ".csv",
+  ".db",
+  ".json",
+  ".kml",
+  ".kmz",
+  ".sqlite",
 ]
+
 FTL_TEXT_DATA = [
-    ".cson",
-    ".csv",
-    ".json",
-    ".kml",
+  ".cson",
+  ".csv",
+  ".json",
+  ".kml",
 ]
 
 FTL_DOCS = [
-    ".md",
-    ".pdf",
-    ".txt",
-    ".pkl",
-    ".odt",
+  ".md",
+  ".pdf",
+  ".txt",
+  ".pkl",
+  ".odt",
 ]
+
 FTL_TEXT_DOCS = [
-    ".md",
-    ".txt",
+  ".md",
+  ".txt",
 ]
 
 FTL_PICS = [
-    ".bmp",
-    ".gif",
-    ".jp2",
-    ".jpe",
-    ".jpeg",
-    ".jpg",
-    ".png",
-    ".riff",
-    ".webp",
+  ".apng",
+  ".bmp",
+  ".gif",
+  ".jp2",
+  ".jpe",
+  ".jpeg",
+  ".jpg",
+  ".png",
+  ".riff",
+  ".webp",
 ]
 
+FTL_ANIMATED_PICS = [
+  ".apng",
+  ".gif",
+]
+
+
 FTL_SNDS = [
-    ".au",
-    ".mp3",
-    ".wav",
+  ".au",
+  ".mp3",
+  ".wav",
 ]
 
 FTL_TEXT = [
-    ".lst",
-    ".txt",
+  ".lst",
+  ".txt",
 ]
 FTL_TEXT.extend(FTL_CODE)
 FTL_TEXT.extend(FTL_TEXT_DOCS)
@@ -225,30 +301,30 @@ FTL_TEXT.extend(FTL_TEXT_DATA)
 FTL_TEXT = sortDedupeList(FTL_TEXT)
 
 FTL_VIDS = [
-    ".asx",
-    ".avi",
-    ".divx",
-    ".flv",
-    ".gifv",
-    ".hdv1",
-    ".hdv2",
-    ".hdv3",
-    ".m2ts",
-    ".m4a",
-    ".m4v",
-    ".mkv",
-    ".mov",
-    ".mp1v",
-    ".mp4",
-    ".mpeg",
-    ".mpg",
-    ".mpg1",
-    ".ogv",
-    ".qt",
-    ".vcr2",
-    ".video",
-    ".webm",
-    ".wmv",
+  ".asx",
+  ".avi",
+  ".divx",
+  ".flv",
+  ".gifv",
+  ".hdv1",
+  ".hdv2",
+  ".hdv3",
+  ".m2ts",
+  ".m4a",
+  ".m4v",
+  ".mkv",
+  ".mov",
+  ".mp1v",
+  ".mp4",
+  ".mpeg",
+  ".mpg",
+  ".mpg1",
+  ".ogv",
+  ".qt",
+  ".vcr2",
+  ".video",
+  ".webm",
+  ".wmv",
 ]
 
 # LEAVE AT BOTTOM OF FILE TYPES
@@ -305,6 +381,10 @@ U_W = lambda __MODE__: __MODE__ and 0o200
 U_X = lambda __MODE__: __MODE__ and 0o100
 
 
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * DEPRECATED USE _01_DIALOG instead
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱ 0⟱
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * Start of KD_ERROR_DIALOG
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -394,6 +474,10 @@ def KD_TWO_BTN_DIALOG(*,
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * End of KD_TWO_BTN_DIALOG
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0 ⟰0
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+# * DEPRECATED USE _01_DIALOG instead
+# * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
@@ -421,50 +505,49 @@ def SP_FIND_FILES(*,
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 
 
-
-
-ALL_THE_KEYS = {
-    "K_ACCESS_TIME": K_ACCESS_TIME,
-    "K_BLOCKS_ALLOCATED": K_BLOCKS_ALLOCATED,
-    "K_CHANGED_TIME": K_CHANGED_TIME,
-    "K_DEFAULT": K_DEFAULT,
-    "K_DIR": K_DIR,
-    "K_EXTENSION": K_EXTENSION,
-    "K_F_OK": K_F_OK,
-    "K_FILENAME": K_FILENAME,
-    "K_FILETYPE": K_FILETYPE,
-    "K_FT_CODE": K_FT_CODE,
-    "K_FT_DATA": K_FT_DATA,
-    "K_FT_DOCS": K_FT_DOCS,
-    "K_FT_PICS": K_FT_PICS,
-    "K_FT_SNDS": K_FT_SNDS,
-    "K_FT_TEXT": K_FT_TEXT,
-    "K_FT_UNKNOWN": K_FT_UNKNOWN,
-    "K_FT_VIDS": K_FT_VIDS,
-    "K_GID": K_GID,
-    "K_I_CAN_EXECUTE": K_I_CAN_EXECUTE,
-    "K_I_CAN_READ": K_I_CAN_READ,
-    "K_I_CAN_WRITE": K_I_CAN_WRITE,
-    "K_IS_A_DIR": K_IS_A_DIR,
-    "K_IS_A_FILE": K_IS_A_FILE,
-    "K_IS_A_KNOWN_FILE_TYPE": K_IS_A_KNOWN_FILE_TYPE,
-    "K_IS_A_SYMLINK": K_IS_A_SYMLINK,
-    "K_JUST_FILENAME": K_JUST_FILENAME,
-    "K_LAST": K_LAST,
-    "K_LIST": K_LIST,
-    "K_MODE": K_MODE,
-    "K_MODIFY_TIME": K_MODIFY_TIME,
-    "K_NEW_FILENAME": K_NEW_FILENAME,
-    "K_NUMS": K_NUMS,
-    "K_PATH": K_PATH,
-    "K_QUIT": K_QUIT,
-    "K_R_OK": K_R_OK,
-    "K_SIZE": K_SIZE,
-    "K_UID": K_UID,
-    "K_VERSION": K_VERSION,
-    "K_W_OK": K_W_OK,
-    "K_X_OK": K_X_OK,
-}
+#ALL_THE_KEYS = {
+#    "K_TIME_ACCESSED": K_TIME_ACCESSED,
+#    "K_ALLOCATED_SIZE": K_ALLOCATED_SIZE
+#    "K_BLOCKS_ALLOCATED": K_BLOCKS_ALLOCATED,
+#    "K_TIME_META_MODIFIED": K_TIME_META_MODIFIED,
+#    "K_DEFAULT": K_DEFAULT,
+#    "K_DIR": K_DIR,
+#    "K_EXTENSION": K_EXTENSION,
+#    "K_F_OK": K_F_OK,
+#    "K_FILENAME": K_FILENAME,
+#    "K_FILETYPE": K_FILETYPE,
+#    "K_FT_CODE": K_FT_CODE,
+#    "K_FT_DATA": K_FT_DATA,
+#    "K_FT_DOCS": K_FT_DOCS,
+#    "K_FT_PICS": K_FT_PICS,
+#    "K_FT_SNDS": K_FT_SNDS,
+#    "K_FT_TEXT": K_FT_TEXT,
+#    "K_FT_UNKNOWN": K_FT_UNKNOWN,
+#    "K_FT_VIDS": K_FT_VIDS,
+#    "K_GID": K_GID,
+#    "K_I_CAN_EXECUTE": K_I_CAN_EXECUTE,
+#    "K_I_CAN_READ": K_I_CAN_READ,
+#    "K_I_CAN_WRITE": K_I_CAN_WRITE,
+#    "K_IS_A_DIR": K_IS_A_DIR,
+#    "K_IS_A_FILE": K_IS_A_FILE,
+#    "K_IS_A_KNOWN_FILE_TYPE": K_IS_A_KNOWN_FILE_TYPE,
+#    "K_IS_A_SYMLINK": K_IS_A_SYMLINK,
+#    "K_JUST_FILENAME": K_JUST_FILENAME,
+#    "K_LAST": K_LAST,
+#    "K_LIST": K_LIST,
+#    "K_MODE": K_MODE,
+#    "K_TIME_META_MODIFIED": K_TIME_META_MODIFIED,
+#    "K_NEW_FILENAME": K_NEW_FILENAME,
+#    "K_NUMS": K_NUMS,
+#    "K_PATH": K_PATH,
+#    "K_QUIT": K_QUIT,
+#    "K_R_OK": K_R_OK,
+#    "K_SIZE": K_SIZE,
+#    "K_UID": K_UID,
+#    "K_VERSION": K_VERSION,
+#    "K_W_OK": K_W_OK,
+#    "K_X_OK": K_X_OK,
+#}
 
 
 FILESYSTEM_DATA = {
@@ -533,6 +616,7 @@ ALL_THE_OS_DATA = {
     "GLOB_": GLOB_,
     "INS": INS,
     "LPATH_": LPATH_,
+#    "MIME": MIME,
     "OS": OS,
     "OSPATH": OSPATH,
     "RE": RE,
