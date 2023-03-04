@@ -20,8 +20,8 @@ SM_PROGRESSBAR_VALUE = "org.kde.kdialog.ProgressDialog.value"
 SM_PROGRESSBAR_WASCANCELLED = "org.kde.kdialog.ProgressDialog.wasCancelled"
 
 
-ALL_THE_KEYS = {
-  "K_ARGS": "args",
+ALL_THE_DLG_KEYS = {
+  "K_DLG_ARGS": "args",
   "K_RESULT": "K_RESULT",
   "K_RETURN_CODE": "K_RETURN_CODE",
   "K_SERVICE_ARGS": "K_SERVICE_ARGS",
@@ -34,7 +34,7 @@ ALL_THE_KEYS = {
   "K_STDOUT": "K_STDOUT",
   "K_VALUE": "K_VALUE",
 }
-locals().update(ALL_THE_KEYS)
+locals().update(ALL_THE_DLG_KEYS)
 
 
 def parseProgressbarResult(
@@ -54,7 +54,7 @@ def parseProgressbarResult(
     _splitStdout_ = ["", ""]
   # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
   return {
-      K_ARGS: resultToParse_.args,
+      K_DLG_ARGS: resultToParse_.args,
       # K_RESULT: resultToParse_,
       K_RETURN_CODE: resultToParse_.returncode,
       K_SERVICE_NAME: _splitStdout_[0],
@@ -68,7 +68,7 @@ def parseProgressbarResult(
 
 def runError(errorText_, errorResult_):
   _text_ = f"""An error occurred while {errorText_}"""
-  _detail_ = f"""Args: `{errorResult_[K_ARGS]}`
+  _detail_ = f"""Args: `{errorResult_[K_DLG_ARGS]}`
 Return code: {errorResult_[K_RETURN_CODE]}
 Stderr: `{errorResult_[K_STDERR]}`
 Stdin: `errorResult_[K_STDIN]`

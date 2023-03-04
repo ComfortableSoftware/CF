@@ -25,3 +25,6 @@ _stackEntry_: -1
 _stackEntry_: -2
   Length: 6
   Contents: FrameInfo(frame=<frame at 0x563a1a274e60, file '/usr/lib/python3.10/runpy.py', line 86, code _run_code>, filename='/usr/lib/python3.10/runpy.py', lineno=86, function='_run_code', code_context=['    exec(code, run_globals)\n'], index=0)
+
+
+identify -format "%m|%g|%[colorspace]|%[bit-depth]|%[type]|\n" 010f923f62df490087705c51f31b18aae301183225183da71e289d64dffa4eabe84e9135420714f877215a0502762bc3d18ab07b9a99a067eb9553214995927d.gif

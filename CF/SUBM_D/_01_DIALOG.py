@@ -5,8 +5,8 @@ from CF.SUBM_D import _01_DIALOG_VARS as V
 
 V.V = V
 locals().update(V.CF_V.ALL_THE_VALS)
-locals().update(V.ALL_THE_KEYS)
-ALL_THE_KEYS = V.ALL_THE_KEYS
+locals().update(V.ALL_THE_DLG_KEYS)
+ALL_THE_DLG_KEYS = V.ALL_THE_DLG_KEYS
 runIt = V.runIt
 
 
@@ -627,7 +627,7 @@ def inputAPassword (*,
   pass
 
 
-def startAProgressBar(*,
+def startAProgressbar(*,
     autoClose_=True,  # Auto closes when 100% is reached.
     numOfSteps_=100,
     showCancelButton_=True,
