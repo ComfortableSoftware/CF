@@ -8,6 +8,7 @@ import glob as GLOB_
 import inspect as INS
 import os as OS
 import re as RE
+#import stat as STAT
 import subprocess as SP
 import sys as SYS
 
@@ -642,12 +643,13 @@ ALL_THE_OS_DATA = {
     "GLOB_": GLOB_,
     "INS": INS,
     "LPATH_": LPATH_,
-#    "MIME": MIME,
     "OS": OS,
     "OSPATH": OSPATH,
     "RE": RE,
     "SP": SP,
+#    "STAT": STAT,
     "SYS": SYS,
+#    "MIME": MIME,
 }
 ALL_THE_OS_DATA.update(ALL_THE_KEYS)
 ALL_THE_OS_DATA.update(FILESYSTEM_DATA)
