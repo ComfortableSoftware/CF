@@ -1,5 +1,7 @@
 
 
+import re
+
 """
 A collection of little useful string manipulations that are easily forgotten, including a number of file name and path manipulations.
 """
@@ -67,3 +69,11 @@ def reverseString(strToReverse_):
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * end of reverseString
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
+
+
+def multiSplit(*,
+    chrsToSplitOn_,
+    strToSplit_,
+):
+  _strToRtn_ = re.split(f"""[{chrsToSplitOn_}]""", strToSplit_)
+  return _strToRtn_

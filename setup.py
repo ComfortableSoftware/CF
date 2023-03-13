@@ -17,13 +17,13 @@ setup(
   author="GaelicGrime",
   author_email="will.angus.blaylock@gmail.com",
   license="GPLv3",
-  name="CF",
+  name="CS-CF",
   url="https://github.com/ComfortableSoftware/commonFunctions_py",
-  version="0.9.1",
+  version="0.10.0",
   package_dir={"CF": "CF"},
   package_data={
       "CF": [
-          "../book/*",
+          "../doc/*",
           "CLASSES_D/*",
           "CONST_D/*",
           "DEFS_D/*",
@@ -39,7 +39,7 @@ setup(
       "hashing": ["hashlib"],
       "pickling": ["pickle"],
       "databases": ["mysql"],
-      "timestuff": [
+      "time-date-stuff": [
           "datedelta",
           "datetime",
           "dateutil",

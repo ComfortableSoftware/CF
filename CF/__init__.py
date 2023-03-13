@@ -9,9 +9,11 @@ __all__ = []
 
 def __main__():
 
-  __modulesList__ = CF_OS.globFilePiecesNumsList(CF_OS.DIR_NAME(__file__) + "/*")
+  __modulesList__ = CF_OS.globFilePiecesNumsList(
+      source_=CF_OS.DIR_NAME(__file__) + "/*",
+  )
   for __thisEntry__ in __modulesList__:
-    __thisFile__ = __thisEntry__[2]
+    __thisFile__ = __thisEntry__["K_FILENAME"]
     if (
         (__thisFile__ != "__init__.py")
     ):
