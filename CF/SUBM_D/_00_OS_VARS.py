@@ -1,16 +1,20 @@
 
 
 # import magic as MAGIC
-from CF.SUBM_D import _00_VALS_IN as CF_V
+#import stat as STAT
 from os import path as OSPATH
 from pathlib import Path as LPATH_
 import glob as GLOB_
 import inspect as INS
 import os as OS
 import re as RE
-#import stat as STAT
 import subprocess as SP
 import sys as SYS
+
+
+from CF.SUBM_D import (
+  _00_VALS_IN as CF_V,
+  )
 
 
 V = None
@@ -65,6 +69,7 @@ ALL_THE_KEYS = {
   "K_NEW_DIR": "K_NEW_DIR",
   "K_NEW_EXTENSION": "K_NEW_EXTENSION",
   "K_NEW_FILENAME": "K_NEW_FILENAME",
+  "K_NEW_PATH": "K_NEW_PATH",
   "K_NUMS": "K_NUMS",
   "K_PATH": "K_PATH",
   "K_QUIT": "K_QUIT",
@@ -149,6 +154,7 @@ ENTRY_TUP = (
     (K_NEW_DIR, ""),
     (K_NEW_EXTENSION, ""),
     (K_NEW_FILENAME, ""),
+    (K_NEW_PATH, ""),
     (K_NUMS, 0),  # Numerical prefixes if asked for.
     (K_PATH, ""),  # The whole path to the file.
     (K_SIZE, 0),
@@ -215,7 +221,7 @@ ILLEGALWILDCARDS = [  # list all of the portions of a filename which will result
   "/usr/",  # illegal wildcards, these are most often /path/ and will be [0:] based
   "/var/",  # illegal wildcards, these are most often /path/ and will be [0:] based
 ]
-
+ILLEGAL_WILDCARDS = ILLEGALWILDCARDS
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * Start of sortDedupeList
@@ -610,6 +616,7 @@ FILESYSTEM_DATA = {
     "IL_PYTHON": IL_PYTHON,
     "ILLEGALPATHS": ILLEGALPATHS,
     "ILLEGALWILDCARDS": ILLEGALWILDCARDS,
+    "ILLEGAL_WILDCARDS": ILLEGAL_WILDCARDS,
     "U_R": U_R,
     "U_RW": U_RW,
     "U_RWX": U_RWX,

@@ -3,6 +3,7 @@
 import random as RND
 
 
+BKSPACE = "\b"
 BKQT = "`"
 BKSLSH = "\\"
 CBRCE = "}"
@@ -78,6 +79,19 @@ WHIRL_STR_LEN = len(WHIRLSTR)
 def NTAB(numTabs_=1, *,
     tabWidth_=2,
     hardTabs_=False,
+):
+  # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
+  if (
+      (hardTabs_ is True)
+  ):
+    _strToRtn_ = f"""{TABSTR * numTabs_}"""
+  else:
+    _strToRtn_ = f"""{SPCSTR * tabWidth_ * numTabs_}"""
+  return _strToRtn_
+  # ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1 ⟰1
+
+
+def NBKSPC(numBacks_=2, *,
 ):
   # 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱ 1⟱
   if (
@@ -234,6 +248,7 @@ ALL_THE_VALS = {
   "BIN64": BIN64,
   "BKQT": BKQT,
   "BKSLSH": BKSLSH,
+  "BKSPACE": BKSPACE,
   "CBRCE": CBRCE,
   "CBRKT": CBRKT,
   "CLRALL": CLRALL,
@@ -267,6 +282,7 @@ ALL_THE_VALS = {
   "LINESUP": LINESUP,
   "MOVELEFT": MOVELEFT,
   "MOVETO": MOVETO,
+  "NBKSPC": NBKSPC,
   "NCR": NCR,
   "NEWLINE": NEWLINE,
   "NINDENT_IN": NINDENT_IN,
@@ -295,5 +311,3 @@ ALL_THE_VALS = {
   "WHIRLCOUNT": WHIRLCOUNT,
   "WHIRLSTR": WHIRLSTR,
 }
-
-
