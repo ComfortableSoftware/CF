@@ -19,7 +19,7 @@ setup(
   license="GPLv3",
   name="CS-CF",
   url="https://github.com/ComfortableSoftware/commonFunctions_py",
-  version="0.10.0",
+  version="0.10.0-1",
   package_dir={"CF": "CF"},
   package_data={
       "CF": [
@@ -32,7 +32,7 @@ setup(
           "SUBM_D/*",
       ]
   },
-  packages=["CF"],
+  packages=find_packages(),
   install_requires=[
   ],
   extras_require={
