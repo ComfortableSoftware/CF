@@ -3,7 +3,7 @@
 # import magic as MAGIC
 #import stat as STAT
 from os import path as OSPATH
-from pathlib import Path as LPATH_
+import pathlib as PL
 import glob as GLOB_
 import inspect as INS
 import os as OS
@@ -68,7 +68,7 @@ ALL_THE_KEYS = {
   "K_MODE": "K_MODE",
   "K_NEW_DIR": "K_NEW_DIR",
   "K_NEW_EXTENSION": "K_NEW_EXTENSION",
-  "K_NEW_FILENAME": "K_NEW_FILENAME",
+  "K_NEW_JUST_FILENAME": "K_NEW_JUST_FILENAME",
   "K_NEW_PATH": "K_NEW_PATH",
   "K_NUMS": "K_NUMS",
   "K_PATH": "K_PATH",
@@ -102,35 +102,35 @@ def E_SHORT_ENTRY():
   return dict((x, y) for x, y in SHORT_ENTRY_TUP)
 
 
-DIR_ENTRY_TUP = (
+PL_ENTRY_TUP = (
     (K_ALLOCATED_SIZE, 0),
     (K_DIR, ""),  # Just the directory portion of the path.
     (K_EXTENSION, ""),  # Just the extension
     (K_FILENAME, ""),  # The filename and extension.
     (K_FILETYPE, K_FT_UNKNOWN),
     (K_GID, ""),
-    # (K_I_CAN_EXECUTE, False),
-    # (K_I_CAN_READ, False),
-    # (K_I_CAN_WRITE, False),
-    # (K_IS_A_DIR, False),
-    # (K_IS_A_FILE, False),
-    # (K_IS_A_KNOWN_FILE_TYPE, False),
-    # (K_IS_A_SYMLINK, False),
+    (K_I_CAN_EXECUTE, False),
+    (K_I_CAN_READ, False),
+    (K_I_CAN_WRITE, False),
+    (K_IS_A_DIR, True),
+    (K_IS_A_FILE, False),
+    (K_IS_A_KNOWN_FILE_TYPE, False),
+    (K_IS_A_SYMLINK, False),
     (K_JUST_FILENAME, ""),  # Just the filename without the extension.
     (K_MODE, ""),
-    # (K_NEW_DIR, ""),
-    # (K_NEW_EXTENSION, ""),
-    (K_NEW_FILENAME, ""),
-    # (K_NUMS, 0),  # Numerical prefixes if asked for.
+    (K_NEW_DIR, ""),
+    (K_NEW_EXTENSION, ""),
+    (K_NEW_JUST_FILENAME, ""),
+    (K_NUMS, 0),  # Numerical prefixes if asked for.
     (K_PATH, ""),  # The whole path to the file.
     (K_SIZE, 0),
-    # (K_TIME_ACCESSED, 0),
+    (K_TIME_ACCESSED, 0),
     (K_TIME_CHANGED, 0),
-    # (K_TIME_CREATED, 0),
-    # (K_TIME_META_MODIFIED, 0),
+    (K_TIME_CREATED, 0),
+    (K_TIME_META_MODIFIED, 0),
     (K_UID, ""),
 )
-def E_DIR_ENTRY():
+def E_PL_ENTRY():
   return dict((x, y) for x, y in DIR_ENTRY_TUP)
 
 
@@ -153,7 +153,7 @@ ENTRY_TUP = (
     (K_MODE, -1),
     (K_NEW_DIR, ""),
     (K_NEW_EXTENSION, ""),
-    (K_NEW_FILENAME, ""),
+    (K_NEW_JUST_FILENAME, ""),
     (K_NEW_PATH, ""),
     (K_NUMS, 0),  # Numerical prefixes if asked for.
     (K_PATH, ""),  # The whole path to the file.
@@ -196,11 +196,11 @@ FILE_BLACK_LIST = "[a-zA-Z0-9.]"
 FILE_WHITE_LIST = "[^a-zA-Z0-9\-_\.]"
 """
 
-ILLEGALPATHS = [  # list of absolute paths to be completely ignored if used
+ILLEGAL_PATHS = ILLEGALPATHS = [  # list of absolute paths to be completely ignored if used
   "/",  # do not operate on / ever
 ]
 
-ILLEGALWILDCARDS = [  # list all of the portions of a filename which will result in an error [0:] based
+ILLEGAL_WILDCARDS = ILLEGALWILDCARDS = [  # list all of the portions of a filename which will result in an error [0:] based
   "/bin/",  # illegal wildcards, these are most often /path/ and will be [0:] based
   "/boot/",  # illegal wildcards, these are most often /path/ and will be [0:] based
   "/dev/",  # illegal wildcards, these are most often /path/ and will be [0:] based
@@ -221,7 +221,7 @@ ILLEGALWILDCARDS = [  # list all of the portions of a filename which will result
   "/usr/",  # illegal wildcards, these are most often /path/ and will be [0:] based
   "/var/",  # illegal wildcards, these are most often /path/ and will be [0:] based
 ]
-ILLEGAL_WILDCARDS = ILLEGALWILDCARDS
+
 
 # * #*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*
 # * Start of sortDedupeList
@@ -569,7 +569,7 @@ def SP_FIND_FILES(*,
 #    "K_LIST": K_LIST,
 #    "K_MODE": K_MODE,
 #    "K_TIME_META_MODIFIED": K_TIME_META_MODIFIED,
-#    "K_NEW_FILENAME": K_NEW_FILENAME,
+#    "K_NEW_JUST_FILENAME": K_NEW_JUST_FILENAME,
 #    "K_NUMS": K_NUMS,
 #    "K_PATH": K_PATH,
 #    "K_QUIT": K_QUIT,
@@ -649,7 +649,7 @@ ALL_THE_OS_DATA = {
     "EXIT": EXIT,
     "GLOB_": GLOB_,
     "INS": INS,
-    "LPATH_": LPATH_,
+    "PL": PL,
     "OS": OS,
     "OSPATH": OSPATH,
     "RE": RE,
