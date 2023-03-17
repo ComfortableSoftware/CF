@@ -3,7 +3,7 @@
 # import magic as MAGIC
 #import stat as STAT
 from os import path as OSPATH
-import pathlib as PL
+from pathlib import Path as LPATH_
 import glob as GLOB_
 import inspect as INS
 import os as OS
@@ -17,6 +17,7 @@ from CF.SUBM_D import (
   )
 
 
+PLP = LPATH_
 V = None
 locals().update(CF_V.ALL_THE_VALS)
 
@@ -102,35 +103,35 @@ def E_SHORT_ENTRY():
   return dict((x, y) for x, y in SHORT_ENTRY_TUP)
 
 
-PL_ENTRY_TUP = (
+DIR_ENTRY_TUP = (
     (K_ALLOCATED_SIZE, 0),
     (K_DIR, ""),  # Just the directory portion of the path.
     (K_EXTENSION, ""),  # Just the extension
     (K_FILENAME, ""),  # The filename and extension.
     (K_FILETYPE, K_FT_UNKNOWN),
     (K_GID, ""),
-    (K_I_CAN_EXECUTE, False),
-    (K_I_CAN_READ, False),
-    (K_I_CAN_WRITE, False),
-    (K_IS_A_DIR, True),
-    (K_IS_A_FILE, False),
-    (K_IS_A_KNOWN_FILE_TYPE, False),
-    (K_IS_A_SYMLINK, False),
+    # (K_I_CAN_EXECUTE, False),
+    # (K_I_CAN_READ, False),
+    # (K_I_CAN_WRITE, False),
+    # (K_IS_A_DIR, False),
+    # (K_IS_A_FILE, False),
+    # (K_IS_A_KNOWN_FILE_TYPE, False),
+    # (K_IS_A_SYMLINK, False),
     (K_JUST_FILENAME, ""),  # Just the filename without the extension.
     (K_MODE, ""),
-    (K_NEW_DIR, ""),
-    (K_NEW_EXTENSION, ""),
+    # (K_NEW_DIR, ""),
+    # (K_NEW_EXTENSION, ""),
     (K_NEW_JUST_FILENAME, ""),
-    (K_NUMS, 0),  # Numerical prefixes if asked for.
+    # (K_NUMS, 0),  # Numerical prefixes if asked for.
     (K_PATH, ""),  # The whole path to the file.
     (K_SIZE, 0),
-    (K_TIME_ACCESSED, 0),
+    # (K_TIME_ACCESSED, 0),
     (K_TIME_CHANGED, 0),
-    (K_TIME_CREATED, 0),
-    (K_TIME_META_MODIFIED, 0),
+    # (K_TIME_CREATED, 0),
+    # (K_TIME_META_MODIFIED, 0),
     (K_UID, ""),
 )
-def E_PL_ENTRY():
+def E_DIR_ENTRY():
   return dict((x, y) for x, y in DIR_ENTRY_TUP)
 
 
@@ -649,9 +650,10 @@ ALL_THE_OS_DATA = {
     "EXIT": EXIT,
     "GLOB_": GLOB_,
     "INS": INS,
-    "PL": PL,
+    "LPATH_": LPATH_,
     "OS": OS,
     "OSPATH": OSPATH,
+    "PLP": PLP,
     "RE": RE,
     "SP": SP,
 #    "STAT": STAT,

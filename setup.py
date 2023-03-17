@@ -19,7 +19,7 @@ setup(
   license="GPLv3",
   name="CS-CF",
   url="https://github.com/ComfortableSoftware/commonFunctions_py",
-  version="0.10.0-1",
+  version="0.11.0a1",
   package_dir={"CF": "CF"},
   package_data={
       "CF": [
